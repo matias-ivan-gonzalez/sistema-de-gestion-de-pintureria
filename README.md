@@ -1,1 +1,1 @@
-# Sistema-de-gesti-n-de-pinturer-a
+# sistema-de-gestion-de-pintureria
