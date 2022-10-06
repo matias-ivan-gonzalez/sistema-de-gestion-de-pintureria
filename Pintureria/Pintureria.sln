@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pintureria.Aplicacion", "Pintureria.Aplicacion\Pintureria.Aplicacion.csproj", "{14683B8A-3DA5-419E-88C0-87086E499AB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pintureria.Repositorios", "Pintureria.Repositorios\Pintureria.Repositorios.csproj", "{332F5BCB-E077-4635-8971-FE90D797393D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +14,15 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14683B8A-3DA5-419E-88C0-87086E499AB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14683B8A-3DA5-419E-88C0-87086E499AB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14683B8A-3DA5-419E-88C0-87086E499AB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14683B8A-3DA5-419E-88C0-87086E499AB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{332F5BCB-E077-4635-8971-FE90D797393D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{332F5BCB-E077-4635-8971-FE90D797393D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{332F5BCB-E077-4635-8971-FE90D797393D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{332F5BCB-E077-4635-8971-FE90D797393D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
