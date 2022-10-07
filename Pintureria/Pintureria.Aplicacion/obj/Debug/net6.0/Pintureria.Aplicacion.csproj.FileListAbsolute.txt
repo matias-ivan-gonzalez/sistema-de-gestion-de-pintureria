@@ -1,0 +1,12 @@
+D:\Facultad\.Net\puntoNet\proyectosDotnet\dotNet\Proyecto_Pintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Aplicacion\bin\Debug\net6.0\Pintureria.Aplicacion.deps.json
+D:\Facultad\.Net\puntoNet\proyectosDotnet\dotNet\Proyecto_Pintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Aplicacion\bin\Debug\net6.0\Pintureria.Aplicacion.dll
+D:\Facultad\.Net\puntoNet\proyectosDotnet\dotNet\Proyecto_Pintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Aplicacion\bin\Debug\net6.0\Pintureria.Aplicacion.pdb
+D:\Facultad\.Net\puntoNet\proyectosDotnet\dotNet\Proyecto_Pintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Aplicacion\obj\Debug\net6.0\Pintureria.Aplicacion.csproj.AssemblyReference.cache
+D:\Facultad\.Net\puntoNet\proyectosDotnet\dotNet\Proyecto_Pintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Aplicacion\obj\Debug\net6.0\Pintureria.Aplicacion.GeneratedMSBuildEditorConfig.editorconfig
+D:\Facultad\.Net\puntoNet\proyectosDotnet\dotNet\Proyecto_Pintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Aplicacion\obj\Debug\net6.0\Pintureria.Aplicacion.AssemblyInfoInputs.cache
+D:\Facultad\.Net\puntoNet\proyectosDotnet\dotNet\Proyecto_Pintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Aplicacion\obj\Debug\net6.0\Pintureria.Aplicacion.AssemblyInfo.cs
+D:\Facultad\.Net\puntoNet\proyectosDotnet\dotNet\Proyecto_Pintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Aplicacion\obj\Debug\net6.0\Pintureria.Aplicacion.csproj.CoreCompileInputs.cache
+D:\Facultad\.Net\puntoNet\proyectosDotnet\dotNet\Proyecto_Pintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Aplicacion\obj\Debug\net6.0\Pintureria.Aplicacion.dll
+D:\Facultad\.Net\puntoNet\proyectosDotnet\dotNet\Proyecto_Pintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Aplicacion\obj\Debug\net6.0\refint\Pintureria.Aplicacion.dll
+D:\Facultad\.Net\puntoNet\proyectosDotnet\dotNet\Proyecto_Pintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Aplicacion\obj\Debug\net6.0\Pintureria.Aplicacion.pdb
+D:\Facultad\.Net\puntoNet\proyectosDotnet\dotNet\Proyecto_Pintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Aplicacion\obj\Debug\net6.0\ref\Pintureria.Aplicacion.dll
