@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Matias\\.nuget\\packages\\": {}
+    "C:\\Users\\lejew\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\sistemaDeGestionPintureria\\sistema-de-gestion-de-pintureria\\Pintureria\\Pintureria.Aplicacion\\Pintureria.Aplicacion.csproj",
+      "projectUniqueName": "D:\\Facultad\\.Net\\puntoNet\\proyectosDotnet\\sistema-de-gestion-de-pintureria\\Pintureria\\Pintureria.Aplicacion\\Pintureria.Aplicacion.csproj",
       "projectName": "Pintureria.Aplicacion",
-      "projectPath": "G:\\sistemaDeGestionPintureria\\sistema-de-gestion-de-pintureria\\Pintureria\\Pintureria.Aplicacion\\Pintureria.Aplicacion.csproj",
-      "packagesPath": "C:\\Users\\Matias\\.nuget\\packages\\",
-      "outputPath": "G:\\sistemaDeGestionPintureria\\sistema-de-gestion-de-pintureria\\Pintureria\\Pintureria.Aplicacion\\obj\\",
+      "projectPath": "D:\\Facultad\\.Net\\puntoNet\\proyectosDotnet\\sistema-de-gestion-de-pintureria\\Pintureria\\Pintureria.Aplicacion\\Pintureria.Aplicacion.csproj",
+      "packagesPath": "C:\\Users\\lejew\\.nuget\\packages\\",
+      "outputPath": "D:\\Facultad\\.Net\\puntoNet\\proyectosDotnet\\sistema-de-gestion-de-pintureria\\Pintureria\\Pintureria.Aplicacion\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Matias\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\lejew\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
