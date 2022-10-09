@@ -1,0 +1,15 @@
+namespace Pintureria.Aplicacion;
+
+public class ListarProductosUseCase{
+
+    IRepositorioProducto repositorio;
+
+    public ListarProductosUseCase(IRepositorioProducto unRepositorio){
+        repositorio = unRepositorio;
+    }
+
+    public void Ejecutar(){
+
+    }
+
+}
