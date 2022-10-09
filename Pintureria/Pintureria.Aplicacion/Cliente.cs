@@ -1,4 +1,5 @@
 ﻿namespace Pintureria.Aplicacion;
+using System.Text;
 public abstract class Cliente {
 
     static int s_idCount = 0;
@@ -15,10 +16,12 @@ public abstract class Cliente {
         Id = s_idCount;
     }
 
-    
-
-
-
-
-
+    public override string ToString(){
+        StringBuilder sb = new StringBuilder();
+        sb.Append(this.GetType());
+        sb.Append($" {Nombre}");
+        sb.Append($" {Direccion}");
+        sb.Append($" {Telefono}");
+        return sb.ToString();
+    }
 }

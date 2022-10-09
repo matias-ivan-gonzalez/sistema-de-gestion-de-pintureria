@@ -15,4 +15,8 @@ public class Producto {
         PrecioUnitario = precio;
         Stock = stock;
     }
+
+    public override string ToString(){
+        return $"{Id} {Descripcion} {PrecioUnitario} {Stock}";
+    }
 }
