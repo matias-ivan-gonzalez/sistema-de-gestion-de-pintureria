@@ -8,6 +8,12 @@ public abstract class Cliente {
     public string Direccion {get; set;}
     public string Telefono {get; set;}
 
+
+    // protected Cliente(){
+    //     s_idCount++;
+    //     Id = s_idCount;
+    // }
+
     protected Cliente (string nombre, string direccion, string telefono ) {
         Nombre = nombre;
         Direccion = direccion;
