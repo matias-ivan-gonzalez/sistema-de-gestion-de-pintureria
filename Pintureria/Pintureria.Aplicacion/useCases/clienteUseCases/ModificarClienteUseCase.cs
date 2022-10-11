@@ -1,12 +1,8 @@
 namespace Pintureria.Aplicacion;
 
-public class ModificarClienteUseCase{
+public class ModificarClienteUseCase : ClienteUseCase{
 
-    private readonly IRepositorioCliente repositorio;
-
-    public ModificarClienteUseCase(IRepositorioCliente unRepositorio){
-        repositorio = unRepositorio;
-    }
+    public ModificarClienteUseCase(IRepositorioCliente repositorio) : base(repositorio){}
     
     public void Ejecutar(Cliente cli){
         try{

@@ -1,13 +1,9 @@
 namespace Pintureria.Aplicacion;
 
-public class EliminarClienteUseCase{
+public class EliminarClienteUseCase : ClienteUseCase{
 
-    private readonly IRepositorioCliente repositorio;
+    public EliminarClienteUseCase(IRepositorioCliente repositorio) : base(repositorio){}
 
-    public EliminarClienteUseCase(IRepositorioCliente unRepositorio){
-        repositorio = unRepositorio;
-    }
-    
     public void Ejecutar(int id){
         try{
             repositorio.delete(id);   
