@@ -1,6 +1,6 @@
 namespace Pintureria.Aplicacion;
 
-public class EliminarProductoUseCase : ProductoUseCase{
+public class EliminarProductoUseCase : UseCase{
 
     public EliminarProductoUseCase(IRepositorioProducto repositorio) : base(repositorio){}
 

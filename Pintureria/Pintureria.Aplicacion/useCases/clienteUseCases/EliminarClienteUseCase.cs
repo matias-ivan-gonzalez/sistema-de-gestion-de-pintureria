@@ -1,6 +1,6 @@
 namespace Pintureria.Aplicacion;
 
-public class EliminarClienteUseCase : ClienteUseCase{
+public class EliminarClienteUseCase : UseCase{
 
     public EliminarClienteUseCase(IRepositorioCliente repositorio) : base(repositorio){}
 
