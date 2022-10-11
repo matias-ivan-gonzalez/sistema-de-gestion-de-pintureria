@@ -8,6 +8,11 @@ public class Producto {
     public int Stock {get => Stock ; 
                      set { Stock = (value < 0) ? 0 : value;}}
 
+    // public Producto(){
+    //     s_id++;
+    //     Id=s_id;
+    // }
+
     public Producto(string descripcion, double precio, int stock){
         s_id++;
         Id = s_id;
