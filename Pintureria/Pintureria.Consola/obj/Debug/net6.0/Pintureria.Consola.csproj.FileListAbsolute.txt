@@ -1,0 +1,5 @@
+G:\sistemaDeGestionPintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Consola\obj\Debug\net6.0\Pintureria.Consola.csproj.AssemblyReference.cache
+G:\sistemaDeGestionPintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Consola\obj\Debug\net6.0\Pintureria.Consola.GeneratedMSBuildEditorConfig.editorconfig
+G:\sistemaDeGestionPintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Consola\obj\Debug\net6.0\Pintureria.Consola.AssemblyInfoInputs.cache
+G:\sistemaDeGestionPintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Consola\obj\Debug\net6.0\Pintureria.Consola.AssemblyInfo.cs
+G:\sistemaDeGestionPintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Consola\obj\Debug\net6.0\Pintureria.Consola.csproj.CoreCompileInputs.cache
