@@ -1,12 +1,8 @@
 namespace Pintureria.Aplicacion;
 
-public class EliminarProductoUseCase{
+public class EliminarProductoUseCase : ProductoUseCase{
 
-    IRepositorioProducto repositorio;
-
-    public EliminarProductoUseCase(IRepositorioProducto unRepositorio){
-        repositorio = unRepositorio;
-    }
+    public EliminarProductoUseCase(IRepositorioProducto repositorio) : base(repositorio){}
 
     public void Ejecutar(int id){
         repositorio.delete(id);

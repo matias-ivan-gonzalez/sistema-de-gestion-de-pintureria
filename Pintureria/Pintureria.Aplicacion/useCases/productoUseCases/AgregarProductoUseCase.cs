@@ -1,12 +1,8 @@
 namespace Pintureria.Aplicacion;
 
-public class AgregarProductoUseCase{
+public class AgregarProductoUseCase : ProductoUseCase{
 
-    IRepositorioProducto repositorio;
-
-    public AgregarProductoUseCase(IRepositorioProducto unRepositorio){
-        repositorio = unRepositorio;
-    }
+    public AgregarProductoUseCase(IRepositorioProducto repositorio) : base(repositorio){}
 
     public void Ejecutar(Producto producto){
         repositorio.add(producto);
