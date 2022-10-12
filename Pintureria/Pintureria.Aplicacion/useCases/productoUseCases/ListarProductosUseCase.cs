@@ -1,6 +1,6 @@
 namespace Pintureria.Aplicacion;
 
-public class ListarProductosUseCase : UseCase{
+public class ListarProductosUseCase : ProductoUseCase{
 
     public ListarProductosUseCase(IRepositorioProducto repositorio) : base(repositorio){}
 

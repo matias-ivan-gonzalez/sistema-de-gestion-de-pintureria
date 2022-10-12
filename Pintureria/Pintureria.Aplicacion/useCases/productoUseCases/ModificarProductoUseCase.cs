@@ -1,6 +1,6 @@
 namespace Pintureria.Aplicacion;
 
-public class ModificarProductoUseCase : UseCase{
+public class ModificarProductoUseCase : ProductoUseCase{
 
     public ModificarProductoUseCase(IRepositorioProducto repositorio) : base(repositorio){}
 
