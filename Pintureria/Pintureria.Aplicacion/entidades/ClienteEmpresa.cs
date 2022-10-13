@@ -14,8 +14,8 @@ public class ClienteEmpresa : Cliente {
     public override string ToString(){
         StringBuilder sb = new StringBuilder();
         sb.Append(base.ToString());
-        sb.Append($" {CUIT}");
-        sb.Append($" {SitioWeb}");
+        sb.Append($"CUIT: {CUIT} ");
+        sb.Append($"SitioWeb: {SitioWeb} ");
         return sb.ToString();
     }
 }

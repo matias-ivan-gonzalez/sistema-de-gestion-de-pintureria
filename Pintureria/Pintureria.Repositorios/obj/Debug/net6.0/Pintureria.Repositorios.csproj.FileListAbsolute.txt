@@ -10,3 +10,6 @@ G:\sistemaDeGestionPintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintur
 G:\sistemaDeGestionPintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Repositorios\obj\Debug\net6.0\refint\Pintureria.Repositorios.dll
 G:\sistemaDeGestionPintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Repositorios\obj\Debug\net6.0\Pintureria.Repositorios.pdb
 G:\sistemaDeGestionPintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Repositorios\obj\Debug\net6.0\ref\Pintureria.Repositorios.dll
+G:\sistemaDeGestionPintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Repositorios\bin\Debug\net6.0\Pintureria.Aplicacion.dll
+G:\sistemaDeGestionPintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Repositorios\bin\Debug\net6.0\Pintureria.Aplicacion.pdb
+G:\sistemaDeGestionPintureria\sistema-de-gestion-de-pintureria\Pintureria\Pintureria.Repositorios\obj\Debug\net6.0\Pintureria.Repositorios.csproj.CopyComplete

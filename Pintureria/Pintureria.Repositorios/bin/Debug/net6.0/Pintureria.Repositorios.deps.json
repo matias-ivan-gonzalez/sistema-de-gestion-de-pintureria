@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "Pintureria.Repositorios/1.0.0": {
+        "dependencies": {
+          "Pintureria.Aplicacion": "1.0.0"
+        },
         "runtime": {
           "Pintureria.Repositorios.dll": {}
+        }
+      },
+      "Pintureria.Aplicacion/1.0.0": {
+        "runtime": {
+          "Pintureria.Aplicacion.dll": {}
         }
       }
     }
   },
   "libraries": {
     "Pintureria.Repositorios/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Pintureria.Aplicacion/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

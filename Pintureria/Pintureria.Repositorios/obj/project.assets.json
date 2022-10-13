@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Pintureria.Aplicacion/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Pintureria.Aplicacion.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Pintureria.Aplicacion.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Pintureria.Aplicacion/1.0.0": {
+      "type": "project",
+      "path": "../Pintureria.Aplicacion/Pintureria.Aplicacion.csproj",
+      "msbuildProject": "../Pintureria.Aplicacion/Pintureria.Aplicacion.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Pintureria.Aplicacion >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Matias\\.nuget\\packages\\": {}
@@ -31,7 +50,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "G:\\sistemaDeGestionPintureria\\sistema-de-gestion-de-pintureria\\Pintureria\\Pintureria.Aplicacion\\Pintureria.Aplicacion.csproj": {
+              "projectPath": "G:\\sistemaDeGestionPintureria\\sistema-de-gestion-de-pintureria\\Pintureria\\Pintureria.Aplicacion\\Pintureria.Aplicacion.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

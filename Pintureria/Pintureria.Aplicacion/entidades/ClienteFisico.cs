@@ -14,7 +14,7 @@ public class ClienteFisico : Cliente {
     public override string ToString(){
         StringBuilder sb = new StringBuilder();
         sb.Append(base.ToString());
-        sb.Append($" {DNI}");
+        sb.Append($"DNI: {DNI} ");
         return sb.ToString();
     }
 }

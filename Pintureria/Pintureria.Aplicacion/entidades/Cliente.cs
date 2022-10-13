@@ -14,20 +14,13 @@ public abstract class Cliente {
         Id = s_idCount;
     }
 
-    // protected Cliente (string nombre, string direccion, string telefono ) {
-    //     Nombre = nombre;
-    //     Direccion = direccion;
-    //     Telefono = telefono;
-    //     s_idCount++;
-    //     Id = s_idCount;
-    // }
-
     public override string ToString(){
         StringBuilder sb = new StringBuilder();
-        sb.Append(this.GetType());
-        sb.Append($" {Nombre}");
-        sb.Append($" {Direccion}");
-        sb.Append($" {Telefono}");
+        sb.Append($"{this.GetType()} ");
+        sb.Append($"ID: {Id} ");
+        sb.Append($"Nombre: {Nombre} ");
+        sb.Append($"Direccion: {Direccion} ");
+        sb.Append($"Telefono: {Telefono} ");
         return sb.ToString();
     }
 }

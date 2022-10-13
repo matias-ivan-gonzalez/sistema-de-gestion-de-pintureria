@@ -22,6 +22,6 @@ public class Producto {
     }
 
     public override string ToString(){
-        return $"{Id} {Descripcion} {PrecioUnitario} {Stock}";
+        return $"ID: {Id} Descripcion: {Descripcion} PrecioUnitario: {PrecioUnitario} Stock: {Stock}";
     }
 }

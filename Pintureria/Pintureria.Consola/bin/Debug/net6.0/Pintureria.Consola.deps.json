@@ -21,6 +21,9 @@
         }
       },
       "Pintureria.Repositorios/1.0.0": {
+        "dependencies": {
+          "Pintureria.Aplicacion": "1.0.0"
+        },
         "runtime": {
           "Pintureria.Repositorios.dll": {}
         }

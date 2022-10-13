@@ -49,3 +49,4 @@ Console.WriteLine(c);
 }
 Console.WriteLine("-----");
 }
+Console.ReadLine();

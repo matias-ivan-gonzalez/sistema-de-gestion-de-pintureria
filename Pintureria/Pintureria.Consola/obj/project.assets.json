@@ -15,6 +15,9 @@
       "Pintureria.Repositorios/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Pintureria.Aplicacion": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Pintureria.Repositorios.dll": {}
         },

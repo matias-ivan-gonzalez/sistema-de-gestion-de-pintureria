@@ -138,7 +138,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "G:\\sistemaDeGestionPintureria\\sistema-de-gestion-de-pintureria\\Pintureria\\Pintureria.Aplicacion\\Pintureria.Aplicacion.csproj": {
+                "projectPath": "G:\\sistemaDeGestionPintureria\\sistema-de-gestion-de-pintureria\\Pintureria\\Pintureria.Aplicacion\\Pintureria.Aplicacion.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

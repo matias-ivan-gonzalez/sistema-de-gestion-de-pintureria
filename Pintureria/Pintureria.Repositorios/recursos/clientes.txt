@@ -1,0 +1,3 @@
+Pintureria.Aplicacion.ClienteFisico ID: 1 Nombre: juan Direccion: Diag.74 nro 123 Telefono: (11)502-1111 DNI: 30321654  
+Pintureria.Aplicacion.ClienteEmpresa ID: 2 Nombre: Empresa SA Direccion: calle 7 nro. 50 Telefono: (221)543-3456 CUIT: 30-12345678-1 SitioWeb: www.empresaSA.com 
+Pintureria.Aplicacion.ClienteFisico ID: 3 Nombre: Claudia Direccion: calle 5 nro 1544 Telefono: (221)501-9999 DNI: 22752412 
