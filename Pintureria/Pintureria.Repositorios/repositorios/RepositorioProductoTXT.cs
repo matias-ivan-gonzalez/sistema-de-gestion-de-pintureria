@@ -3,16 +3,12 @@ using Pintureria.Aplicacion;
 public class RepositorioProductoTXT : IRepositorioProducto {
     public RepositorioProductoTXT(){}
 
-    public bool add(Producto pro){
-        return false;
+    public void add(Producto pro){
     }
-    public bool modify(Producto pro){
-        return false;
+    public void modify(Producto pro){
     }
-    public bool delete(int id){
-        return false;
+    public void delete(int id){
     }
-    public bool get(){
-        return false;
+    public void get(){
     }
 }

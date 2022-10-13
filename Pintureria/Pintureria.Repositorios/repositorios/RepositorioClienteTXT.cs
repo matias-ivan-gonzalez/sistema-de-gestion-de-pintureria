@@ -5,14 +5,13 @@ public class RepositorioClienteTXT : IRepositorioCliente {
     string path = "../Pintureria.Repositorios/recursos/clientes.txt";
 
     public RepositorioClienteTXT(){}
-    public bool add(Cliente cli){
+    public void add(Cliente cli){
         StreamWriter? streamWriter = null;
         try{
             string? cliente = buscarCliente(cli.Id);
             if(cliente == null){
                 streamWriter = new StreamWriter(path, true);
                 streamWriter.WriteLine($"{cli.ToString()} ");
-                return true;
             }
         }
         catch (System.Exception e){
@@ -21,9 +20,8 @@ public class RepositorioClienteTXT : IRepositorioCliente {
         finally{
             streamWriter?.Dispose();
         }
-        return false;
     }
-    public bool modify(Cliente cli){
+    public void modify(Cliente cli){
         try{
             string? archivo = obtenerArchivoCompleto();
             string? actual = buscarCliente(cli.Id);
@@ -37,13 +35,12 @@ public class RepositorioClienteTXT : IRepositorioCliente {
         catch (System.Exception e){
             Console.WriteLine(e.Message);
         }
-        return false;
     }
-    public bool delete(int id){
-        return false;
+    public void delete(int id){
+        
     }
-    public bool get(){
-        return false;
+    public void get(){
+        
     }
 
     bool clienteContieneId(string? actual, int id){
