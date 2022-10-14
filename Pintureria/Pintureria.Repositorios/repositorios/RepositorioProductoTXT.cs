@@ -1,6 +1,7 @@
 namespace Pintureria.Repositorios;
 using Pintureria.Aplicacion;
 public class RepositorioProductoTXT : IRepositorioProducto {
+    FileHelper fileHelper = new FileHelper();
     public RepositorioProductoTXT(){}
 
     public void add(Producto pro){
@@ -10,6 +11,6 @@ public class RepositorioProductoTXT : IRepositorioProducto {
     public void delete(int id){
     }
     public List<string> get(){
-        return null;
+        return fileHelper.obtenerEntidadesDeArchivoEnLista();
     }
 }
