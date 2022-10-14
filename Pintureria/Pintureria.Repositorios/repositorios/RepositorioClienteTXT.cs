@@ -20,9 +20,19 @@ public class RepositorioClienteTXT : IRepositorioCliente {
         }
     }
     public void delete(int id){
-        
+        try{
+            string? cliente = buscarCliente(id);
+            if(cliente != null){
+                List<string> archivo = get();
+                archivo.Remove(archivo.Where(archivo => clienteContieneId(archivo,id)).First());
+                File.WriteAllLines(path, archivo.ToArray());
+            }
+        }
+        catch (System.Exception e){
+            Console.WriteLine(e.Message);
+        }
     }
-    public List<string?> get(){
+    public List<string> get(){
         string? actual = null;
         StreamReader? streamReader = new StreamReader(path);
         List<string?> clientes = new List<string?>();
