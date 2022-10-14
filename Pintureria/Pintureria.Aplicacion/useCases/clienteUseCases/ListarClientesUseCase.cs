@@ -4,7 +4,7 @@ public class ListarClientesUseCase : ClienteUseCase{
 
     public ListarClientesUseCase(IRepositorioCliente repositorio) : base(repositorio){}
     
-    public List<String?> Ejecutar(){
+    public List<String> Ejecutar(){
         return repositorio.get();
     }
 }
