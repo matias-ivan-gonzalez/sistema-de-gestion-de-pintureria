@@ -9,6 +9,7 @@ public class RepositorioProductoTXT : IRepositorioProducto {
     }
     public void delete(int id){
     }
-    public void get(){
+    public List<string?> get(){
+        return null;
     }
 }

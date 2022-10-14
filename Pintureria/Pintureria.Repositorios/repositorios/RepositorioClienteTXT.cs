@@ -6,25 +6,44 @@ public class RepositorioClienteTXT : IRepositorioCliente {
 
     public RepositorioClienteTXT(){}
     public void add(Cliente cli){
-        StreamWriter? streamWriter = null;
+        string? cliente = buscarCliente(cli.Id);
+        agregarClienteNoExistente(cliente, cli);
+    }
+    public void modify(Cliente cli){
         try{
-            string? cliente = buscarCliente(cli.Id);
-            if(cliente == null){
-                streamWriter = new StreamWriter(path, true);
-                streamWriter.WriteLine($"{cli.ToString()} ");
+            string? archivo = obtenerArchivoCompleto();
+            string? actual = buscarCliente(cli.Id);
+            sobreEscribirArchivoPorAlteracion(archivo,actual,cli);
+        }
+        catch (System.Exception e){
+            Console.WriteLine(e.Message);
+        }
+    }
+    public void delete(int id){
+        
+    }
+    public List<string?> get(){
+        string? actual = null;
+        StreamReader? streamReader = new StreamReader(path);
+        List<string?> clientes = new List<string?>();
+        try{
+            while(!streamReader.EndOfStream){
+                actual = streamReader.ReadLine();
+                clientes.Add(actual);
             }
         }
         catch (System.Exception e){
             Console.WriteLine(e.Message);
         }
         finally{
-            streamWriter?.Dispose();
+            streamReader?.Dispose();
         }
+
+        return clientes;
     }
-    public void modify(Cliente cli){
+
+    void sobreEscribirArchivoPorAlteracion(string? archivo, string? actual, Cliente cli){
         try{
-            string? archivo = obtenerArchivoCompleto();
-            string? actual = buscarCliente(cli.Id);
             if(actual != null){
                 if (clienteContieneId(actual, cli.Id)){
                     archivo = archivo?.Replace(actual,cli.ToString());
@@ -36,10 +55,21 @@ public class RepositorioClienteTXT : IRepositorioCliente {
             Console.WriteLine(e.Message);
         }
     }
-    public void delete(int id){
-        
-    }
-    public void get(){
+
+    void agregarClienteNoExistente(string? cliente, Cliente cli){
+        StreamWriter? streamWriter = null;
+        try{
+            if(cliente == null){
+                streamWriter = new StreamWriter(path, true);
+                streamWriter.WriteLine($"{cli.ToString()} ");
+            } 
+        }
+        catch (System.Exception e){
+             Console.WriteLine(e.Message);
+        }
+        finally{
+            streamWriter?.Close();
+        }
         
     }
 
