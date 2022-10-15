@@ -49,7 +49,6 @@ void listarEnConsola()
     }
     Console.WriteLine("-----");
 }
-Console.ReadLine();
 Console.WriteLine("\n\n");
 
 
