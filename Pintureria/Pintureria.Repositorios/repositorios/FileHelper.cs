@@ -54,26 +54,29 @@ class FileHelper{
         return archivo;
     }
 
+    public string? buscarClienteParaInsercion(int id){
+        try{
+            return buscarCliente(id);
+        }
+        catch(NoSuchElementException){
+            return null;
+        }
+        
+    }
+
     public string? buscarCliente(int id){
         string? actual = null;
-        try{
-            StreamReader streamReader = new StreamReader(path);
-            bool encontrado = false;
-            while(!encontrado && !streamReader.EndOfStream){
-                actual = streamReader.ReadLine();
-                    if (clienteContieneId(actual, id)){
-                        encontrado = true;
-                    }
-                }
-            streamReader.Close();
-            if(encontrado){
-                return actual;
+        StreamReader streamReader = new StreamReader(path);
+        bool encontrado = false;
+        while(!encontrado && !streamReader.EndOfStream){
+            actual = streamReader.ReadLine();
+            if (clienteContieneId(actual, id)){
+                encontrado = true;
             }
         }
-        catch (System.Exception e){
-            Console.WriteLine(e.Message);
-        }
-        return null;
+        streamReader.Close();
+        if(encontrado is false) throw new NoSuchElementException("La entidad en cuestion no ha sido registrada");
+        return actual;
     }
 
     public void eliminarCliente(int id, List<string> archivo){

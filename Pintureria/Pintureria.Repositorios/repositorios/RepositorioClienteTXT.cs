@@ -5,21 +5,29 @@ public class RepositorioClienteTXT : IRepositorioCliente {
     public RepositorioClienteTXT(){}
 
     public void add(Cliente cli){
-        string? cliente = fileHelper.buscarCliente(cli.Id);
-        fileHelper.agregarClienteNoExistente(cliente, cli);
+        string? cliente = fileHelper.buscarClienteParaInsercion(cli.Id);
+        fileHelper.agregarClienteNoExistente(cliente, cli);            
     }
 
     public void modify(Cliente cli){
-        string? archivo = fileHelper.obtenerArchivoCompleto();
-        string? actual = fileHelper.buscarCliente(cli.Id);
-        fileHelper.sobreEscribirArchivoPorAlteracion(archivo,actual,cli);
+        try{
+            string? actual = fileHelper.buscarCliente(cli.Id);
+            string? archivo = fileHelper.obtenerArchivoCompleto();
+            fileHelper.sobreEscribirArchivoPorAlteracion(archivo,actual,cli);
+        }
+        catch (NoSuchElementException e){
+            Console.WriteLine(e.Message);
+        }
     }
     public void delete(int id){
-        string? cliente = fileHelper.buscarCliente(id);
-        if(cliente != null){
+        try{
+            fileHelper.buscarCliente(id);        
             List<string> archivo = get();
             fileHelper.eliminarCliente(id,archivo);
         }
+        catch (NoSuchElementException e){
+            Console.WriteLine(e.Message);
+        }   
     }
 
     public List<string> get(){
