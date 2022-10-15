@@ -1,0 +1,5 @@
+ID: 1 Descripcion: Balde Pintura Amarilla 3L PrecioUnitario: 530 Stock: 30 
+ID: 2 Descripcion: Balde Pintura Blanca 3L PrecioUnitario: 870 Stock: 40 
+ID: 3 Descripcion: Rodillo grande  PrecioUnitario: 1200 Stock: 10 
+ID: 4 Descripcion: Pincel para interiores PrecioUnitario: 610 Stock: 15 
+ID: 5 Descripcion: Lija fina 180 PrecioUnitario: 150 Stock: 50 

@@ -103,19 +103,19 @@ agregarProducto.Ejecutar(producto4);
 agregarProducto.Ejecutar(producto5);
 listarProductosEnConsola();
 
-// producto3.PrecioUnitario = 930.50;
-// producto3.Descripcion = "Balde Pintura Blanca 3.5L";
-// producto3.Stock = 8;
+producto3.PrecioUnitario = 930.50;
+producto3.Descripcion = "Balde Pintura Blanca 3.5L";
+producto3.Stock = 8;
 
-// producto5.PrecioUnitario = 165.00;
-// producto5.Stock = 200;
+producto5.PrecioUnitario = 165.00;
+producto5.Stock = 200;
 
-// modificarProducto.Ejecutar(producto3);
-// modificarProducto.Ejecutar(producto5);
-// listarProductosEnConsola();
+modificarProducto.Ejecutar(producto3);
+modificarProducto.Ejecutar(producto5);
+listarProductosEnConsola();
 
-// eliminarProducto.Ejecutar(2);
-// listarProductosEnConsola();
+eliminarProducto.Ejecutar(2);
+listarProductosEnConsola();
 
 void listarProductosEnConsola()
 {
