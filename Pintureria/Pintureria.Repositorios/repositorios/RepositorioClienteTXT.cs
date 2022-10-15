@@ -11,9 +11,7 @@ public class RepositorioClienteTXT : IRepositorioCliente {
 
     public void modify(Cliente cli){
         try{
-            string? actual = fileHelper.buscarCliente(cli.Id);
-            string? archivo = fileHelper.obtenerArchivoCompleto();
-            fileHelper.sobreEscribirArchivoPorAlteracion(archivo,actual,cli);
+            fileHelper.modificarCliente(cli);
         }
         catch (NoSuchElementException e){
             Console.WriteLine(e.Message);
@@ -21,9 +19,7 @@ public class RepositorioClienteTXT : IRepositorioCliente {
     }
     public void delete(int id){
         try{
-            fileHelper.buscarCliente(id);        
-            List<string> archivo = get();
-            fileHelper.eliminarCliente(id,archivo);
+            fileHelper.removerCliente(id);
         }
         catch (NoSuchElementException e){
             Console.WriteLine(e.Message);

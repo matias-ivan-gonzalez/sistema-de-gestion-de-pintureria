@@ -4,8 +4,8 @@ public class ListarProductosUseCase : ProductoUseCase{
 
     public ListarProductosUseCase(IRepositorioProducto repositorio) : base(repositorio){}
 
-    public void Ejecutar(){
-
+    public List<String> Ejecutar(){
+        return repositorio.get();
     }
 
 }

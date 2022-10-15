@@ -5,6 +5,8 @@ public class RepositorioProductoTXT : IRepositorioProducto {
     public RepositorioProductoTXT(){}
 
     public void add(Producto pro){
+        string? cliente = fileHelper.buscarClienteParaInsercion(pro.Id);
+        fileHelper.agregarProductoNoExistente(cliente, pro);
     }
     public void modify(Producto pro){
     }
