@@ -5,13 +5,14 @@ public class RepositorioProductoTXT : IRepositorioProducto {
     public RepositorioProductoTXT(){}
 
     public void add(Producto pro){
-        string? cliente = fileHelper.buscarClienteParaInsercion(pro.Id);
+        string? cliente = fileHelper.buscarProductoParaInsercion(pro.Id);
         fileHelper.agregarProductoNoExistente(cliente, pro);
     }
     public void modify(Producto pro){
         fileHelper.modificarProducto(pro);
     }
     public void delete(int id){
+        
     }
     public List<string> get(){
         return fileHelper.obtenerEntidadesDeArchivoEnLista();

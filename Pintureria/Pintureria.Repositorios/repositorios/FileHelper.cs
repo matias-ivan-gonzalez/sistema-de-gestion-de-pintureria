@@ -6,11 +6,11 @@ class FileHelper {
     string productosPath = "../Pintureria.Repositorios/recursos/productos.txt";
 
     // Metodos genericos para entidades
-    void agregarEntidad(string? cliente, Object entidad){
+    void agregarEntidad(string? cliente, Object entidad, string path){
         StreamWriter? streamWriter = null;
         try{
             if(cliente == null){
-                streamWriter = new StreamWriter(clientesPath, true);
+                streamWriter = new StreamWriter(path, true);
                 streamWriter.WriteLine($"{entidad.ToString()} ");
             } 
         }
@@ -89,7 +89,7 @@ class FileHelper {
 
     // Metodos para clientes
     public void agregarClienteNoExistente(string? cliente, Cliente cli){
-        agregarEntidad(cliente, cli);
+        agregarEntidad(cliente, cli, clientesPath);
     }
 
     public string? buscarClienteParaInsercion(int id){
@@ -126,7 +126,7 @@ class FileHelper {
 
     // Metodos para productos
     public void agregarProductoNoExistente(String? producto, Producto pro){
-        agregarEntidad(producto, pro);
+        agregarEntidad(producto, pro, productosPath);
     }
 
     public string? buscarProductoParaInsercion(int id){
