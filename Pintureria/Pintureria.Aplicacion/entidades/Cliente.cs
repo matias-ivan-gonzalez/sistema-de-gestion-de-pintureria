@@ -8,7 +8,6 @@ public abstract class Cliente {
     public string? Direccion {get; set;}
     public string? Telefono {get; set;}
 
-
     protected Cliente(){
         s_idCount++;
         Id = s_idCount;

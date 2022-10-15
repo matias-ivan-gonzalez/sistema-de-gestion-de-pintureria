@@ -5,10 +5,6 @@ public class ClienteEmpresa : Cliente {
     public string? CUIT {get;set;}
     public string? SitioWeb {get;set;}
     
-    // public ClienteEmpresa(string nombre, string direccion, string telefono, string cuit)
-    //                      :base(nombre, direccion, telefono){
-    //     Cuit = cuit;
-    // }
     public ClienteEmpresa() : base(){}
 
     public override string ToString(){
