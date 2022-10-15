@@ -1,6 +1,5 @@
 namespace Pintureria.Aplicacion;
-
-public class Producto {
+public class Producto : Entidad {
     static int s_id = 0;
     public int Id {get;}
     public string Descripcion {get; set;}

@@ -23,4 +23,5 @@ public abstract class Cliente {
         sb.Append($"Telefono: {Telefono} ");
         return sb.ToString();
     }
+    
 }
