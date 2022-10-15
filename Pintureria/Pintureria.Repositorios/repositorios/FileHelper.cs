@@ -133,8 +133,6 @@ class FileHelper {
         return buscarEntidadParaInsercion(id, productosPath);
     }
     
-    
-
     public void modificarProducto(Producto pro){
         string? actual = buscarEntidad(pro.Id, clientesPath);
         string? archivo = obtenerArchivoCompleto();
