@@ -62,6 +62,29 @@ class FileHelper {
         return clientes;
     }
 
+    void sobreEscribirArchivoConEntidadAlterada(string? archivo, string? actual,int id, string entidad){
+        try{
+                if(actual != null){
+                    if (entidadContieneId(actual, id)){
+                        archivo = archivo?.Replace(actual, entidad);
+                        File.WriteAllText(clientesPath, archivo);
+                    }
+                }
+            }
+            catch (System.Exception e){
+                Console.WriteLine(e.Message);
+            }
+    }
+
+    string? buscarEntidadParaInsercion(int id, string path){
+        try{
+            return buscarEntidad(id, path);
+        }
+        catch(NoSuchElementException){
+            return null;
+        }
+    }
+
     // <---------------------------------------------------->
 
     // Metodos para clientes
@@ -70,12 +93,7 @@ class FileHelper {
     }
 
     public string? buscarClienteParaInsercion(int id){
-        try{
-            return buscarEntidad(id, clientesPath);
-        }
-        catch(NoSuchElementException){
-            return null;
-        }
+        return buscarEntidadParaInsercion(id, clientesPath);
     }
 
     public void modificarCliente(Cliente cli){
@@ -100,6 +118,10 @@ class FileHelper {
         }  
     }
 
+    public void sobreEscribirArchivoPorAlteracion(string? archivo, string? actual, Cliente cli){
+        sobreEscribirArchivoConEntidadAlterada(archivo, actual, cli.Id, cli.ToString());
+    }
+
     // <---------------------------------------------------->
 
     // Metodos para productos
@@ -108,30 +130,24 @@ class FileHelper {
     }
 
     public string? buscarProductoParaInsercion(int id){
-        try{
-            return buscarEntidad(id, productosPath);
-        }
-        catch(NoSuchElementException){
-            return null;
-        }
+        return buscarEntidadParaInsercion(id, productosPath);
+    }
+    
+    
+
+    public void modificarProducto(Producto pro){
+        string? actual = buscarEntidad(pro.Id, clientesPath);
+        string? archivo = obtenerArchivoCompleto();
+        sobreEscribirArchivoPorAlteracion(archivo,actual,pro);
+    }
+
+    public void sobreEscribirArchivoPorAlteracion(string? archivo, string? actual, Producto pro){
+        sobreEscribirArchivoConEntidadAlterada(archivo, actual, pro.Id, pro.ToString());
     }
 
     // <---------------------------------------------------->
 
     // Operaciones sobre archivos completos
-    public void sobreEscribirArchivoPorAlteracion(string? archivo, string? actual, Cliente cli){
-            try{
-                if(actual != null){
-                    if (entidadContieneId(actual, cli.Id)){
-                        archivo = archivo?.Replace(actual,cli.ToString());
-                        File.WriteAllText(clientesPath,archivo);
-                    }
-                }
-            }
-            catch (System.Exception e){
-                Console.WriteLine(e.Message);
-            }
-        }
     
     public string? obtenerArchivoCompleto(){
         StreamReader? streamReader = null;

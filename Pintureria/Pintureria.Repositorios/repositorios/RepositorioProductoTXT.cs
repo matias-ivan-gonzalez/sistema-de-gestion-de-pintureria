@@ -9,6 +9,7 @@ public class RepositorioProductoTXT : IRepositorioProducto {
         fileHelper.agregarProductoNoExistente(cliente, pro);
     }
     public void modify(Producto pro){
+        fileHelper.modificarProducto(pro);
     }
     public void delete(int id){
     }
