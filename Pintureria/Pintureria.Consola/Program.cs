@@ -111,7 +111,6 @@ Producto producto9 = new Producto("113")  // Con PrecioUnitario negativo - Muest
     PrecioUnitario = -12.5,
     Stock = 15
 };
-agregarProducto.Ejecutar(producto9);
 
 Producto producto10 = new Producto("112")    // Repetido con respecto al producto8 - No se agrega e informa con un log
 {
@@ -141,23 +140,12 @@ agregarProducto.Ejecutar(producto12);
 // };
 // agregarProducto.Ejecutar(producto13);
 
-// Producto producto14 = new Producto("117")       // Precio es un string
+// Producto producto14 = new Producto("117")       // Precio es un string - Error Compilacion
 // {
 //     PrecioUnitario = "150.25",
 //     Stock = 13
 // };
 // agregarProducto.Ejecutar(producto14);
-
-// Producto producto15 = new Producto()       // Sin stock por constructor
-// {
-//     Descripcion = "116",
-//     PrecioUnitario = "150.25",
-//     // Stock = 13
-// };
-// agregarProducto.Ejecutar(producto15);
-
-// agregarProducto.Ejecutar(producto5);
-// agregarProducto.Ejecutar(producto5);  // Producto repetido
 
 Console.WriteLine("\nCarga de productos");
 agregarProducto.Ejecutar(producto8);
@@ -165,6 +153,7 @@ agregarProducto.Ejecutar(producto2);
 agregarProducto.Ejecutar(producto3);
 agregarProducto.Ejecutar(producto4);
 agregarProducto.Ejecutar(producto5);
+agregarProducto.Ejecutar(producto9);
 
 listarProductosEnConsola();
 
@@ -180,13 +169,19 @@ modificarProducto.Ejecutar(producto5);
 
 
 // producto2.PrecioUnitario = -15.22;  // Tipos del elemento modificado inválido
-// producto2.Stock = -30 
+// producto2.Stock = -30            
 modificarProducto.Ejecutar(producto2);
 
-// modificarProducto.Ejecutar(producto200);  // Modificar un producto que no está agregado
+modificarProducto.Ejecutar(producto200);  // Modificar un producto que no está agregado
 
-// modificarProducto.Ejecutar(producto3);
-// modificarProducto.Ejecutar(producto3); // Repetido
+modificarProducto.Ejecutar(producto3);
+modificarProducto.Ejecutar(producto3); // Repetido
+
+producto4.Stock = -40;
+modificarProducto.Ejecutar(producto4);   // Genera log de exception
+
+producto5.PrecioUnitario = -160.20;     // Genera log de exception
+modificarProducto.Ejecutar(producto5);
 
 // modificarProducto
 

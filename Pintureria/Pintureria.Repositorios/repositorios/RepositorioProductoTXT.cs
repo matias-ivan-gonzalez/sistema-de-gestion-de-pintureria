@@ -17,9 +17,10 @@ public class RepositorioProductoTXT : IRepositorioProducto {
     }
     public void modify(Producto pro){
         try{
+            fileHelper.validarValores(pro);
             fileHelper.modificarProducto(pro);
         }
-        catch (NoSuchElementException e){
+        catch (System.Exception e){
             Console.WriteLine(e.Message);
         }
     }
