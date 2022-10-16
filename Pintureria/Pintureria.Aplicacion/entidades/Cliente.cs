@@ -14,7 +14,7 @@ public abstract class Cliente {
 
     public override string ToString(){
         StringBuilder sb = new StringBuilder();
-        sb.Append($"{this.GetType()} ");
+        sb.Append($"{this.GetType().Name} ");
         sb.Append($"ID: {Id} ");
         sb.Append($"Nombre: {Nombre} ");
         sb.Append($"Direccion: {Direccion} ");
