@@ -4,7 +4,7 @@ public class EliminarProductoUseCase : ProductoUseCase{
 
     public EliminarProductoUseCase(IRepositorioProducto repositorio) : base(repositorio){}
 
-    public void Ejecutar(int id){
+    public void Ejecutar(string id){
         repositorio.delete(id);
     }
 

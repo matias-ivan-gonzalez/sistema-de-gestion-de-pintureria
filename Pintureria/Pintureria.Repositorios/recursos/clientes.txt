@@ -1,0 +1,4 @@
+Pintureria.Aplicacion.ClienteEmpresa ID: c7296ea7-84d3-4dc8-b0cd-0492bb329c39 Nombre: Empresa SA Direccion: calle 7 nro. 50 Telefono: (221)543-3456 CUIT: 30-12345678-1 SitioWeb: www.empresaSA.com 
+Pintureria.Aplicacion.ClienteFisico ID: 86431fcb-54f0-4cf3-a347-96f8346eccbd Nombre: Claudia Direccion: calle 5 nro 1544 Telefono: (221)501-9999 DNI: 22752412 
+Pintureria.Aplicacion.ClienteEmpresa ID: 274e4093-1251-492e-833f-30d6b0d25ff7 Nombre: Empresa SA Direccion: calle 7 nro. 50 Telefono: (221)543-3456 CUIT: 30-12345678-1 SitioWeb: www.empresaSA.com 
+Pintureria.Aplicacion.ClienteFisico ID: 818f2ee7-6b64-4079-9c38-64a38df23c33 Nombre: Claudia Direccion: calle 5 nro 1544 Telefono: (221)501-9999 DNI: 22752412 

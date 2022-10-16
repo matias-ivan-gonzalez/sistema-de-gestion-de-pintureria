@@ -16,9 +16,9 @@ public class RepositorioProductoTXT : IRepositorioProducto {
             Console.WriteLine(e.Message);
         }
     }
-    public void delete(int id){
+    public void delete(string id){
         try{
-            //fileHelper.eliminarCliente(id);
+            fileHelper.removerProducto(id);
         }
         catch (NoSuchElementException e){
             Console.WriteLine(e.Message);

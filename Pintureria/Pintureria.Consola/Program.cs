@@ -42,7 +42,7 @@ modificarCliente.Ejecutar(empresa);
 modificarCliente.Ejecutar(empresa);
 listarEnConsola();
 Console.WriteLine("\nEliminacion de clientes");
-eliminarCliente.Ejecutar(1);
+eliminarCliente.Ejecutar(persona1.Id);
 Console.WriteLine("\nListado de clientes");
 listarEnConsola();
 
@@ -113,7 +113,6 @@ agregarProducto.Ejecutar(producto2);
 agregarProducto.Ejecutar(producto3);
 agregarProducto.Ejecutar(producto4);
 agregarProducto.Ejecutar(producto5);
-
 listarProductosEnConsola();
 Console.WriteLine("\nModificacion de productos");
 producto3.PrecioUnitario = 930.50;
@@ -127,7 +126,7 @@ modificarProducto.Ejecutar(producto3);
 modificarProducto.Ejecutar(producto5);
 listarProductosEnConsola();
 Console.WriteLine("\nEliminacion de productos");
-eliminarProducto.Ejecutar(2);
+eliminarProducto.Ejecutar(producto2.Id);
 Console.WriteLine("\nListado de productos");
 listarProductosEnConsola();
 

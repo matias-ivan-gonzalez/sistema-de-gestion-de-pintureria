@@ -1,5 +1,5 @@
 namespace Pintureria.Aplicacion;
 public interface IRepositorio{
-    public void delete(int id);
+    public void delete(string id);
     public List<string> get();
 }

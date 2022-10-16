@@ -17,7 +17,7 @@ public class RepositorioClienteTXT : IRepositorioCliente {
             Console.WriteLine(e.Message);
         }
     }
-    public void delete(int id){
+    public void delete(string id){
         try{
             fileHelper.removerCliente(id);
         }

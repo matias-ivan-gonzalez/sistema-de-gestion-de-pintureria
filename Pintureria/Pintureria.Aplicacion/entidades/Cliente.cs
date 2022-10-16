@@ -1,16 +1,16 @@
-﻿namespace Pintureria.Aplicacion;
+﻿using System.Security.Cryptography;
+namespace Pintureria.Aplicacion;
 using System.Text;
-public abstract class Cliente {
 
-    static int s_idCount = 0;
-    public int Id {get;}
+
+public abstract class Cliente {
+    public string Id {get;}
     public string? Nombre {get;set;}
     public string? Direccion {get; set;}
     public string? Telefono {get; set;}
 
     protected Cliente(){
-        s_idCount++;
-        Id = s_idCount;
+        Id = Guid.NewGuid().ToString();
     }
 
     public override string ToString(){

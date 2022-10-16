@@ -1,4 +1,5 @@
 namespace Pintureria.Repositorios;
+using System.Text.RegularExpressions;
 using Pintureria.Aplicacion;
 
 public class FileHelper {
@@ -25,11 +26,11 @@ public class FileHelper {
         } 
     }
 
-    public bool entidadContieneId(string? actual, int id){
+    public bool entidadContieneId(string? actual, string id){
         return (actual !=null && actual.Contains($"ID: {id}"));
     }
 
-    string? buscarEntidad(int id, string path){
+    string? buscarEntidad(string id, string path){
         string? actual = null;
         StreamReader streamReader = new StreamReader(path);
         bool encontrado = false;
@@ -67,7 +68,7 @@ public class FileHelper {
         return clientes;
     }
 
-    void sobreEscribirArchivoConEntidadAlterada(string? archivo, string? actual,int id, string entidad, string path){
+    void sobreEscribirArchivoConEntidadAlterada(string? archivo, string? actual,string id, string entidad, string path){
         try{
                 if(actual != null){
                     if (entidadContieneId(actual, id)){
@@ -83,12 +84,23 @@ public class FileHelper {
             }
     }
 
-    string? buscarEntidadParaInsercion(int id, string path){
+    string? buscarEntidadParaInsercion(string id, string path){
         try{
             return buscarEntidad(id, path);
         }
         catch(NoSuchElementException){
             return null;
+        }
+    }
+
+    void eliminarEntidad(string id, List<string> archivo, string path){
+        try{
+            bool ok = archivo.Remove(archivo.Where(archivo => entidadContieneId(archivo,id)).First());
+            if(!ok) throw new NoSuchElementException();
+            File.WriteAllLines(path, archivo.ToArray()); 
+        }
+        catch{
+
         }
     }
 
@@ -99,7 +111,7 @@ public class FileHelper {
         agregarEntidad(cliente, cli, clientesPath);
     }
 
-    public string? buscarClienteParaInsercion(int id){
+    public string? buscarClienteParaInsercion(string id){
         return buscarEntidadParaInsercion(id, clientesPath);
     }
 
@@ -109,20 +121,14 @@ public class FileHelper {
         sobreEscribirArchivoConEntidadAlterada(archivo, actual, cli.Id, cli.ToString(), clientesPath);
     }
 
-    public void removerCliente(int id){
+    public void removerCliente(string id){
         buscarEntidad(id, clientesPath);        
         List<string> archivo = new RepositorioClienteTXT().get();
         eliminarCliente(id,archivo);
     }
 
-    public void eliminarCliente(int id, List<string> archivo){
-        try{
-            archivo.Remove(archivo.Where(archivo => entidadContieneId(archivo,id)).First());
-            File.WriteAllLines(clientesPath, archivo.ToArray());  
-        }
-        catch (System.Exception e){
-            Console.WriteLine(e.Message);
-        }  
+    void eliminarCliente(string id, List<string> archivo){
+        eliminarEntidad(id, archivo, clientesPath); 
     }
 
     public List<string> getClientes(){
@@ -136,7 +142,7 @@ public class FileHelper {
         agregarEntidad(producto, pro, productosPath);
     }
 
-    public string? buscarProductoParaInsercion(int id){
+    public string? buscarProductoParaInsercion(string id){
         return buscarEntidadParaInsercion(id, productosPath);
     }
     
@@ -146,6 +152,15 @@ public class FileHelper {
         sobreEscribirArchivoConEntidadAlterada(archivo, actual, pro.Id, pro.ToString(), productosPath);
     }
 
+    public void removerProducto(string id){
+        buscarEntidad(id, productosPath);        
+        List<string> archivo = new RepositorioProductoTXT().get();
+        eliminarProducto(id,archivo);
+    }
+
+    void eliminarProducto(string id, List<string> archivo){
+        eliminarEntidad(id, archivo, productosPath); 
+    }
 
     public List<string> getProductos(){
         return obtenerEntidadesDeArchivoEnLista(productosPath);
@@ -171,6 +186,12 @@ public class FileHelper {
             streamReader?.Dispose();
         }
         return archivo;
+    }
+
+    public static int obtenerIdMayor(){
+        List<string> clientes = new RepositorioClienteTXT().get();
+        int id = clientes.Max(c => Regex.Replace(c, "[^0-9]+", string.Empty)[0]);
+        return id;
     }
 
     public static void resetearArchivos(){
