@@ -205,12 +205,10 @@ public class FileHelper
         return obtenerEntidadesDeArchivoEnLista(productosPath);
     }
 
-    public Boolean validarValores(Producto prod)
+    public void validarValores(Producto prod)
     {   
         if (prod.Stock < 0) throw new NegativeValueNotAllowedException("Stock"); 
         if (prod.PrecioUnitario < 0) throw new NegativeValueNotAllowedException("Precio unitario");
-
-        return true;
     }
 
     // <-------------------------------------------------------------------------------------------------->
@@ -259,5 +257,11 @@ public class FileHelper
         }
     }
 
+
+    // private void prueba(){
+    //     int? uno = null;
+    //     Console.WriteLine(uno.ToString);
+    //     uno.GetType();
+    // }
     // <---------------------------------------------------->
 }
