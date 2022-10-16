@@ -1,5 +1,5 @@
 ID: 6 Descripcion: 112 PrecioUnitario: 530 Stock: 30 
-ID: 2 Descripcion: Balde Pintura Blanca 3L PrecioUnitario: 870 Stock: 40 
+ID: 2 Descripcion: Balde Pintura Blanca 3L PrecioUnitario: 870 Stock: 40
 ID: 3 Descripcion: Balde Pintura Blanca 3.5L PrecioUnitario: 930,5 Stock: 8
 ID: 4 Descripcion: Pincel para interiores PrecioUnitario: 610 Stock: 15 
 ID: 5 Descripcion: Lija fina 180 PrecioUnitario: 165 Stock: 200

@@ -101,12 +101,80 @@ Producto producto5 = new Producto()
     PrecioUnitario = 150.00,
     Stock = 50
 };
+
 Producto producto8 = new Producto()
 {
     Descripcion = "112",
     PrecioUnitario = 530.00,
     Stock = 30
 };
+
+Producto producto200 = new Producto()  // No agregar este 
+{
+    Descripcion = "200",
+    PrecioUnitario = 200.20,
+    Stock = 200
+};
+
+// Producto producto9 = new Producto()  // Con PrecioUnitario negativo
+// {
+//     Descripcion = "113",
+//     PrecioUnitario = -12.5,
+//     Stock = 30
+// };
+// agregarProducto.Ejecutar(producto9);
+
+// Producto producto10 = new Producto()    // Repetido con respecto al producto9
+// {
+//     Descripcion = "113",
+//     PrecioUnitario = -12.5,
+//     Stock = 30
+// };
+// agregarProducto.Ejecutar(producto10);
+
+// Producto producto11 = new Producto()       // Con Stock negativo
+// {
+//     Descripcion = "114",
+//     PrecioUnitario = 15.5,
+//     Stock = -4
+// };
+// agregarProducto.Ejecutar(producto11);
+
+// Producto producto12 = new Producto()       // Con Stock negativo y precio negativo
+// {
+//     Descripcion = "115",
+//     PrecioUnitario = -15.5,
+//     Stock = -4
+// };
+// agregarProducto.Ejecutar(producto12);
+
+// Producto producto13 = new Producto()       // Con Stock en double
+// {
+//     Descripcion = "115",
+//     PrecioUnitario = 150.25,
+//     Stock = 13.2
+// };
+// agregarProducto.Ejecutar(producto13);
+
+// Producto producto14 = new Producto()       // Precio es un string
+// {
+//     Descripcion = "116",
+//     PrecioUnitario = "150.25",
+//     Stock = 13
+// };
+// agregarProducto.Ejecutar(producto14);
+
+// Producto producto15 = new Producto()       // Sin stock por constructor
+// {
+//     Descripcion = "116",
+//     PrecioUnitario = "150.25",
+//     // Stock = 13
+// };
+// agregarProducto.Ejecutar(producto15);
+
+// agregarProducto.Ejecutar(producto5);
+// agregarProducto.Ejecutar(producto5);  // Producto repetido
+
 Console.WriteLine("\nCarga de productos");
 agregarProducto.Ejecutar(producto8);
 agregarProducto.Ejecutar(producto2);
@@ -115,6 +183,7 @@ agregarProducto.Ejecutar(producto4);
 agregarProducto.Ejecutar(producto5);
 
 listarProductosEnConsola();
+
 Console.WriteLine("\nModificacion de productos");
 producto3.PrecioUnitario = 930.50;
 producto3.Descripcion = "Balde Pintura Blanca 3.5L";
@@ -123,14 +192,30 @@ producto3.Stock = 8;
 producto5.PrecioUnitario = 165.00;
 producto5.Stock = 200;
 
-modificarProducto.Ejecutar(producto3);
 modificarProducto.Ejecutar(producto5);
-listarProductosEnConsola();
-Console.WriteLine("\nEliminacion de productos");
-eliminarProducto.Ejecutar(2);
-Console.WriteLine("\nListado de productos");
+
+
+// producto2.PrecioUnitario = -15.22;  // Tipos del elemento modificado inválido
+// producto2.Stock = -30 
+modificarProducto.Ejecutar(producto2);
+
+// modificarProducto.Ejecutar(producto200);  // Modificar un producto que no está agregado
+
+// modificarProducto.Ejecutar(producto3);
+// modificarProducto.Ejecutar(producto3); // Repetido
+
+// modificarProducto
+
+
 listarProductosEnConsola();
 
+Console.WriteLine("\nEliminacion de productos");
+eliminarProducto.Ejecutar(producto1.Id);
+
+
+Console.WriteLine("\nListado de productos");
+// eliminarProducto().Ejecutar(producto200.Id);  //Eliminar un producto que no existe
+listarProductosEnConsola();
 
 void listarProductosEnConsola()
 {
