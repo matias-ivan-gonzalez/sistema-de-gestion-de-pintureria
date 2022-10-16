@@ -7,3 +7,7 @@ ID: 2d92089c-02d9-4d9e-8f17-f5aa69d15136 Descripcion: 112 PrecioUnitario: 530 St
 ID: 590e56ae-3def-40cf-a120-fb5d12287cfa Descripcion: Balde Pintura Blanca 3.5L PrecioUnitario: 930,5 Stock: 8
 ID: 4e4217e5-b95f-4fa8-8235-9b7a5cd01c0e Descripcion: Pincel para interiores PrecioUnitario: 610 Stock: 15 
 ID: d4fc9086-349b-4932-baf9-b1740f396739 Descripcion: Lija fina 180 PrecioUnitario: 165 Stock: 200
+ID: a3a0a6cb-55f5-487a-bc03-ede112177f83 Descripcion: 112 PrecioUnitario: 530 Stock: 30 
+ID: 8170fcf4-bd40-40d8-bf61-b6ca01e42cba Descripcion: Balde Pintura Blanca 3.5L PrecioUnitario: 930,5 Stock: 8
+ID: 8801e632-d059-47fb-8f79-da1b7b10e8b1 Descripcion: Pincel para interiores PrecioUnitario: 610 Stock: 15 
+ID: abb77f1d-4687-4df1-a161-ce0ce9655667 Descripcion: Lija fina 180 PrecioUnitario: 165 Stock: 200
