@@ -6,28 +6,25 @@ var agregarCliente = new AgregarClienteUseCase(repoCliente);
 var listarClientes = new ListarClientesUseCase(repoCliente);
 var eliminarCliente = new EliminarClienteUseCase(repoCliente);
 var modificarCliente = new ModificarClienteUseCase(repoCliente);
-var persona1 = new ClienteFisico()
+var persona1 = new ClienteFisico("30321654")
 {
     Nombre = "juan",
     Direccion = "Diag.74 nro 123",
-    Telefono = "(11)502-1111",
-    DNI = 30321654
+    Telefono = "(11)502-1111"
 };
-var empresa = new ClienteEmpresa()
+var empresa = new ClienteEmpresa("30-12345678-1")
 {
     Nombre = "Empresa SA",
     Direccion = "calle 13 nro. 123",
     Telefono = "(221)543-3456",
-    CUIT = "30-12345678-1",
     SitioWeb = "www.empresaSA.com"
 };
 
-var persona2 = new ClienteFisico()
+var persona2 = new ClienteFisico("22752412")
 {
     Nombre = "María",
     Direccion = "calle 5 nro 1544",
-    Telefono = "(221)501-9999",
-    DNI = 22752412
+    Telefono = "(221)501-9999"
 };
 Console.WriteLine("\nCarga de clientes");
 agregarCliente.Ejecutar(persona1);
@@ -42,7 +39,7 @@ modificarCliente.Ejecutar(empresa);
 modificarCliente.Ejecutar(empresa);
 listarEnConsola();
 Console.WriteLine("\nEliminacion de clientes");
-eliminarCliente.Ejecutar(1);
+eliminarCliente.Ejecutar("1");
 Console.WriteLine("\nListado de clientes");
 listarEnConsola();
 
@@ -210,7 +207,7 @@ modificarProducto.Ejecutar(producto2);
 listarProductosEnConsola();
 
 Console.WriteLine("\nEliminacion de productos");
-eliminarProducto.Ejecutar(producto1.Id);
+eliminarProducto.Ejecutar(producto8.Id);
 
 
 Console.WriteLine("\nListado de productos");

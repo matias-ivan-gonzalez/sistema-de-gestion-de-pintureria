@@ -1,0 +1,16 @@
+ID: 472d5db9-01cf-4303-bb01-d88a34d02af3 Descripcion: Balde Pintura Blanca 3L PrecioUnitario: 870 Stock: 40
+ID: bee587bb-7189-427a-be0b-d582afa62602 Descripcion: Rodillo grande  PrecioUnitario: 1200 Stock: 10 
+ID: 67d9986f-8862-4cc5-9932-dafc87b78ba8 Descripcion: Pincel para interiores PrecioUnitario: 610 Stock: 15 
+ID: 5b94b391-8f34-462a-a006-3268a04f7039 Descripcion: Lija fina 180 PrecioUnitario: 165 Stock: 200
+ID: ced0c01c-1d7e-45ba-98e5-7cacf9de4f48 Descripcion: Balde Pintura Blanca 3L PrecioUnitario: 870 Stock: 40
+ID: baf4ea2b-43c3-44a1-a6b8-e9dceae036aa Descripcion: Rodillo grande  PrecioUnitario: 1200 Stock: 10 
+ID: 4364cff6-0969-46c2-b473-d4a546a094ec Descripcion: Pincel para interiores PrecioUnitario: 610 Stock: 15 
+ID: 11264572-0461-48e2-8bc6-6ef72eb151f7 Descripcion: Lija fina 180 PrecioUnitario: 165 Stock: 200
+ID: 815cdd8e-1b42-45f9-862a-6efd80888131 Descripcion: Balde Pintura Blanca 3L PrecioUnitario: 870 Stock: 40
+ID: 8cd01778-3c58-4f0f-a0ce-6c79c0e9357c Descripcion: Rodillo grande  PrecioUnitario: 1200 Stock: 10 
+ID: bcc37042-ffe6-4f2f-9b74-07c0570b2717 Descripcion: Pincel para interiores PrecioUnitario: 610 Stock: 15 
+ID: 7fe46b4f-2613-4ba0-b38f-0fd32c70d1f2 Descripcion: Lija fina 180 PrecioUnitario: 165 Stock: 200
+ID: 26b6b3f8-b50c-4412-be3c-b559e88e5a84 Descripcion: Balde Pintura Blanca 3L PrecioUnitario: 870 Stock: 40
+ID: 464fe54f-06e1-41e7-b9ff-9185faca5e1f Descripcion: Rodillo grande  PrecioUnitario: 1200 Stock: 10 
+ID: 5b469639-d62b-403d-82e5-382a95fb9261 Descripcion: Pincel para interiores PrecioUnitario: 610 Stock: 15 
+ID: 0e73fde8-9ec0-4910-b1d0-bc4b44384025 Descripcion: Lija fina 180 PrecioUnitario: 165 Stock: 200

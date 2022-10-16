@@ -1,11 +1,14 @@
+using System.Security.Cryptography;
 namespace Pintureria.Aplicacion;
 using System.Text;
 public class ClienteEmpresa : Cliente {
 
-    public string? CUIT {get;set;}
+    public string CUIT {get;set;}
     public string? SitioWeb {get;set;}
     
-    public ClienteEmpresa() : base(){}
+    public ClienteEmpresa(string cuit) : base(cuit) {
+        this.CUIT = cuit;
+    }
 
     public override string ToString(){
         StringBuilder sb = new StringBuilder();
@@ -14,4 +17,6 @@ public class ClienteEmpresa : Cliente {
         sb.Append($"SitioWeb: {SitioWeb} ");
         return sb.ToString();
     }
+
+    
 }

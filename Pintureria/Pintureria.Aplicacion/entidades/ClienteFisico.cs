@@ -2,9 +2,11 @@ namespace Pintureria.Aplicacion;
 using System.Text;
 public class ClienteFisico : Cliente {
 
-    public int? DNI {get;set;}
+    public string DNI {get;set;}
 
-    public ClienteFisico() : base(){}
+    public ClienteFisico(string dni) : base(dni){
+        DNI = dni;
+    }
 
     public override string ToString(){
         StringBuilder sb = new StringBuilder();

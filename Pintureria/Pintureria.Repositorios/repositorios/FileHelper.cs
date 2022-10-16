@@ -72,7 +72,7 @@ public class FileHelper {
         try{
                 if(actual != null){
                     if (entidadContieneId(actual, id)){
-                        if(actual.Equals(entidad)) throw new AlreadyRegisteredException();
+                        if(actual.Equals(entidad)) throw new ThereIsNoChangesException();
                         archivo = archivo?.Replace(actual, entidad);
                         File.WriteAllText(path, archivo);
                     }
