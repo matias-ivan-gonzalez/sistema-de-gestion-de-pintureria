@@ -1,7 +1,6 @@
-﻿using System.Security.Cryptography;
-namespace Pintureria.Aplicacion;
+﻿namespace Pintureria.Aplicacion;
 using System.Text;
-
+using Pintureria.Aplicacion.helpers;
 
 public abstract class Cliente {
     public string Id {get;protected set;}
@@ -10,7 +9,7 @@ public abstract class Cliente {
     public string? Telefono {get; set;}
 
     protected Cliente(string str){
-        Id = GetMD5(str);
+        Id = HashHelper.GetMD5(str);
     }
 
     public override string ToString(){
@@ -23,13 +22,4 @@ public abstract class Cliente {
         return sb.ToString();
     }
 
-    protected static string GetMD5(string str){
-        MD5 md5 = MD5.Create();
-        ASCIIEncoding encoding = new ASCIIEncoding();
-        byte[]? stream = null;
-        StringBuilder sb = new StringBuilder();
-        stream = md5.ComputeHash(encoding.GetBytes(str));
-        for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
-        return sb.ToString();
-    }
 }

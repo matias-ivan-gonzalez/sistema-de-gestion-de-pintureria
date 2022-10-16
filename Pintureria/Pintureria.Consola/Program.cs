@@ -64,51 +64,44 @@ var listarProductos = new ListarProductosUseCase(repoProducto);
 var eliminarProducto = new EliminarProductoUseCase(repoProducto);
 var modificarProducto = new ModificarProductoUseCase(repoProducto);
 
-Producto producto1 = new Producto()
+Producto producto1 = new Producto("Balde Pintura Amarilla 3L")
 {
-    Descripcion = "Balde Pintura Amarilla 3L",
     PrecioUnitario = 530.00,
     Stock = 30
 };
 
-Producto producto2 = new Producto()
+Producto producto2 = new Producto("Balde Pintura Blanca 3L")
 {
-    Descripcion = "Balde Pintura Blanca 3L",
     PrecioUnitario = 870.00,
     Stock = 40
 };
 
-Producto producto3 = new Producto()
+Producto producto3 = new Producto("Rodillo grande ")
 {
-    Descripcion = "Rodillo grande ",
     PrecioUnitario = 1200.00,
     Stock = 10
 };
 
-Producto producto4 = new Producto()
+Producto producto4 = new Producto("Pincel para interiores")
 {
-    Descripcion = "Pincel para interiores",
     PrecioUnitario = 610.00,
     Stock = 15
 };
 
-Producto producto5 = new Producto()
+Producto producto5 = new Producto("Lija fina 180")
 {
-    Descripcion = "Lija fina 180",
     PrecioUnitario = 150.00,
     Stock = 50
 };
 
-Producto producto8 = new Producto()
+Producto producto8 = new Producto("112")
 {
-    Descripcion = "112",
     PrecioUnitario = 530.00,
     Stock = 30
 };
 
-Producto producto200 = new Producto()  // No agregar este 
+Producto producto200 = new Producto("200")  // No agregar este 
 {
-    Descripcion = "200",
     PrecioUnitario = 200.20,
     Stock = 200
 };
@@ -183,7 +176,7 @@ listarProductosEnConsola();
 
 Console.WriteLine("\nModificacion de productos");
 producto3.PrecioUnitario = 930.50;
-producto3.Descripcion = "Balde Pintura Blanca 3.5L";
+//producto3.Descripcion = "Balde Pintura Blanca 3.5L"; //las descripciones no podemos cambiarlas porque de ellas depende su hash
 producto3.Stock = 8;
 
 producto5.PrecioUnitario = 165.00;
