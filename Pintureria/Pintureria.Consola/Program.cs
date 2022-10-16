@@ -101,12 +101,19 @@ Producto producto5 = new Producto()
     PrecioUnitario = 150.00,
     Stock = 50
 };
+Producto producto8 = new Producto()
+{
+    Descripcion = "112",
+    PrecioUnitario = 530.00,
+    Stock = 30
+};
 Console.WriteLine("\nCarga de productos");
-agregarProducto.Ejecutar(producto1);
+agregarProducto.Ejecutar(producto8);
 agregarProducto.Ejecutar(producto2);
 agregarProducto.Ejecutar(producto3);
 agregarProducto.Ejecutar(producto4);
 agregarProducto.Ejecutar(producto5);
+
 listarProductosEnConsola();
 Console.WriteLine("\nModificacion de productos");
 producto3.PrecioUnitario = 930.50;
