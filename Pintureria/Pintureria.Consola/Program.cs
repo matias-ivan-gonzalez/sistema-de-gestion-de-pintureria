@@ -106,49 +106,43 @@ Producto producto200 = new Producto("200")  // No agregar este
     Stock = 200
 };
 
-// Producto producto9 = new Producto()  // Con PrecioUnitario negativo
-// {
-//     Descripcion = "113",
-//     PrecioUnitario = -12.5,
-//     Stock = 30
-// };
-// agregarProducto.Ejecutar(producto9);
+Producto producto9 = new Producto("113")  // Con PrecioUnitario negativo - Muestra log de exception y no agrega
+{
+    PrecioUnitario = -12.5,
+    Stock = 15
+};
+agregarProducto.Ejecutar(producto9);
 
-// Producto producto10 = new Producto()    // Repetido con respecto al producto9
-// {
-//     Descripcion = "113",
-//     PrecioUnitario = -12.5,
-//     Stock = 30
-// };
-// agregarProducto.Ejecutar(producto10);
+Producto producto10 = new Producto("112")    // Repetido con respecto al producto8 - No se agrega e informa con un log
+{
+    PrecioUnitario = 530.00,
+    Stock = 30
+};
+agregarProducto.Ejecutar(producto10);
 
-// Producto producto11 = new Producto()       // Con Stock negativo
-// {
-//     Descripcion = "114",
-//     PrecioUnitario = 15.5,
-//     Stock = -4
-// };
-// agregarProducto.Ejecutar(producto11);
+Producto producto11 = new Producto("114")       // Con Stock negativo  - Muestra log de exception y no agrega
+{
+    PrecioUnitario = 15.5,
+    Stock = -4
+};
+agregarProducto.Ejecutar(producto11);
 
-// Producto producto12 = new Producto()       // Con Stock negativo y precio negativo
-// {
-//     Descripcion = "115",
-//     PrecioUnitario = -15.5,
-//     Stock = -4
-// };
-// agregarProducto.Ejecutar(producto12);
+Producto producto12 = new Producto("115")       // Con Stock negativo y precio negativo - Muestra uno de los dos errores
+{
+    PrecioUnitario = -15.5,
+    Stock = -4
+};
+agregarProducto.Ejecutar(producto12);
 
-// Producto producto13 = new Producto()       // Con Stock en double
+// Producto producto13 = new Producto("116")       // Con Stock en double - Error de compilación
 // {
-//     Descripcion = "115",
 //     PrecioUnitario = 150.25,
 //     Stock = 13.2
 // };
 // agregarProducto.Ejecutar(producto13);
 
-// Producto producto14 = new Producto()       // Precio es un string
+// Producto producto14 = new Producto("117")       // Precio es un string
 // {
-//     Descripcion = "116",
 //     PrecioUnitario = "150.25",
 //     Stock = 13
 // };

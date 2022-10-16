@@ -5,8 +5,15 @@ public class RepositorioProductoTXT : IRepositorioProducto {
     public RepositorioProductoTXT(){}
 
     public void add(Producto pro){
-        string? cliente = fileHelper.buscarProductoParaInsercion(pro.Id);
-        fileHelper.agregarProductoNoExistente(cliente, pro);
+        try {
+        fileHelper.validarValores(pro);
+        string? producto = fileHelper.buscarProductoParaInsercion(pro.Id);
+        fileHelper.agregarProductoNoExistente(producto, pro);
+        } 
+        catch(NegativeValueNotAllowedException e){
+            Console.WriteLine(e.Message);
+        }
+
     }
     public void modify(Producto pro){
         try{
