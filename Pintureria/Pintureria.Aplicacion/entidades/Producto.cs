@@ -2,10 +2,12 @@ namespace Pintureria.Aplicacion;
 
 public class Producto {
     static int s_id = 0;
+    private int _stock;
     public int Id {get;}
     public string? Descripcion {get; set;}
     public double PrecioUnitario {get;set;}
-    public int Stock {get; set;}
+    public int Stock {get => _stock; 
+                      set => _stock = (value < 0) ? 0 : value;}
 
     public Producto(){
        s_id++;
