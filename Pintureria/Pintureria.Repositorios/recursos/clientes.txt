@@ -1,2 +1,0 @@
-Pintureria.Aplicacion.ClienteEmpresa ID: 2 Nombre: Empresa SA Direccion: calle 7 nro. 50 Telefono: (221)543-3456 CUIT: 30-12345678-1 SitioWeb: www.empresaSA.com 
-ID: 3 Descripcion: Balde Pintura Blanca 3.5L PrecioUnitario: 930,5 Stock: 8

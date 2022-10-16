@@ -1,17 +1,20 @@
 namespace Pintureria.Repositorios;
 using Pintureria.Aplicacion;
 
-class FileHelper {
-    string clientesPath = "../Pintureria.Repositorios/recursos/clientes.txt";
-    string productosPath = "../Pintureria.Repositorios/recursos/productos.txt";
+public class FileHelper {
+    static string clientesPath = "../Pintureria.Repositorios/recursos/clientes.txt";
+    static string productosPath = "../Pintureria.Repositorios/recursos/productos.txt";
 
     // Metodos genericos para entidades
-    void agregarEntidad(string? cliente, Object entidad, string path){
+    void agregarEntidad(string? buscado, Object entidad, string path){
         StreamWriter? streamWriter = null;
         try{
-            if(cliente == null){
+            if(buscado == null){
                 streamWriter = new StreamWriter(path, true);
                 streamWriter.WriteLine($"{entidad.ToString()} ");
+            }
+            else{
+                throw new AlreadyRegisteredException();
             } 
         }
         catch (System.Exception e){
@@ -37,16 +40,18 @@ class FileHelper {
             }
         }
         streamReader.Close();
-        if(encontrado is false) throw new NoSuchElementException("La entidad en cuestion no ha sido registrada");
+        if(encontrado is false) throw new NoSuchElementException();
         return actual;
     }
 
-    public List<string> obtenerEntidadesDeArchivoEnLista(){
+    
+
+    List<string> obtenerEntidadesDeArchivoEnLista(string path){
         string? actual = null;
         StreamReader? streamReader = null;
         List<string> clientes = new List<string>();
         try{
-            streamReader = new StreamReader(clientesPath);
+            streamReader = new StreamReader(path);
             while(!streamReader.EndOfStream){
                 actual = streamReader.ReadLine();
                 if(actual != null) clientes.Add(actual);
@@ -62,13 +67,15 @@ class FileHelper {
         return clientes;
     }
 
-    void sobreEscribirArchivoConEntidadAlterada(string? archivo, string? actual,int id, string entidad){
+    void sobreEscribirArchivoConEntidadAlterada(string? archivo, string? actual,int id, string entidad, string path){
         try{
                 if(actual != null){
                     if (entidadContieneId(actual, id)){
+                        if(actual.Equals(entidad)) throw new AlreadyRegisteredException();
                         archivo = archivo?.Replace(actual, entidad);
-                        File.WriteAllText(clientesPath, archivo);
+                        File.WriteAllText(path, archivo);
                     }
+                    else throw new NoSuchElementException();
                 }
             }
             catch (System.Exception e){
@@ -98,8 +105,8 @@ class FileHelper {
 
     public void modificarCliente(Cliente cli){
         string? actual = buscarEntidad(cli.Id, clientesPath);
-        string? archivo = obtenerArchivoCompleto();
-        sobreEscribirArchivoPorAlteracion(archivo,actual,cli);
+        string? archivo = obtenerArchivoCompleto(clientesPath);
+        sobreEscribirArchivoConEntidadAlterada(archivo, actual, cli.Id, cli.ToString(), clientesPath);
     }
 
     public void removerCliente(int id){
@@ -118,8 +125,8 @@ class FileHelper {
         }  
     }
 
-    public void sobreEscribirArchivoPorAlteracion(string? archivo, string? actual, Cliente cli){
-        sobreEscribirArchivoConEntidadAlterada(archivo, actual, cli.Id, cli.ToString());
+    public List<string> getClientes(){
+        return obtenerEntidadesDeArchivoEnLista(clientesPath);
     }
 
     // <---------------------------------------------------->
@@ -134,24 +141,25 @@ class FileHelper {
     }
     
     public void modificarProducto(Producto pro){
-        string? actual = buscarEntidad(pro.Id, clientesPath);
-        string? archivo = obtenerArchivoCompleto();
-        sobreEscribirArchivoPorAlteracion(archivo,actual,pro);
+        string? actual = buscarEntidad(pro.Id, productosPath);
+        string? archivo = obtenerArchivoCompleto(productosPath);
+        sobreEscribirArchivoConEntidadAlterada(archivo, actual, pro.Id, pro.ToString(), productosPath);
     }
 
-    public void sobreEscribirArchivoPorAlteracion(string? archivo, string? actual, Producto pro){
-        sobreEscribirArchivoConEntidadAlterada(archivo, actual, pro.Id, pro.ToString());
+
+    public List<string> getProductos(){
+        return obtenerEntidadesDeArchivoEnLista(productosPath);
     }
 
     // <---------------------------------------------------->
 
     // Operaciones sobre archivos completos
     
-    public string? obtenerArchivoCompleto(){
+    public string? obtenerArchivoCompleto(string path){
         StreamReader? streamReader = null;
         string? archivo = null;
         try{
-            streamReader = new StreamReader(clientesPath);
+            streamReader = new StreamReader(path);
             archivo = streamReader.ReadToEnd();
         }
         catch (System.Exception e){
@@ -163,6 +171,16 @@ class FileHelper {
             streamReader?.Dispose();
         }
         return archivo;
+    }
+
+    public static void resetearArchivos(){
+        try{
+            File.WriteAllText(clientesPath, "");
+            File.WriteAllText(productosPath, "");
+        }
+        catch(System.Exception e){
+            Console.WriteLine(e.Message);
+        }
     }
 
     // <---------------------------------------------------->

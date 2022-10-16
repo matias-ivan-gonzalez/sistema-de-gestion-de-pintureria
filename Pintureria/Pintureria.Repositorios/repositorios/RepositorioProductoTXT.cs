@@ -9,12 +9,22 @@ public class RepositorioProductoTXT : IRepositorioProducto {
         fileHelper.agregarProductoNoExistente(cliente, pro);
     }
     public void modify(Producto pro){
-        fileHelper.modificarProducto(pro);
+        try{
+            fileHelper.modificarProducto(pro);
+        }
+        catch (NoSuchElementException e){
+            Console.WriteLine(e.Message);
+        }
     }
     public void delete(int id){
-        
+        try{
+            //fileHelper.eliminarCliente(id);
+        }
+        catch (NoSuchElementException e){
+            Console.WriteLine(e.Message);
+        }
     }
     public List<string> get(){
-        return fileHelper.obtenerEntidadesDeArchivoEnLista();
+        return fileHelper.getProductos();
     }
 }

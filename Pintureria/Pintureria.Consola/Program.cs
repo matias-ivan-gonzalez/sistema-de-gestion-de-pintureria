@@ -29,17 +29,23 @@ var persona2 = new ClienteFisico()
     Telefono = "(221)501-9999",
     DNI = 22752412
 };
+Console.WriteLine("\nCarga de clientes");
 agregarCliente.Ejecutar(persona1);
 agregarCliente.Ejecutar(empresa);
 agregarCliente.Ejecutar(persona2);
 listarEnConsola();
+Console.WriteLine("\nModificacion de clientes");
 persona2.Nombre = "Claudia";
 empresa.Direccion = "calle 7 nro. 50";
 modificarCliente.Ejecutar(persona2);
 modificarCliente.Ejecutar(empresa);
+modificarCliente.Ejecutar(empresa);
 listarEnConsola();
+Console.WriteLine("\nEliminacion de clientes");
 eliminarCliente.Ejecutar(1);
+Console.WriteLine("\nListado de clientes");
 listarEnConsola();
+
 void listarEnConsola()
 {
     var lista = listarClientes.Ejecutar();
@@ -95,14 +101,14 @@ Producto producto5 = new Producto()
     PrecioUnitario = 150.00,
     Stock = 50
 };
-
+Console.WriteLine("\nCarga de productos");
 agregarProducto.Ejecutar(producto1);
 agregarProducto.Ejecutar(producto2);
 agregarProducto.Ejecutar(producto3);
 agregarProducto.Ejecutar(producto4);
 agregarProducto.Ejecutar(producto5);
 listarProductosEnConsola();
-
+Console.WriteLine("\nModificacion de productos");
 producto3.PrecioUnitario = 930.50;
 producto3.Descripcion = "Balde Pintura Blanca 3.5L";
 producto3.Stock = 8;
@@ -113,9 +119,11 @@ producto5.Stock = 200;
 modificarProducto.Ejecutar(producto3);
 modificarProducto.Ejecutar(producto5);
 listarProductosEnConsola();
-
+Console.WriteLine("\nEliminacion de productos");
 eliminarProducto.Ejecutar(2);
+Console.WriteLine("\nListado de productos");
 listarProductosEnConsola();
+
 
 void listarProductosEnConsola()
 {
@@ -128,3 +136,4 @@ void listarProductosEnConsola()
 }
 
 Console.ReadLine();
+//FileHelper.resetearArchivos();

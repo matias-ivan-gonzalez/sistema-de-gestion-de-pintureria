@@ -27,6 +27,6 @@ public class RepositorioClienteTXT : IRepositorioCliente {
     }
 
     public List<string> get(){
-        return fileHelper.obtenerEntidadesDeArchivoEnLista();
+        return fileHelper.getClientes();
     }
 }

@@ -1,8 +1,7 @@
-
 public class NoSuchElementException : Exception{
-    public NoSuchElementException() { }
+    public NoSuchElementException() : base("Id no registrado") { }
 
-    public NoSuchElementException(string message) : base($"{message} no registrado"){ 
+    public NoSuchElementException(string message) : base(message){ 
     }
 
     public NoSuchElementException(string message, Exception inner)
