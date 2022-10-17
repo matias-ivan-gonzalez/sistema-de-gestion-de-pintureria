@@ -2,9 +2,9 @@ namespace Pintureria.Aplicacion;
 using System.Text;
 public class ClienteFisico : Cliente {
 
-    public string DNI {get;set;}
+    public int DNI {get;set;}
 
-    public ClienteFisico(string dni) : base(dni){
+    public ClienteFisico(int dni) : base(dni){
         DNI = dni;
     }
 

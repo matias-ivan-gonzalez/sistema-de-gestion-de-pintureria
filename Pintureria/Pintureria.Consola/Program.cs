@@ -6,13 +6,13 @@ var agregarCliente = new AgregarClienteUseCase(repoCliente);
 var listarClientes = new ListarClientesUseCase(repoCliente);
 var eliminarCliente = new EliminarClienteUseCase(repoCliente);
 var modificarCliente = new ModificarClienteUseCase(repoCliente);
-var persona1 = new ClienteFisico("30321654")
+var persona1 = new ClienteFisico(30321654)
 {
     Nombre = "juan",
     Direccion = "Diag.74 nro 123",
     Telefono = "(11)502-1111"
 };
-var empresa = new ClienteEmpresa("30-12345678-1")
+var empresa = new ClienteEmpresa(30123456781)
 {
     Nombre = "Empresa SA",
     Direccion = "calle 13 nro. 123",
@@ -20,7 +20,7 @@ var empresa = new ClienteEmpresa("30-12345678-1")
     SitioWeb = "www.empresaSA.com"
 };
 
-var persona2 = new ClienteFisico("22752412")
+var persona2 = new ClienteFisico(22752412)
 {
     Nombre = "María",
     Direccion = "calle 5 nro 1544",

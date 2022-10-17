@@ -1,3 +1,4 @@
 ClienteFisico ID: d10968a21e71ad4323ba5aa4fe289152 Nombre: juan Direccion: Diag.74 nro 123 Telefono: (11)502-1111 DNI: 30321654  
 ClienteEmpresa ID: fdc1bc6b93055659e8ff350841aa4cdc Nombre: Empresa SA Direccion: calle 7 nro. 50 Telefono: (221)543-3456 CUIT: 30-12345678-1 SitioWeb: www.empresaSA.com 
 ClienteFisico ID: 09fef19f33810ce17e19baab4d72b520 Nombre: Claudia Direccion: calle 5 nro 1544 Telefono: (221)501-9999 DNI: 22752412 
+ClienteEmpresa ID: f50b740bc39022238a6eec5ef3e704fa Nombre: Empresa SA Direccion: calle 7 nro. 50 Telefono: (221)543-3456 CUIT: 30123456781 SitioWeb: www.empresaSA.com 

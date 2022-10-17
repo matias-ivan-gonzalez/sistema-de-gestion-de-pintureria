@@ -3,10 +3,10 @@ namespace Pintureria.Aplicacion;
 using System.Text;
 public class ClienteEmpresa : Cliente {
 
-    public string CUIT {get;set;}
+    public long CUIT {get;set;}
     public string? SitioWeb {get;set;}
     
-    public ClienteEmpresa(string cuit) : base(cuit) {
+    public ClienteEmpresa(long cuit) : base(cuit) {
         this.CUIT = cuit;
     }
 

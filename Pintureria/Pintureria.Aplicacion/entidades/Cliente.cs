@@ -8,8 +8,8 @@ public abstract class Cliente {
     public string? Direccion {get; set;}
     public string? Telefono {get; set;}
 
-    protected Cliente(string str){
-        Id = HashHelper.GetMD5(str);
+    protected Cliente(long id){
+        Id = HashHelper.GetMD5(id.ToString());
     }
 
     public override string ToString(){

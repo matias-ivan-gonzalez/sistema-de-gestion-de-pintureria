@@ -6,7 +6,7 @@ public class Producto {
     public string Id {get;}
     public string Descripcion {get;}
     public double PrecioUnitario {get;set;}
-    public int Stock {get;set;}
+    public long Stock {get;set;}
 
     public Producto(string descripcion){
         Descripcion = descripcion;
