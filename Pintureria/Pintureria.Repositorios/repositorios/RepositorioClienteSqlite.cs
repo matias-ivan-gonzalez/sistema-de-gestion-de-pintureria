@@ -2,13 +2,15 @@ namespace Pintureria.Repositorios;
 using Pintureria.Aplicacion;
 public class RepositorioClienteSqlite : IRepositorioCliente
 {
+    EntidadesContext context = new EntidadesContext();
     FileHelper fileHelper = new FileHelper();
     public RepositorioClienteSqlite() { }
 
-    public void add(Cliente cli)
-    {
-        string? cliente = fileHelper.buscarClienteParaInsercion(cli.Id);
-        fileHelper.agregarClienteNoExistente(cliente, cli);
+    public void add(Cliente cli) {
+        var cliente = context.Clientes
+            .Where(c => c.Id == cli.Id)
+            .FirstOrDefault<Cliente>();
+        if(cliente==null) context.Clientes.Add(cli);
     }
 
     public void modify(Cliente cli)

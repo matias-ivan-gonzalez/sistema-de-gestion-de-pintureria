@@ -10,6 +10,9 @@ public class ClienteEmpresa : Cliente {
         this.CUIT = cuit;
     }
 
+    public ClienteEmpresa() {
+    }
+
     public override string ToString(){
         StringBuilder sb = new StringBuilder();
         sb.Append(base.ToString());

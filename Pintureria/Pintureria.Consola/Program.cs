@@ -1,7 +1,8 @@
 ﻿using Pintureria.Aplicacion;
 using Pintureria.Repositorios;
 
-var repoCliente = new RepositorioClienteTXT();
+//var repoCliente = new RepositorioClienteTXT();
+var repoCliente = new RepositorioClienteSqlite();
 var agregarCliente = new AgregarClienteUseCase(repoCliente);
 var listarClientes = new ListarClientesUseCase(repoCliente);
 var eliminarCliente = new EliminarClienteUseCase(repoCliente);

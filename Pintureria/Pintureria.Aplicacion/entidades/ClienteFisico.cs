@@ -8,6 +8,9 @@ public class ClienteFisico : Cliente {
         DNI = dni;
     }
 
+    public ClienteFisico() {
+    }
+
     public override string ToString(){
         StringBuilder sb = new StringBuilder();
         sb.Append(base.ToString());
