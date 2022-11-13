@@ -10,7 +10,10 @@ public class RepositorioClienteSqlite : IRepositorioCliente
         var cliente = context.Clientes
             .Where(c => c.Id == cli.Id)
             .FirstOrDefault<Cliente>();
-        if(cliente==null) context.Clientes.Add(cli);
+        if(cliente==null) {
+            context.Clientes.Add(cli);
+            context.SaveChanges();
+        }
     }
 
     public void modify(Cliente cli)

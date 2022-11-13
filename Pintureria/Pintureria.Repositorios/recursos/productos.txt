@@ -1,0 +1,4 @@
+ID: c61f623453ba2566d2a52f1daea32b96 Descripcion: Balde Pintura Blanca 3L PrecioUnitario: 870 Stock: 40
+ID: 878cd3bfc68b04d140aa5d225402b5de Descripcion: Rodillo grande  PrecioUnitario: 930,5 Stock: 8
+ID: 8e6a6f08d74cf0d445f4c321c4eb7bc3 Descripcion: Pincel para interiores PrecioUnitario: 610 Stock: 15 
+ID: c47ccf425b182ae369e7c0fd66cff72c Descripcion: Lija fina 180 PrecioUnitario: 165 Stock: 200

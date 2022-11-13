@@ -5,8 +5,8 @@ public class RepositorioClienteTXT : IRepositorioCliente {
     public RepositorioClienteTXT(){}
 
     public void add(Cliente cli){
-        string? cliente = fileHelper.buscarClienteParaInsercion(cli.Id);
-        fileHelper.agregarClienteNoExistente(cliente, cli);            
+        //string? cliente = fileHelper.buscarClienteParaInsercion(cli.Id);
+        //fileHelper.agregarClienteNoExistente(cliente, cli);            
     }
 
     public void modify(Cliente cli){

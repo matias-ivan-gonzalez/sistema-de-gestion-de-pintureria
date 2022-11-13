@@ -146,9 +146,9 @@ public class FileHelper
 
     public void modificarCliente(Cliente cli)
     {
-        string? actual = buscarEntidad(cli.Id, clientesPath);
+        //string? actual = buscarEntidad(cli.Id, clientesPath);
         string? archivo = obtenerArchivoCompleto(clientesPath);
-        sobreEscribirArchivoConEntidadAlterada(archivo, actual, cli.Id, cli.ToString(), clientesPath);
+        //sobreEscribirArchivoConEntidadAlterada(archivo, actual, cli.Id, cli.ToString(), clientesPath);
     }
 
     public void removerCliente(string id)
