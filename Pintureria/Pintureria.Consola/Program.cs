@@ -40,7 +40,7 @@ modificarCliente.Ejecutar(empresa);
 modificarCliente.Ejecutar(empresa);
 listarEnConsola();
 Console.WriteLine("\nEliminacion de clientes");
-eliminarCliente.Ejecutar("1");
+eliminarCliente.Ejecutar(30123456781);
 Console.WriteLine("\nListado de clientes");
 listarEnConsola();
 
@@ -58,7 +58,7 @@ Console.WriteLine("\n\n");
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /* Producto */
-
+/*
 var repoProducto = new RepositorioProductoTXT();
 var agregarProducto = new AgregarProductoUseCase(repoProducto);
 var listarProductos = new ListarProductosUseCase(repoProducto);
@@ -95,7 +95,7 @@ Producto producto5 = new Producto("Lija fina 180")
     Stock = 50
 };
 
-Producto producto8 = new Producto("112")
+Producto producto8 = new Producto(112)
 {
     PrecioUnitario = 530.00,
     Stock = 30
@@ -206,6 +206,6 @@ void listarProductosEnConsola()
     }
     Console.WriteLine("-----");
 }
-
+*/
 Console.ReadLine();
 //FileHelper.resetearArchivos();
