@@ -1,7 +1,7 @@
 namespace Pintureria.Repositorios;
 using System.Text.RegularExpressions;
 using Pintureria.Aplicacion;
-
+/*
 public class FileHelper
 {
     static string clientesPath = "../Pintureria.Repositorios/recursos/clientes.txt";
@@ -239,7 +239,7 @@ public class FileHelper
 
     public static int obtenerIdMayor()
     {
-        List<string> clientes = new RepositorioClienteTXT().get();
+        List<Cliente> clientes = new RepositorioClienteTXT().get();
         int id = clientes.Max(c => Regex.Replace(c, "[^0-9]+", string.Empty)[0]);
         return id;
     }
@@ -265,3 +265,4 @@ public class FileHelper
     // }
     // <---------------------------------------------------->
 }
+*/

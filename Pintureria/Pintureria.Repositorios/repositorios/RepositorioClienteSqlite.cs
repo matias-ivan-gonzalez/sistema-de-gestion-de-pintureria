@@ -1,9 +1,9 @@
 namespace Pintureria.Repositorios;
 using Pintureria.Aplicacion;
-public class RepositorioClienteSqlite : IRepositorioCliente
+public class RepositorioClienteSqlite : IRepositorio<Cliente>
 {
-    EntidadesContext context = new EntidadesContext();
-    FileHelper fileHelper = new FileHelper();
+    EntidadesContext<Cliente> context = new EntidadesContext<Cliente>();
+    //FileHelper fileHelper = new FileHelper();
     public RepositorioClienteSqlite() { }
 
     public void add(Cliente cli) {
@@ -41,11 +41,20 @@ public class RepositorioClienteSqlite : IRepositorioCliente
             Console.WriteLine(e.Message);
         }
     }
-    public void delete(string id)
+    public void delete(long id)
     {
         try
         {
-            fileHelper.removerCliente(id);
+            var cliente = context.Clientes
+            .Where(c => c.Id == id)
+            .FirstOrDefault<Cliente>();
+            if(cliente!=null){
+                context.Clientes.Remove(cliente);
+                context.SaveChanges();
+            }
+            else{
+                throw new NoSuchElementException();
+            }
         }
         catch (NoSuchElementException e)
         {
@@ -53,8 +62,8 @@ public class RepositorioClienteSqlite : IRepositorioCliente
         }
     }
 
-    public List<string> get()
+    public List<Cliente> get()
     {
-        return fileHelper.getClientes();
+        return context.Clientes.ToList<Cliente>();
     }
 }

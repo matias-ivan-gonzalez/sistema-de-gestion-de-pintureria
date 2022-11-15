@@ -1,8 +1,8 @@
 namespace Pintureria.Aplicacion;
 
 public class ProductoUseCase{
-    protected readonly IRepositorioProducto repositorio;
-    public ProductoUseCase(IRepositorioProducto unRepositorio){
+    protected readonly IRepositorio<Producto> repositorio;
+    public ProductoUseCase(IRepositorio<Producto> unRepositorio){
         repositorio = unRepositorio;
     }
 }

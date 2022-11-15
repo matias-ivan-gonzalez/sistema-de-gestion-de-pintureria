@@ -2,7 +2,7 @@
 using System.Text;
 using Pintureria.Aplicacion.helpers;
 
-public abstract class Cliente {
+public abstract class Cliente : Entidad{
     public long Id {get;protected set;}
     public string? Nombre {get;set;}
     public string? Direccion {get; set;}

@@ -1,7 +1,7 @@
 ﻿namespace Pintureria.Repositorios;
 using Pintureria.Aplicacion;
-public class RepositorioClienteTXT : IRepositorioCliente {
-    FileHelper fileHelper = new FileHelper();
+public class RepositorioClienteTXT : IRepositorio<Cliente> {
+    //FileHelper fileHelper = new FileHelper();
     public RepositorioClienteTXT(){}
 
     public void add(Cliente cli){
@@ -11,22 +11,23 @@ public class RepositorioClienteTXT : IRepositorioCliente {
 
     public void modify(Cliente cli){
         try{
-            fileHelper.modificarCliente(cli);
+            //fileHelper.modificarCliente(cli);
         }
         catch (NoSuchElementException e){
             Console.WriteLine(e.Message);
         }
     }
-    public void delete(string id){
+    public void delete(long id){
         try{
-            fileHelper.removerCliente(id);
+            //fileHelper.removerCliente(id);
         }
         catch (NoSuchElementException e){
             Console.WriteLine(e.Message);
         }   
     }
 
-    public List<string> get(){
-        return fileHelper.getClientes();
+    public List<Cliente> get(){
+        //return fileHelper.getClientes();
+        return null;
     }
 }

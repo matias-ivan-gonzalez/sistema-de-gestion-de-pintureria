@@ -2,9 +2,9 @@ namespace Pintureria.Aplicacion;
 
 public class ListarProductosUseCase : ProductoUseCase{
 
-    public ListarProductosUseCase(IRepositorioProducto repositorio) : base(repositorio){}
+    public ListarProductosUseCase(IRepositorio<Producto> repositorio) : base(repositorio){}
 
-    public List<String> Ejecutar(){
+    public List<Producto> Ejecutar(){
         return repositorio.get();
     }
 

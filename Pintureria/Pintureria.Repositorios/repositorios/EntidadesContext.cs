@@ -1,10 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Pintureria.Aplicacion;
-public class EntidadesContext : DbContext {
+public class EntidadesContext<Class> : DbContext where Class : Entidad {
 
 	#nullable disable
-	public DbSet<Cliente> Clientes { get; set; }
-	public DbSet<Producto> Productos { get; set; }
+	public DbSet<Class> tabla { get; set; }
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 		optionsBuilder.UseSqlite("data source=Entidades.db");
