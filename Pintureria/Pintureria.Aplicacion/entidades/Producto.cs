@@ -3,16 +3,12 @@ using Pintureria.Aplicacion.helpers;
 
 
 public class Producto : Entidad {
-    public long? Id {get; set;}
-    public string? Descripcion {get;}
+    public string Descripcion {get; set;}
     public double PrecioUnitario {get;set;}
     public long Stock {get;set;}
 
-    public Producto(string descripcion){
+    public Producto(string descripcion) : base(1){
         Descripcion = descripcion;
-    }
-
-    public Producto(){
     }
 
     public override string ToString(){

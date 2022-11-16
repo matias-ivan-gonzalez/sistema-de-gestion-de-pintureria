@@ -3,17 +3,13 @@ using System.Text;
 using Pintureria.Aplicacion.helpers;
 
 public abstract class Cliente : Entidad{
-    public long Id {get;protected set;}
     public string? Nombre {get;set;}
     public string? Direccion {get; set;}
     public string? Telefono {get; set;}
 
-    protected Cliente(long id){
-        Id = id;
-    }
+    protected Cliente(long id) : base(id){}
 
-    protected Cliente(){
-    }
+    protected Cliente() : base(){}
 
     public override string ToString(){
         StringBuilder sb = new StringBuilder();

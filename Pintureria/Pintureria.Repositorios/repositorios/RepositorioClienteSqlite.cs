@@ -2,22 +2,16 @@ namespace Pintureria.Repositorios;
 using Pintureria.Aplicacion;
 public class RepositorioClienteSqlite : IRepositorio<Cliente>
 {
-    EntidadesContext<Cliente> context = new EntidadesContext<Cliente>();
-    //FileHelper fileHelper = new FileHelper();
-    public RepositorioClienteSqlite() { }
+    EntidadesContext context;
+    SqliteHelper<Cliente> sqliteHelper;
+    public RepositorioClienteSqlite() {
+        context = new EntidadesContext();
+        sqliteHelper = new SqliteHelper<Cliente>(context, context.Clientes);
+    }
 
     public void add(Cliente cli) {
         try {
-            var cliente = context.Clientes
-            .Where(c => c.Id == cli.Id)
-            .FirstOrDefault<Cliente>();
-            if(cliente==null) {
-                context.Clientes.Add(cli);
-                context.SaveChanges();
-            }
-            else{
-                throw new AlreadyRegisteredException();
-            }
+            sqliteHelper.agregar(cli);
         }
         catch (System.Exception e) {
             Console.WriteLine(e.Message);
@@ -26,16 +20,7 @@ public class RepositorioClienteSqlite : IRepositorio<Cliente>
 
     public void modify(Cliente cli) {
         try {
-            var cliente = context.Clientes
-            .Where(c => c.Id == cli.Id)
-            .FirstOrDefault<Cliente>();
-            if(cliente!=null){
-                cliente = cli;
-                context.SaveChanges();
-            }
-            else{
-                throw new NoSuchElementException();
-            }
+            sqliteHelper.modificar(cli);
         }
         catch (NoSuchElementException e) {
             Console.WriteLine(e.Message);
@@ -43,18 +28,8 @@ public class RepositorioClienteSqlite : IRepositorio<Cliente>
     }
     public void delete(long id)
     {
-        try
-        {
-            var cliente = context.Clientes
-            .Where(c => c.Id == id)
-            .FirstOrDefault<Cliente>();
-            if(cliente!=null){
-                context.Clientes.Remove(cliente);
-                context.SaveChanges();
-            }
-            else{
-                throw new NoSuchElementException();
-            }
+        try {
+            sqliteHelper.eliminar(id);
         }
         catch (NoSuchElementException e)
         {
@@ -62,8 +37,7 @@ public class RepositorioClienteSqlite : IRepositorio<Cliente>
         }
     }
 
-    public List<Cliente> get()
-    {
-        return context.Clientes.ToList<Cliente>();
+    public List<Cliente> get() {
+        return sqliteHelper.listarTabla();
     }
 }

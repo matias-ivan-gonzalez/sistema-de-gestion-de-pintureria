@@ -8,8 +8,8 @@ public class ClienteFisico : Cliente {
         DNI = dni;
     }
 
-    public ClienteFisico() {
-    }
+    private ClienteFisico() : base(){}
+
 
     public override string ToString(){
         StringBuilder sb = new StringBuilder();

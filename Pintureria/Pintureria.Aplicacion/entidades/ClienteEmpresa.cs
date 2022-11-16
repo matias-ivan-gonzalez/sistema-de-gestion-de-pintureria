@@ -1,4 +1,3 @@
-using System.Security.Cryptography;
 namespace Pintureria.Aplicacion;
 using System.Text;
 public class ClienteEmpresa : Cliente {
@@ -10,8 +9,7 @@ public class ClienteEmpresa : Cliente {
         this.CUIT = cuit;
     }
 
-    public ClienteEmpresa() {
-    }
+    private ClienteEmpresa() : base(){}
 
     public override string ToString(){
         StringBuilder sb = new StringBuilder();
