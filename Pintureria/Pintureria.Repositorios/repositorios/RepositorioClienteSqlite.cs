@@ -2,12 +2,18 @@ namespace Pintureria.Repositorios;
 using Pintureria.Aplicacion;
 public class RepositorioClienteSqlite : IRepositorio<Cliente>
 {
+<<<<<<< Updated upstream
     EntidadesContext context;
     SqliteHelper<Cliente> sqliteHelper;
     public RepositorioClienteSqlite() {
         context = new EntidadesContext();
         sqliteHelper = new SqliteHelper<Cliente>(context, context.Clientes);
     }
+=======
+    // EntidadesContext<Cliente> context = new EntidadesContext<Cliente>();
+    //FileHelper fileHelper = new FileHelper();
+    public RepositorioClienteSqlite() { }
+>>>>>>> Stashed changes
 
     public void add(Cliente cli) {
         try {
