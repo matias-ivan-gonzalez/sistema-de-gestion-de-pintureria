@@ -1,7 +1,6 @@
 namespace Pintureria.Aplicacion;
 
 public class Venta: Entidad{
-    public int Id {get; private set;}
     public int Cliente {get;}
     public DateTime Fecha {get; private set;}
     public double MontoTotal {get; private set;}
