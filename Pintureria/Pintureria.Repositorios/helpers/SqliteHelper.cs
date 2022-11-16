@@ -9,6 +9,7 @@ public class SqliteHelper<Class> where Class : Entidad {
         this.dbset = dbset;
         this.context = context;
     }
+    
     public Class? buscar(long? id){
         return dbset.Where(c => c.Id == id).FirstOrDefault<Class>();
     }

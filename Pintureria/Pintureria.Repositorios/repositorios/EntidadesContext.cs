@@ -5,6 +5,7 @@ public class EntidadesContext : DbContext {
 	#nullable disable
 	public DbSet<Cliente> Clientes { get; set; }
     public DbSet<Producto> Productos { get; set; }
+    #nullable restore
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 		optionsBuilder.UseSqlite("data source=Entidades.db");
