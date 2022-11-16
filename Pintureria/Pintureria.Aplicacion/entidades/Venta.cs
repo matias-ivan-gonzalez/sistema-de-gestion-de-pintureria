@@ -13,7 +13,6 @@ public class Venta: Entidad{
         Fecha = DateTime.Now;
         MontoTotal = this.calcularMonto(Detalles);
     }
-
     private double calcularMonto(IEnumerable<DetalleVenta> detalles) => detalles.ToList().Sum(n => n.cantidad * n.precioUnidad);
 
 
