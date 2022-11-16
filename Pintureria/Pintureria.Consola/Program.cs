@@ -1,8 +1,8 @@
 ﻿using Pintureria.Aplicacion;
 using Pintureria.Repositorios;
 
-//var repoCliente = new RepositorioClienteTXT();
-var repoCliente = new RepositorioClienteSqlite();
+var repoCliente = new RepositorioSqlite<Cliente>();
+
 var agregarCliente = new AgregarClienteUseCase(repoCliente);
 var listarClientes = new ListarClientesUseCase(repoCliente);
 var eliminarCliente = new EliminarClienteUseCase(repoCliente);
@@ -58,8 +58,8 @@ Console.WriteLine("\n\n");
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /* Producto */
-/*
-var repoProducto = new RepositorioProductoTXT();
+
+var repoProducto = new RepositorioSqlite<Producto>();
 var agregarProducto = new AgregarProductoUseCase(repoProducto);
 var listarProductos = new ListarProductosUseCase(repoProducto);
 var eliminarProducto = new EliminarProductoUseCase(repoProducto);
@@ -95,7 +95,7 @@ Producto producto5 = new Producto("Lija fina 180")
     Stock = 50
 };
 
-Producto producto8 = new Producto(112)
+Producto producto8 = new Producto("Lija fina 120")
 {
     PrecioUnitario = 530.00,
     Stock = 30
@@ -206,6 +206,6 @@ void listarProductosEnConsola()
     }
     Console.WriteLine("-----");
 }
-*/
+
 Console.ReadLine();
 //FileHelper.resetearArchivos();

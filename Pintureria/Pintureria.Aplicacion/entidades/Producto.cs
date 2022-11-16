@@ -5,7 +5,7 @@ public class Producto : Entidad {
     public double PrecioUnitario {get;set;}
     public long Stock {get;set;}
 
-    public Producto(string descripcion) : base(1){
+    public Producto(string descripcion) : base(){
         Descripcion = descripcion;
     }
 

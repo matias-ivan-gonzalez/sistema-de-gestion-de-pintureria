@@ -1,3 +1,5 @@
+namespace Pintureria.Repositorios;
+
 using Pintureria.Aplicacion;
 
 public class RepositorioSqlite<Class> : IRepositorio<Class> where Class : Entidad {
@@ -26,7 +28,7 @@ public class RepositorioSqlite<Class> : IRepositorio<Class> where Class : Entida
             Console.WriteLine(e.Message);
         }
     }
-    
+
     public void delete(long id)
     {
         try {
