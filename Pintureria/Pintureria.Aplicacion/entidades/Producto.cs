@@ -1,6 +1,4 @@
 namespace Pintureria.Aplicacion;
-using Pintureria.Aplicacion.helpers;
-
 
 public class Producto : Entidad {
     public string Descripcion {get; set;}
