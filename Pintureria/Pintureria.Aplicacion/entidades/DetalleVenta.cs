@@ -1,18 +1,18 @@
-public class DetalleVenta{
-    public int IdVenta {get; protected set;}
+public class DetalleVenta : Entidad {
+    public long VentaId {get; protected set;}
 
-    public int IdProducto {get; protected set;}
+    public long ProductoId {get; protected set;}
 
-    public int cantidad {get; set;}
+    public int Cantidad {get; set;}
 
-    public double precioUnidad {get; set;}
+    public double PrecioUnidad {get; set;}
 
-    public DetalleVenta(int cant, double precio, int idVenta, int idProducto){
-        IdVenta = idVenta; IdProducto = idProducto;
-        precioUnidad = precio;
-        cantidad = cant;
+    public DetalleVenta(int cant, double precio, long idVenta, long idProducto){
+        VentaId = idVenta; ProductoId = idProducto;
+        PrecioUnidad = precio;
+        Cantidad = cant;
     }
 
-    
+    private DetalleVenta() : base(){}
 
 }

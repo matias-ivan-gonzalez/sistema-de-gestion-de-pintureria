@@ -1,4 +1,5 @@
-﻿using Pintureria.Aplicacion;
+﻿using System;
+using Pintureria.Aplicacion;
 using Pintureria.Repositorios;
 
 var repoCliente = new RepositorioSqlite<Cliente>();
@@ -28,9 +29,11 @@ var persona2 = new ClienteFisico(22752412)
     Telefono = "(221)501-9999"
 };
 Console.WriteLine("\nCarga de clientes");
+
 agregarCliente.Ejecutar(persona1);
 agregarCliente.Ejecutar(empresa);
 agregarCliente.Ejecutar(persona2);
+
 listarEnConsola();
 Console.WriteLine("\nModificacion de clientes");
 persona2.Nombre = "Claudia";
@@ -149,6 +152,7 @@ agregarProducto.Ejecutar(producto12);
 // agregarProducto.Ejecutar(producto14);
 
 Console.WriteLine("\nCarga de productos");
+
 agregarProducto.Ejecutar(producto8);
 agregarProducto.Ejecutar(producto2);
 agregarProducto.Ejecutar(producto3);
@@ -160,7 +164,7 @@ listarProductosEnConsola();
 
 Console.WriteLine("\nModificacion de productos");
 producto3.PrecioUnitario = 930.50;
-//producto3.Descripcion = "Balde Pintura Blanca 3.5L"; //las descripciones no podemos cambiarlas porque de ellas depende su hash
+producto3.Descripcion = "Balde Pintura Blanca 3.5L"; //las descripciones no podemos cambiarlas porque de ellas depende su hash
 producto3.Stock = 8;
 
 producto5.PrecioUnitario = 165.00;
@@ -169,8 +173,8 @@ producto5.Stock = 200;
 modificarProducto.Ejecutar(producto5);
 
 
-// producto2.PrecioUnitario = -15.22;  // Tipos del elemento modificado inválido
-// producto2.Stock = -30            
+producto2.PrecioUnitario = -15.22;  // Tipos del elemento modificado inválido
+producto2.Stock = -30;         
 modificarProducto.Ejecutar(producto2);
 
 modificarProducto.Ejecutar(producto200);  // Modificar un producto que no está agregado
@@ -184,7 +188,6 @@ modificarProducto.Ejecutar(producto4);   // Genera log de exception
 producto5.PrecioUnitario = -160.20;     // Genera log de exception
 modificarProducto.Ejecutar(producto5);
 
-// modificarProducto
 
 
 listarProductosEnConsola();
@@ -194,7 +197,7 @@ eliminarProducto.Ejecutar(producto8.Id);
 
 
 Console.WriteLine("\nListado de productos");
-// eliminarProducto().Ejecutar(producto200.Id);  //Eliminar un producto que no existe
+eliminarProducto.Ejecutar(producto200.Id);  //Eliminar un producto que no existe
 listarProductosEnConsola();
 
 void listarProductosEnConsola()
@@ -207,5 +210,22 @@ void listarProductosEnConsola()
     Console.WriteLine("-----");
 }
 
+// -------------------- VENTAS ----------------
+
+var repoVenta = new RepositorioSqlite<Venta>();
+var agregarVenta = new AgregarVentaUseCase(repoVenta);
+var listarVenta = new ListarVentasUseCase(repoVenta);
+
+List<DetalleVenta> detalleVentas = new List<DetalleVenta>();
+detalleVentas.Add(new DetalleVenta(2, 5, 999, producto1.Id));
+Venta venta = new Venta(detalleVentas);
+agregarVenta.Ejecutar(venta);
+
+var lista = listarVenta.Ejecutar();
+    foreach (var v in lista)
+    {
+        Console.WriteLine(v);
+    }
+    Console.WriteLine("-----");
+
 Console.ReadLine();
-//FileHelper.resetearArchivos();
