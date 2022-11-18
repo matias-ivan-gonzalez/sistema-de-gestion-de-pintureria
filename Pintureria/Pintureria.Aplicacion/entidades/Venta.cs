@@ -15,11 +15,13 @@ public class Venta: Entidad{
 
     private Venta() : base(){}
 
-    private double calcularMonto(IEnumerable<DetalleVenta> detalles) => detalles.ToList().Sum(n => n.Cantidad * n.PrecioUnidad);
+    private double calcularMonto(IEnumerable<DetalleVenta> detalles) => detalles.ToList().Select(n => n.Cantidad * n.PrecioUnidad).Sum();
 
     public override string ToString(){
         return $"ID: {Id} Cliente: {Cliente} Fecha: {Fecha} MontoTotal: {MontoTotal}";
     }
+
+
 
 
 }
