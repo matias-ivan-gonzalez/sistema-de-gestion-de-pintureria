@@ -8,7 +8,6 @@ public class Venta: Entidad{
     public IEnumerable<DetalleVenta>? Detalles {get; private set;}
 
     public Venta(IEnumerable<DetalleVenta> lista){
-
         Detalles = lista;
         Fecha = DateTime.Now;
         MontoTotal = this.calcularMonto(Detalles);
@@ -18,7 +17,9 @@ public class Venta: Entidad{
 
     private double calcularMonto(IEnumerable<DetalleVenta> detalles) => detalles.ToList().Sum(n => n.Cantidad * n.PrecioUnidad);
 
-    
+    public override string ToString(){
+        return $"ID: {Id} Cliente: {Cliente} Fecha: {Fecha} MontoTotal: {MontoTotal}";
+    }
 
 
 }
