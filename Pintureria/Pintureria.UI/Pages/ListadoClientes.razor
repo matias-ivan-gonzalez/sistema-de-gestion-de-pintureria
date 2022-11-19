@@ -1,0 +1,29 @@
+@page "/listadoclientes"
+@inject ListarClientesUseCase ListarClientesUseCase
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>APELLIDO</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cli in _lista)
+        {
+            <tr>
+                <td>@cli.Id</td>
+                <td>@cli.Nombre</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    List<Cliente> _lista = new List<Cliente>();
+    protected override void OnInitialized()
+    {
+        _lista = ListarClientesUseCase.Ejecutar();
+    }
+}

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pintureria.Aplicacion", "Pi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pintureria.Repositorios", "Pintureria.Repositorios\Pintureria.Repositorios.csproj", "{332F5BCB-E077-4635-8971-FE90D797393D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pintureria.UI", "Pintureria.UI\Pintureria.UI.csproj", "{F350977D-628F-4870-938F-5C119AE20B81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{332F5BCB-E077-4635-8971-FE90D797393D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{332F5BCB-E077-4635-8971-FE90D797393D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{332F5BCB-E077-4635-8971-FE90D797393D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F350977D-628F-4870-938F-5C119AE20B81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F350977D-628F-4870-938F-5C119AE20B81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F350977D-628F-4870-938F-5C119AE20B81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F350977D-628F-4870-938F-5C119AE20B81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
