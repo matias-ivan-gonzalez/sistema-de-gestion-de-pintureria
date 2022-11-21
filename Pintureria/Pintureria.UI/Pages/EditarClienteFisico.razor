@@ -1,6 +1,8 @@
-@page "/cliente"
+@page "/cliente/{Id:int?}"
 @inject NavigationManager Navegador;
 @inject AgregarClienteUseCase AgregarClienteUseCase
+@inject ObtenerClienteUseCase ObtenerClienteUseCase
+@inject ModificarClienteUseCase ModificarClienteUseCase
 
 <input placeholder="Nombre" @bind="nombre" class="form-control">
 <input placeholder="DNI" @bind="dni" class="form-control">
@@ -10,6 +12,22 @@
     private int dni;
     private string? nombre;
     Cliente? _clienteFisico;
+
+    [Parameter] public int? Id { get; set; }
+    bool _esNuevoCliente = true;
+    protected override void OnParametersSet()
+    {
+        if (Id != null)
+        {
+            var cli_hallado = ObtenerClienteUseCase.Ejecutar(Id.Value);
+            if (cli_hallado != null)
+            {
+                _cliente = cli_hallado;
+                _esNuevoCliente = false;
+            }
+        }
+    }
+
     void Aceptar()
     {
         _clienteFisico = new ClienteFisico(dni);
