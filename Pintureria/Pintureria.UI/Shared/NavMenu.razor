@@ -10,43 +10,36 @@
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <nav class="flex-column">
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+            <div class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
+            </div>
         </div>
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
+            <div class="nav-link" href="/listadoclientes">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Listado Clientes
+            </div>
         </div>
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
+            <div class="nav-link" @onclick="()=>expandSubNav = !expandSubNav">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Agregar Cliente
+            </div>
+            @if (expandSubNav)
+            {
+                <div class="expand-menu" href="agregarClienteFisico">
+                    <span>Fisico</span>
+                </div>
+                <div class="expand-menu" href="agregarClienteEmpresa">
+                    <span>Empresa</span>
+                </div>
+            }
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="/listadoclientes">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="cliente">
-                <span class="oi oi-plus" aria-hidden="true"></span> Agregar Cliente
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="cliente">
-                <span class="oi oi-plus" aria-hidden="true"></span> ModificarCliente
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="cliente">
-                <span class="oi oi-plus" aria-hidden="true"></span> EliminarCliente
-            </NavLink>
-        </div>
-
     </nav>
 </div>
+
+@* AgregarCliente Dropdown *@
+@code {
+    private bool expandSubNav;
+}
 
 @code {
     private bool collapseNavMenu = true;

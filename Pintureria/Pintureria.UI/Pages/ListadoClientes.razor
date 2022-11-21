@@ -1,12 +1,17 @@
 @page "/listadoclientes"
+@using Pintureria.Aplicacion
+@using Microsoft.JSInterop
 @inject ListarClientesUseCase ListarClientesUseCase
+@inject IJSRuntime JsRuntime;
+@inject EliminarClienteUseCase EliminarClienteUseCase
 
 <table class="table">
     <thead>
         <tr>
             <th>ID</th>
             <th>NOMBRE</th>
-            <th>APELLIDO</th>
+            <th>DNI/CUIT</th>
+            <th>ACCIÓN</th>
         </tr>
     </thead>
     <tbody>
@@ -15,6 +20,15 @@
             <tr>
                 <td>@cli.Id</td>
                 <td>@cli.Nombre</td>
+                 @* @if (@EsFisico(cli)){ <td>@cli.DNI</td> } else { <td>@cli.CUIT</td> } *@
+                <td>
+                    <button class="btn btn-primary">
+                        <i class="oi oi-pencil"></i>
+                    </button>
+                    <button class="btn btn-danger" onclick="()=>EliminarCliente(cli.Id)">
+                        <i class="oi oi-trash"></i>
+                    </button>
+                </td>
             </tr>
         }
     </tbody>
@@ -22,8 +36,25 @@
 
 @code {
     List<Cliente> _lista = new List<Cliente>();
+    bool esFisico = false;
+    bool esEmpresa = false;
     protected override void OnInitialized()
     {
         _lista = ListarClientesUseCase.Ejecutar();
+    }
+    protected bool EsFisico(Cliente unCliente)
+    {
+        return unCliente is ClienteFisico;
+    }
+
+    async Task EliminarCliente(int id)
+    {
+        bool confirmado = await JsRuntime.InvokeAsync<bool>("confirm",
+        $"Desea eliminar el cliente {id}?");
+        if (confirmado)
+        {
+            EliminarClienteUseCase.Ejecutar(id);
+            _lista = ListarClientesUseCase.Ejecutar();
+        }
     }
 }

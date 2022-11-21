@@ -1,0 +1,20 @@
+@page "/cliente"
+@inject NavigationManager Navegador;
+@inject AgregarClienteUseCase AgregarClienteUseCase
+
+<input placeholder="Nombre" @bind="nombre" class="form-control">
+<input placeholder="CUIT" @bind="cuit" class="form-control">
+<button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
+
+@code {
+    private long cuit;
+    private string? nombre;
+    Cliente? _clienteEmpresa;
+    void Aceptar()
+    {
+        _clienteEmpresa = new ClienteEmpresa(cuit);
+        _clienteEmpresa.Nombre = nombre;
+        AgregarClienteUseCase.Ejecutar(_clienteEmpresa);
+        Navegador.NavigateTo("listadoclientes");
+    }
+}
