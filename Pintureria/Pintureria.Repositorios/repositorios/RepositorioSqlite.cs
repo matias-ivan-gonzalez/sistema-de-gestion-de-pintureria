@@ -2,7 +2,7 @@ namespace Pintureria.Repositorios;
 
 using Pintureria.Aplicacion;
 
-public class RepositorioSqlite<Class> : IRepositorio<Class> where Class : Entidad {
+public class RepositorioSqlite<Class> : IRepositorio<Class> where Class : Entidad, ICloneable {
 
     SqliteHelper<Class> sqliteHelper;
     EntidadesContext context = new EntidadesContext();

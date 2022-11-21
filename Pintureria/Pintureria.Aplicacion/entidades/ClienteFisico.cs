@@ -1,6 +1,6 @@
 namespace Pintureria.Aplicacion;
 using System.Text;
-public class ClienteFisico : Cliente {
+public class ClienteFisico : Cliente, ICloneable {
 
     public int DNI {get;set;}
 
@@ -16,5 +16,16 @@ public class ClienteFisico : Cliente {
         sb.Append(base.ToString());
         sb.Append($"DNI: {DNI} ");
         return sb.ToString();
+    }
+
+    object ICloneable.Clone()
+    {
+        return new ClienteFisico(){
+            Id = this.Id,
+            Nombre = this.Nombre,
+            Direccion = this.Direccion,
+            Telefono = this.Telefono,
+            DNI = this.DNI        
+        };
     }
 }
