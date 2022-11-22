@@ -1,6 +1,6 @@
 namespace Pintureria.Aplicacion;
 using System.Text;
-public class ClienteEmpresa : Cliente {
+public class ClienteEmpresa : Cliente, ICloneable {
 
     public long CUIT {get;set;}
     public string? SitioWeb {get;set;}
@@ -19,5 +19,15 @@ public class ClienteEmpresa : Cliente {
         return sb.ToString();
     }
 
-    
+    object ICloneable.Clone()
+    {
+        return new ClienteEmpresa(){
+            Id = this.Id,
+            Nombre = this.Nombre,
+            Direccion = this.Direccion,
+            Telefono = this.Telefono,
+            CUIT = this.CUIT,
+            SitioWeb = this.SitioWeb
+        };
+    }
 }

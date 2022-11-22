@@ -1,15 +1,14 @@
 ﻿namespace Pintureria.Aplicacion;
 using System.Text;
-using Pintureria.Aplicacion.helpers;
 
-public abstract class Cliente : Entidad{
+public abstract class Cliente : Entidad, ICloneable{
     public string? Nombre {get;set;}
     public string? Direccion {get; set;}
     public string? Telefono {get; set;}
 
     protected Cliente(long id) : base(id){}
 
-    protected Cliente() : base(){}
+    public Cliente() : base(){}
 
     public override string ToString(){
         StringBuilder sb = new StringBuilder();
@@ -21,4 +20,8 @@ public abstract class Cliente : Entidad{
         return sb.ToString();
     }
 
+    object ICloneable.Clone()
+    {
+        throw new NotImplementedException();
+    }
 }

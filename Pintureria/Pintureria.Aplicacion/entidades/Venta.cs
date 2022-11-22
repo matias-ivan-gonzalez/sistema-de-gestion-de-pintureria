@@ -1,7 +1,8 @@
+using System;
 namespace Pintureria.Aplicacion;
 
-public class Venta: Entidad{
-    public long Cliente {get;}
+public class Venta: Entidad, ICloneable{
+    public long Cliente {get; private set;}
     public DateTime Fecha {get; private set;}
     public double MontoTotal {get; private set;}
 
@@ -13,7 +14,7 @@ public class Venta: Entidad{
         MontoTotal = this.calcularMonto(Detalles);
     }
 
-    private Venta() : base(){}
+    public Venta() : base(){}
 
     private double calcularMonto(IEnumerable<DetalleVenta> detalles) => detalles.ToList().Sum(n => n.Cantidad * n.PrecioUnidad);
 
@@ -21,5 +22,14 @@ public class Venta: Entidad{
         return $"ID: {Id} Cliente: {Cliente} Fecha: {Fecha} MontoTotal: {MontoTotal}";
     }
 
-
+    object ICloneable.Clone()
+    {
+        return new Venta(){
+            Id = this.Id,
+            Cliente = this.Cliente,
+            Fecha = this.Fecha,
+            MontoTotal = this.MontoTotal,
+            Detalles = this.Detalles
+        };
+    }
 }
