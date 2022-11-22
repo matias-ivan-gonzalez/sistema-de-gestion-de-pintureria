@@ -4,6 +4,7 @@
 @inject ListarClientesUseCase ListarClientesUseCase
 @inject IJSRuntime JsRuntime;
 @inject EliminarClienteUseCase EliminarClienteUseCase
+@inject NavigationManager Navegador
 
 <table class="table">
     <thead>
@@ -36,8 +37,9 @@
 
 @code {
     List<Cliente> _lista = new List<Cliente>();
+    @* List<ClienteFisico> _clientesFisicos = _lista.OfType<ClienteFisico>().ToList(); *@
+    @* clientesFisicos = _lista.Where( c => c.GetType().Name == "ClienteFisico" ).ToList<ClienteFisico>(); *@
     bool esFisico = false;
-    bool esEmpresa = false;
     protected override void OnInitialized()
     {
         _lista = ListarClientesUseCase.Ejecutar();

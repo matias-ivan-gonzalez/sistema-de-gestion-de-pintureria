@@ -1,9 +1,17 @@
-@page "/cliente/{Id:int?}"
+@page "/cliente"
 @inject NavigationManager Navegador;
 @inject AgregarClienteUseCase AgregarClienteUseCase
-@inject ObtenerClienteUseCase ObtenerClienteUseCase
+@* @inject ObtenerClienteUseCase ObtenerClienteUseCase *@
 @inject ModificarClienteUseCase ModificarClienteUseCase
 
+@if (_esNuevoCliente)
+{
+    <h3>Agregando un nuevo Cliente</h3>
+}
+    else
+{
+    <h3>Modificando al Cliente "@_clienteEmpresa?.Nombre"</h3>
+}
 <input placeholder="Nombre" @bind="nombre" class="form-control">
 <input placeholder="CUIT" @bind="cuit" class="form-control">
 <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
@@ -12,20 +20,8 @@
     private long cuit;
     private string? nombre;
     Cliente? _clienteEmpresa;
-    [Parameter] public int? Id { get; set; }
     bool _esNuevoCliente = true;
-    protected override void OnParametersSet()
-    {
-        if (Id != null)
-        {
-            var cli_hallado = ObtenerClienteUseCase.Ejecutar(Id.Value);
-            if (cli_hallado != null)
-            {
-                _cliente = cli_hallado;
-                _esNuevoCliente = false;
-            }
-        }
-    }
+
     void Aceptar()
     {
         _clienteEmpresa = new ClienteEmpresa(cuit);
