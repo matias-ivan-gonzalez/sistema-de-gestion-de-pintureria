@@ -18,8 +18,12 @@ builder.Services.AddTransient<ListarProductosUseCase>();
 builder.Services.AddTransient<EliminarProductoUseCase>();
 builder.Services.AddTransient<ModificarProductoUseCase>();
 
+builder.Services.AddTransient<AgregarVentaUseCase>();
+builder.Services.AddTransient<ListarVentasUseCase>();
+
 builder.Services.AddScoped<IRepositorio<Cliente>, RepositorioSqlite<Cliente>>();
 builder.Services.AddScoped<IRepositorio<Producto>, RepositorioSqlite<Producto>>();
+builder.Services.AddScoped<IRepositorio<Venta>, RepositorioSqlite<Venta>>();
 
 var app = builder.Build();
 
