@@ -12,7 +12,14 @@ builder.Services.AddTransient<AgregarClienteUseCase>();
 builder.Services.AddTransient<ListarClientesUseCase>();
 builder.Services.AddTransient<EliminarClienteUseCase>();
 builder.Services.AddTransient<ModificarClienteUseCase>();
+
+builder.Services.AddTransient<AgregarProductoUseCase>();
+builder.Services.AddTransient<ListarProductosUseCase>();
+builder.Services.AddTransient<EliminarProductoUseCase>();
+builder.Services.AddTransient<ModificarProductoUseCase>();
+
 builder.Services.AddScoped<IRepositorio<Cliente>, RepositorioSqlite<Cliente>>();
+builder.Services.AddScoped<IRepositorio<Producto>, RepositorioSqlite<Producto>>();
 
 var app = builder.Build();
 
