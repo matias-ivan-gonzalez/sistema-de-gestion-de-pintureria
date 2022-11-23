@@ -1,0 +1,15 @@
+@page "/agregarProducto"
+@inject NavigationManager Navegador;
+@inject AgregarProductoUseCase AgregarProductoUseCase
+<input placeholder="Descripcion" @bind="unaDescripcion" class="form-control">
+<button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
+@code {
+    Producto? _producto;
+    string unaDescripcion = "";
+    void Aceptar()
+    {
+        _producto = new Producto(unaDescripcion);
+        AgregarProductoUseCase.Ejecutar(_producto);
+        Navegador.NavigateTo("listadoProductos");
+    }
+}

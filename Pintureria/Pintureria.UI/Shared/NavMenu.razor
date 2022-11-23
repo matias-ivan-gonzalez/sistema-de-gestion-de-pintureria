@@ -25,13 +25,23 @@
             </div>
             @if (expandSubNav)
             {
-                <div class="expand-menu" href="agregarClienteFisico">
+                <div class="expand-menu" href="/agregarClienteFisico">
                     <span>Fisico</span>
                 </div>
-                <div class="expand-menu" href="agregarClienteEmpresa">
+                <div class="expand-menu" href="/agregarClienteEmpresa">
                     <span>Empresa</span>
                 </div>
             }
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/listadoProductos">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> ListadoProductos
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/agregarProducto">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> AgregarProducto
+            </NavLink>
         </div>
     </nav>
 </div>

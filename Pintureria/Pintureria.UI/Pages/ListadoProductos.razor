@@ -1,0 +1,57 @@
+@page "/listadoclientes"
+@using Pintureria.Aplicacion
+@using Microsoft.JSInterop
+@inject ListarProductosUseCase ListarProductosUseCase
+@inject IJSRuntime JsRuntime;
+@inject EliminarProductoUseCase EliminarProductoUseCase
+@inject NavigationManager Navegador
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Descripcion</th>
+            <th>PRECIO</th>
+            <th>STOCK</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var prod in _lista)
+        {
+            <tr>
+                <td>@prod.Id</td>
+                <td>@prod.Descripcion</td>
+                <td>@prod.PrecioUnitario</td>
+                <td>@prod.Stock</td>
+                <td>
+                    <button class="btn btn-primary">
+                        <i class="oi oi-pencil"></i>
+                    </button>
+                    <button class="btn btn-danger" onclick="()=>EliminarProducto(cli.Id)">
+                        <i class="oi oi-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    List<Producto> _lista = new List<Producto>();
+
+    protected override void OnInitialized()
+    {
+        _lista = ListarProductosUseCase.Ejecutar();
+    }
+
+    async Task EliminarProducto(int id)
+    {
+        bool confirmado = await JsRuntime.InvokeAsync<bool>("confirm",
+        $"Desea eliminar el producto {id}?");
+        if (confirmado)
+        {
+            EliminarProductoUseCase.Ejecutar(id);
+            _lista = ListarProductosUseCase.Ejecutar();
+        }
+    }
+}

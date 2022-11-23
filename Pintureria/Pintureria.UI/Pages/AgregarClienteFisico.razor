@@ -1,17 +1,9 @@
 @page "/cliente"
 @inject NavigationManager Navegador;
 @inject AgregarClienteUseCase AgregarClienteUseCase
-@* @inject ObtenerClienteUseCase ObtenerClienteUseCase *@
-@inject ModificarClienteUseCase ModificarClienteUseCase
 
-@if (_esNuevoCliente)
-{
-    <h3>Agregando un nuevo Cliente</h3>
-}
-    else
-{
-    <h3>Modificando al Cliente "@_clienteFisico.Nombre"</h3>
-}
+
+<h3>Agregando un nuevo Cliente</h3>
 <input placeholder="Nombre" @bind="nombre" class="form-control">
 <input placeholder="DNI" @bind="dni" class="form-control">
 <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
@@ -20,8 +12,6 @@
     private int dni;
     private string? nombre;
     Cliente? _clienteFisico;
-
-    bool _esNuevoCliente = true;
 
     void Aceptar()
     {

@@ -16,33 +16,39 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var cli in _lista)
-        {
-            <tr>
-                <td>@cli.Id</td>
-                <td>@cli.Nombre</td>
-                 @* @if (@EsFisico(cli)){ <td>@cli.DNI</td> } else { <td>@cli.CUIT</td> } *@
-                <td>
-                    <button class="btn btn-primary">
-                        <i class="oi oi-pencil"></i>
-                    </button>
-                    <button class="btn btn-danger" onclick="()=>EliminarCliente(cli.Id)">
-                        <i class="oi oi-trash"></i>
-                    </button>
-                </td>
-            </tr>
+        @if (listado != null){
+            @foreach (var cli in listado)
+            {
+                <tr>
+                    <td>@cli.Id</td>
+                    <td>@cli.Nombre</td>
+                    @if (clientesFisicos != null && clientesFisicos.Contains<Cliente>(cli)){ ClienteFisico? cf = cli as ClienteFisico; <td>@cf?.DNI</td> } 
+                    else {ClienteEmpresa? ce = cli as ClienteEmpresa; <td>@ce?.CUIT</td> }
+                    <td>
+                        <button class="btn btn-primary">
+                            <i class="oi oi-pencil"></i>
+                        </button>
+                        <button class="btn btn-danger" onclick="()=>EliminarCliente(cli.Id)">
+                            <i class="oi oi-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            }
         }
     </tbody>
 </table>
 
 @code {
-    List<Cliente> _lista = new List<Cliente>();
-    @* List<ClienteFisico> _clientesFisicos = _lista.OfType<ClienteFisico>().ToList(); *@
-    @* clientesFisicos = _lista.Where( c => c.GetType().Name == "ClienteFisico" ).ToList<ClienteFisico>(); *@
+
+    IEnumerable<Cliente>? listado;
+    IEnumerable<ClienteFisico>? clientesFisicos;
     bool esFisico = false;
     protected override void OnInitialized()
     {
-        _lista = ListarClientesUseCase.Ejecutar();
+        RepositorioSqlite<Cliente> repositorio = new RepositorioSqlite<Cliente>(); 
+        listado = new ListarClientesUseCase(repositorio).Ejecutar();
+        clientesFisicos = listado.Where( c => c.GetType().Name == "ClienteFisico" ) as IEnumerable<ClienteFisico>;  
+
     }
     protected bool EsFisico(Cliente unCliente)
     {
@@ -56,7 +62,7 @@
         if (confirmado)
         {
             EliminarClienteUseCase.Ejecutar(id);
-            _lista = ListarClientesUseCase.Ejecutar();
+            listado = ListarClientesUseCase.Ejecutar();
         }
     }
 }
