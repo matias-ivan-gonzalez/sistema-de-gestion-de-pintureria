@@ -1,4 +1,4 @@
-@page "/cliente"
+@page "/agregarCliente"
 @inject NavigationManager Navegador;
 @inject AgregarClienteUseCase AgregarClienteUseCase
 
@@ -10,14 +10,22 @@
 @code {
     private long cuit;
     private string? nombre;
-    Cliente? _clienteEmpresa;
-    bool _esNuevoCliente = true;
+    ClienteEmpresa? _clienteEmpresa;
+    AgregarClienteUseCase? agregarClienteUseCase;
+    RepositorioSqlite<Cliente>? repositorio;
 
     void Aceptar()
-    {
-        _clienteEmpresa = new ClienteEmpresa(cuit);
-        _clienteEmpresa.Nombre = nombre;
-        AgregarClienteUseCase.Ejecutar(_clienteEmpresa);
-        Navegador.NavigateTo("listadoclientes");
+    {   
+        try {
+            repositorio = new RepositorioSqlite<Cliente>();
+            agregarClienteUseCase = new AgregarClienteUseCase(repositorio);
+            _clienteEmpresa = new ClienteEmpresa(cuit);
+            _clienteEmpresa.Nombre = nombre;
+            AgregarClienteUseCase.Ejecutar(_clienteEmpresa);
+            Navegador.NavigateTo("listadoclientes");
+        } catch (System.Exception e){
+            Console.WriteLine(e.Message);
+        }
+
     }
 }
