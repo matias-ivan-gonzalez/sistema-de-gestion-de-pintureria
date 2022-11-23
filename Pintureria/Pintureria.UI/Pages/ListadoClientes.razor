@@ -40,15 +40,17 @@
 
 @code {
 
+    RepositorioSqlite<Cliente>? repositorio;
     IEnumerable<Cliente>? listado;
     IEnumerable<ClienteFisico>? clientesFisicos;
+    EliminarClienteUseCase? eliminarClienteUseCase;
     bool esFisico = false;
+
     protected override void OnInitialized()
     {
         RepositorioSqlite<Cliente> repositorio = new RepositorioSqlite<Cliente>(); 
         listado = new ListarClientesUseCase(repositorio).Ejecutar();
         clientesFisicos = listado.Where( c => c.GetType().Name == "ClienteFisico" ) as IEnumerable<ClienteFisico>;  
-
     }
     protected bool EsFisico(Cliente unCliente)
     {
@@ -61,8 +63,11 @@
         $"Desea eliminar el cliente {id}?");
         if (confirmado)
         {
+            repositorio = new RepositorioSqlite<Cliente>();
+            eliminarClienteUseCase = new EliminarClienteUseCase(repositorio);
             EliminarClienteUseCase.Ejecutar(id);
             listado = ListarClientesUseCase.Ejecutar();
         }
     }
+
 }

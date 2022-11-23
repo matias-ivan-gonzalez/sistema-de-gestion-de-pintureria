@@ -1,3 +1,33 @@
-@* @page "/cliente"
+@page "/cliente"
 @inject NavigationManager Navegador;
-@inject ModificarClienteUseCase ModificarClienteUseCase *@
+@inject ModificarClienteUseCase ModificarClienteUseCase
+
+<h3>Modificando un nuevo Cliente</h3>
+<input placeholder="Nombre" @bind="nombre" class="form-control">
+<input placeholder="CUIT" @bind="cuit" class="form-control">
+<input placeholder="Teléfono" @bind="telefono" class="form-control">
+<button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
+
+@code {
+    private int cuit;
+    private string? nombre;
+    private string? telefono;
+    ClienteEmpresa? _clienteEmpresa;
+    ModificarClienteUseCase? modificarClienteUseCase;
+    RepositorioSqlite<Cliente>? repositorio;
+
+    void Aceptar()
+    {
+        try {
+            repositorio = new RepositorioSqlite<Cliente>();
+            modificarClienteUseCase = new ModificarClienteUseCase(repositorio);
+            _clienteEmpresa = new ClienteEmpresa(cuit);
+            _clienteEmpresa.Nombre = nombre;
+            ModificarClienteUseCase.Ejecutar(_clienteEmpresa);
+            Navegador.NavigateTo("listadoclientes");
+        } catch(System.Exception e) {
+            Console.WriteLine(e.Message);
+        }
+
+    }
+}
