@@ -11,13 +11,22 @@
 @code {
     private int dni;
     private string? nombre;
-    Cliente? _clienteFisico;
+    ClienteFisico? _clienteFisico;
+    AgregarClienteUseCase? agregarClienteUseCase;
+    RepositorioSqlite<Cliente>? repositorio;
 
     void Aceptar()
-    {
-        _clienteFisico = new ClienteFisico(dni);
-        _clienteFisico.Nombre = nombre;
-        AgregarClienteUseCase.Ejecutar(_clienteFisico);
-        Navegador.NavigateTo("listadoclientes");
+    {   
+        try {
+            repositorio = new RepositorioSqlite<Cliente>();
+            agregarClienteUseCase = new AgregarClienteUseCase(repositorio);
+            _clienteFisico = new ClienteFisico(dni);
+            _clienteFisico.Nombre = nombre;
+            AgregarClienteUseCase.Ejecutar(_clienteFisico);
+            Navegador.NavigateTo("listadoclientes");
+        } catch (System.Exception e){
+            Console.WriteLine(e.Message);
+        }
+
     }
 }
