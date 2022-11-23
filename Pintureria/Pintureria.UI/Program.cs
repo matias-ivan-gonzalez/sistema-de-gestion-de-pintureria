@@ -1,22 +1,18 @@
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
-using Pintureria.UI.Data;
-
-using Pintureria.Repositorios;
+using Microsoft.Extensions.DependencyInjection;
 using Pintureria.Aplicacion;
+using Pintureria.Repositorios;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
 
 builder.Services.AddTransient<AgregarClienteUseCase>();
 builder.Services.AddTransient<ListarClientesUseCase>();
 builder.Services.AddTransient<EliminarClienteUseCase>();
 builder.Services.AddTransient<ModificarClienteUseCase>();
-// builder.Services.AddTransient<ObtenerClienteUseCase>();
+builder.Services.AddScoped<IRepositorio<Cliente>, RepositorioSqlite<Cliente>>();
 
 var app = builder.Build();
 
