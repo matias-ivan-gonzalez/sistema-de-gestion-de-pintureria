@@ -22,6 +22,7 @@ public class AgregarVentaUseCase : VentaUseCase{
                 foreach (var dv in venta.Detalles.ToList()) {
                     Producto? producto = repositorioProducto.getSpecificRecord(dv.ProductoId+1);
                     if(producto != null){
+                        Console.WriteLine("Se hizo la compra");
                         producto.Stock -= dv.Cantidad;
                         repositorioProducto.modify(producto);
                     }

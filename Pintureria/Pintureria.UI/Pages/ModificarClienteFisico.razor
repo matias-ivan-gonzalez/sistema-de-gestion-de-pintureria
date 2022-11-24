@@ -15,11 +15,14 @@
     private string? nombre;
     private string? telefono;
     private string? direccion;
-    ClienteFisico? _clienteFisico;
+    ClienteFisico _clienteFisico = new ClienteFisico();
     [Parameter] public long Id { get; set; }
 
     protected override void OnParametersSet(){
-        _clienteFisico = BuscarClienteUseCase.Ejecutar(Id) as ClienteFisico;
+        ClienteFisico? cli = BuscarClienteUseCase.Ejecutar(Id) as ClienteFisico;
+        if(cli != null){
+            _clienteFisico = cli;
+        }
     }
     void Aceptar()
     {

@@ -13,11 +13,14 @@
     private string? descripcion;
     private double precio;
     private long stock; 
-    private Producto? _producto;
+    private Producto _producto = new Producto();
 
     [Parameter] public long Id { get; set; }
     protected override void OnParametersSet(){
-        _producto = BuscarProductoUseCase.Ejecutar(Id);
+        Producto? prod = BuscarProductoUseCase.Ejecutar(Id);
+        if(prod != null){
+            _producto = prod;
+        }
     }
 
     void Aceptar()
