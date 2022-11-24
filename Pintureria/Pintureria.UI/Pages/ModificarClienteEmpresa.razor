@@ -1,12 +1,13 @@
-@page "/modificarclienteempresa"
+@page "/modificarclienteempresa/{Id:long}"
 @inject NavigationManager Navegador;
 @inject ModificarClienteUseCase ModificarClienteUseCase
+@inject BuscarClienteUseCase BuscarClienteUseCase
 
 <h3>Modificando un nuevo Cliente Empresa</h3>
-<input placeholder="Nombre" @bind="nombre" class="form-control">
-<input placeholder="CUIT" @bind="cuit" class="form-control">
-<input placeholder="Dirección" @bind="direccion" class="form-control">
-<input placeholder="Teléfono" @bind="telefono" class="form-control">
+<input placeholder="Nombre" @bind="_clienteEmpresa.Nombre" class="form-control">
+<input placeholder="CUIT" @bind="_clienteEmpresa.CUIT" class="form-control">
+<input placeholder="Dirección" @bind="_clienteEmpresa.Direccion" class="form-control">
+<input placeholder="Teléfono" @bind="_clienteEmpresa.Telefono" class="form-control">
 <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
 
 @code {
@@ -15,21 +16,18 @@
     private string? telefono;
     private string? direccion;
     ClienteEmpresa? _clienteEmpresa;
-    ModificarClienteUseCase? modificarClienteUseCase;
-    RepositorioSqlite<Cliente>? repositorio;
+    
+    [Parameter] public long Id { get; set; }
+
+    protected override void OnParametersSet(){
+        _clienteEmpresa = BuscarClienteUseCase.Ejecutar(Id) as ClienteEmpresa;
+    }
 
     void Aceptar()
     {
-        try {
-            repositorio = new RepositorioSqlite<Cliente>();
-            modificarClienteUseCase = new ModificarClienteUseCase(repositorio);
-            _clienteEmpresa = new ClienteEmpresa(cuit);
-            _clienteEmpresa.Nombre = nombre;
+        if (_clienteEmpresa != null){
             ModificarClienteUseCase.Ejecutar(_clienteEmpresa);
-            Navegador.NavigateTo("listadoclientes");
-        } catch(System.Exception e) {
-            Console.WriteLine(e.Message);
         }
-
+        Navegador.NavigateTo("listadoclientes");
     }
 }
