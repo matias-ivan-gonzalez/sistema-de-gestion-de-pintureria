@@ -10,7 +10,7 @@ public class Venta: Entidad, ICloneable{
 
     public Venta(IEnumerable<DetalleVenta> lista){
         Detalles = lista;
-        Fecha = DateTime.Now;
+        Fecha = DateTime.Now.Date;
         MontoTotal = this.calcularMonto(Detalles);
     }
 
