@@ -4,9 +4,6 @@ public class Venta: Entidad, ICloneable{
     public long Cliente {get; private set;}
     public DateTime Fecha {get; private set;}
     public double MontoTotal {get; private set;}
-
-    public long DetalleVentaId {get; set;}
-
     public IEnumerable<DetalleVenta>? Detalles {get; set;}
 
     public Venta(IEnumerable<DetalleVenta> lista){
@@ -31,7 +28,6 @@ public class Venta: Entidad, ICloneable{
             Fecha = this.Fecha,
             MontoTotal = this.MontoTotal,
             Detalles = this.Detalles,
-            DetalleVentaId = this.DetalleVentaId
         };
     }
 }
