@@ -1,6 +1,6 @@
 namespace Pintureria.Aplicacion;
 
-public class AgregarClienteUseCase : ClienteUseCase<IRepositorio<Cliente>>{
+public class AgregarClienteUseCase : ClienteUseCase{
 
     public AgregarClienteUseCase(IRepositorio<Cliente> repositorio) : base(repositorio){}
     
