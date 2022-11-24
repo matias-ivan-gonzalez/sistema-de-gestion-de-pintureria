@@ -8,23 +8,26 @@ var agregarCliente = new AgregarClienteUseCase(repoCliente);
 var listarClientes = new ListarClientesUseCase(repoCliente);
 var eliminarCliente = new EliminarClienteUseCase(repoCliente);
 var modificarCliente = new ModificarClienteUseCase(repoCliente);
-var persona1 = new ClienteFisico(30321654)
+var persona1 = new ClienteFisico()
 {
     Nombre = "juan",
+    DNI = 12313,
     Direccion = "Diag.74 nro 123",
     Telefono = "(11)502-1111"
 };
-var empresa = new ClienteEmpresa(30123456781)
+var empresa = new ClienteEmpresa()
 {
     Nombre = "Empresa SA",
+    CUIT = 99999,
     Direccion = "calle 13 nro. 123",
     Telefono = "(221)543-3456",
     SitioWeb = "www.empresaSA.com"
 };
 
-var persona2 = new ClienteFisico(22752412)
+var persona2 = new ClienteFisico()
 {
     Nombre = "María",
+    DNI = 55555,
     Direccion = "calle 5 nro 1544",
     Telefono = "(221)501-9999"
 };
@@ -213,11 +216,12 @@ void listarProductosEnConsola()
 // -------------------- VENTAS ----------------
 
 var repoVenta = new RepositorioSqlite<Venta>();
-var agregarVenta = new AgregarVentaUseCase(repoProducto, repoVenta);
+var repoDetalleVenta = new RepositorioSqlite<DetalleVenta>();
+var agregarVenta = new AgregarVentaUseCase(repoDetalleVenta, repoProducto, repoVenta);
 var listarVenta = new ListarVentasUseCase(repoVenta);
 
 List<DetalleVenta> detalleVentas = new List<DetalleVenta>();
-detalleVentas.Add(new DetalleVenta(32, 5, 999, producto1.Id));
+detalleVentas.Add(new DetalleVenta(5, 5, 999, producto1.Id));
 Venta venta = new Venta(detalleVentas);
 agregarVenta.Ejecutar(venta);
 

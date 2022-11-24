@@ -1,4 +1,4 @@
-public class DetalleVenta : Entidad {
+public class DetalleVenta : Entidad, ICloneable {
     public long VentaId {get; protected set;}
 
     public long ProductoId {get; protected set;}
@@ -15,4 +15,8 @@ public class DetalleVenta : Entidad {
 
     private DetalleVenta() : base(){}
 
+    object ICloneable.Clone()
+    {
+        throw new NotImplementedException();
+    }
 }

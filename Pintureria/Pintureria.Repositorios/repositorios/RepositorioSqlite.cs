@@ -48,4 +48,8 @@ public class RepositorioSqlite<Class> : IRepositorio<Class> where Class : Entida
     {
         return sqliteHelper.buscar(id);
     }
+
+    public long getLastId(){
+        return sqliteHelper.obtenerUltimoId();
+    }
 }

@@ -1,0 +1,39 @@
+@page "/listadoventas"
+@using Pintureria.Aplicacion
+@using Microsoft.JSInterop
+@inject ListarVentasUseCase ListarVentasUseCase
+@inject IJSRuntime JsRuntime;
+@inject NavigationManager Navegador
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Monto total</th>
+            <th>Detalles</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (_lista != null)
+        {
+            @foreach (var venta in _lista)
+            {
+                <tr>
+                    <td>@venta.Id</td>
+                    <td>@venta.Cliente</td>
+                    <td>@venta.MontoTotal</td>
+                    <td>@venta.Detalles</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+@code {
+    List<Venta>? _lista = new List<Venta>();
+    protected override void OnInitialized()
+    {
+        _lista = ListarVentasUseCase.Ejecutar();
+    }
+}

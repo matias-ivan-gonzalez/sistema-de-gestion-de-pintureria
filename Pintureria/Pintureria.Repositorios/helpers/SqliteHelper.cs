@@ -46,5 +46,9 @@ public class SqliteHelper<Class> where Class : Entidad, ICloneable{
         return dbset.ToList<Class>();
     }
 
+    public long obtenerUltimoId() {
+        return dbset.Count() == 0 ? 1 : dbset.Max(e => e.Id) + 1;
+    }
+
 
 }
