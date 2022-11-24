@@ -12,7 +12,7 @@
 @code {
     private string? descripcion;
     private double precio;
-    private long stock;
+    private long stock; 
     private Producto? _producto;
 
     [Parameter] public long Id { get; set; }
@@ -22,13 +22,9 @@
 
     void Aceptar()
     {
-        try {
-            if (_producto != null){
-                ModificarProductoUseCase.Ejecutar(_producto);
-            }
-            Navegador.NavigateTo("/listadoproductos");
-        } catch(System.Exception e) {
-            Console.WriteLine(e.Message);
+        if (_producto != null){
+            ModificarProductoUseCase.Ejecutar(_producto);
         }
+        Navegador.NavigateTo("/listadoproductos");
     }
 }

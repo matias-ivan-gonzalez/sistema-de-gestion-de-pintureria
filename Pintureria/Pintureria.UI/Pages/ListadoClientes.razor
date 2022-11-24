@@ -84,11 +84,11 @@
 
         if (EsFisico(cli))
         {
-            Navegador.NavigateTo("/modificarclientefisico");
+            Navegador.NavigateTo($"/modificarclientefisico/{cli.Id}");
         }
         else
         {
-            Navegador.NavigateTo("/modificarclienteempresa");
+            Navegador.NavigateTo($"/modificarclienteempresa/{cli.Id}");
         }
     }
 
