@@ -17,6 +17,7 @@ public class DetalleVenta : Entidad, ICloneable {
     public DetalleVenta(int cant, double precio, long idProducto){
         PrecioUnidad = precio;
         Cantidad = cant;
+        ProductoId = idProducto;
     }
 
     private DetalleVenta() : base(){}

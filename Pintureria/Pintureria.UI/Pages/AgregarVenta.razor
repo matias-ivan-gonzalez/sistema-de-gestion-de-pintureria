@@ -4,6 +4,7 @@
 @inject IJSRuntime JsRuntime
 @inject BuscarClientePorNombreUseCase BuscarClientePorNombreUseCase
 @inject AgregarVentaUseCase AgregarVentaUseCase
+@inject BuscarProductoUseCase BuscarProductoUseCase
 
 <form>
     <h3>Datos del detalle de venta</h3>
@@ -31,8 +32,9 @@
     DateTime fecha = DateTime.Now;
     double montoTotal;
 
+
     DetalleVenta? detalle;
-    IEnumerable<DetalleVenta>? detalles;
+    List<DetalleVenta>? detalles;
 
     long idProducto;
     int cantidad;
@@ -48,15 +50,18 @@
     void AgregarDetalle()
     {   
             Console.WriteLine("Entro a agregar detalle");
+            Producto? prod = BuscarProductoUseCase.Ejecutar(idProducto);
+            if (prod != null ){precioUnidad = prod.PrecioUnitario;}
              detalle = new DetalleVenta(cantidad, precioUnidad, idProducto);
-             detalles?.Append(detalle);
+             detalles?.Add(detalle);
              cantidad = 0;
              precioUnidad = 0;
              idProducto = 0;
     }
 
     void GenerarVenta()
-    {
+    {   
+        Console.WriteLine("Entro a generar venta");
         if (detalles?.Count() > 0)
         {
             venta = new Venta(detalles);
