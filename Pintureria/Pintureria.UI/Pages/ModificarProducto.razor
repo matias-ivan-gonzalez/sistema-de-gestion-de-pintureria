@@ -1,11 +1,12 @@
-@page "/modificarproducto/{Id:int?}"
+@page "/modificarproducto/{Id:long}"
 @inject NavigationManager Navegador;
 @inject ModificarProductoUseCase ModificarProductoUseCase
+@inject BuscarProductoUseCase BuscarProductoUseCase
 
 <h3>Modificando Producto</h3>
-<input placeholder="Descripción" @bind="descripcion" class="form-control">
-<input placeholder="Precio Unitario" @bind="precio" class="form-control">
-<input placeholder="Stock" @bind="stock" class="form-control">
+<input placeholder="Descripción" @bind="_producto.Descripcion" class="form-control">
+<input placeholder="Precio Unitario" @bind="_producto.PrecioUnitario" class="form-control">
+<input placeholder="Stock" @bind="_producto.Stock" class="form-control">
 <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
 
 @code {
@@ -14,27 +15,20 @@
     private long stock;
     private Producto? _producto;
 
-    [Parameter] public int? Id { get; set; }
-    @* protected override void OnParametersSet(){
-        if (Id != null){
-            _producto = ;
-        }
-    } *@
+    [Parameter] public long Id { get; set; }
+    protected override void OnParametersSet(){
+        _producto = BuscarProductoUseCase.Ejecutar(Id);
+    }
 
     void Aceptar()
     {
         try {
-            if (descripcion != null){
-                _producto = new Producto(descripcion);
-                _producto.PrecioUnitario = precio;
-                _producto.Stock = stock;
+            if (_producto != null){
                 ModificarProductoUseCase.Ejecutar(_producto);
-                Navegador.NavigateTo("listadoproductos");
             }
-           
+            Navegador.NavigateTo("/listadoproductos");
         } catch(System.Exception e) {
             Console.WriteLine(e.Message);
         }
-
     }
 }
