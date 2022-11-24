@@ -213,11 +213,11 @@ void listarProductosEnConsola()
 // -------------------- VENTAS ----------------
 
 var repoVenta = new RepositorioSqlite<Venta>();
-var agregarVenta = new AgregarVentaUseCase(repoVenta);
+var agregarVenta = new AgregarVentaUseCase(repoProducto, repoVenta);
 var listarVenta = new ListarVentasUseCase(repoVenta);
 
 List<DetalleVenta> detalleVentas = new List<DetalleVenta>();
-detalleVentas.Add(new DetalleVenta(2, 5, 999, producto1.Id));
+detalleVentas.Add(new DetalleVenta(32, 5, 999, producto1.Id));
 Venta venta = new Venta(detalleVentas);
 agregarVenta.Ejecutar(venta);
 
