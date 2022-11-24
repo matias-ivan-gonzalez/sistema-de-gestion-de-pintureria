@@ -27,7 +27,6 @@
             agregarClienteUseCase = new AgregarClienteUseCase(repositorio);
             _clienteFisico = new ClienteFisico(dni);
             _clienteFisico.Nombre = nombre;
-            _clienteFisico.DNI = dni;
             _clienteFisico.Direccion = direccion;
             _clienteFisico.Telefono = telefono;
             AgregarClienteUseCase.Ejecutar(_clienteFisico);

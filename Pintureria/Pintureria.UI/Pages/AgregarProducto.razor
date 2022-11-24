@@ -2,13 +2,19 @@
 @inject NavigationManager Navegador;
 @inject AgregarProductoUseCase AgregarProductoUseCase
 <input placeholder="Descripcion" @bind="unaDescripcion" class="form-control">
+<input placeholder="PrecioUnitario" @bind="precio" class="form-control">
+<input placeholder="Stock" @bind="stock" class="form-control">
 <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
 @code {
     Producto? _producto;
     string unaDescripcion = "";
+    int stock;
+    double precio;
     void Aceptar()
     {
         _producto = new Producto(unaDescripcion);
+        _producto.PrecioUnitario = precio;
+        _producto.Stock = stock;
         AgregarProductoUseCase.Ejecutar(_producto);
         Navegador.NavigateTo("listadoProductos");
     }
