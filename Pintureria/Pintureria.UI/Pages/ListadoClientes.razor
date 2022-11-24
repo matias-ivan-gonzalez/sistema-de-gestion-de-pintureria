@@ -63,7 +63,6 @@
 
     protected override void OnInitialized()
     {
-        @* RepositorioSqlite<Cliente> repositorio = new RepositorioSqlite<Cliente>(); *@
         listado = ListarClientesUseCase.Ejecutar();
         clientesFisicos = listado.Where(c => c.Discriminator == "ClienteFisico" ) as IEnumerable<ClienteFisico>;
     }

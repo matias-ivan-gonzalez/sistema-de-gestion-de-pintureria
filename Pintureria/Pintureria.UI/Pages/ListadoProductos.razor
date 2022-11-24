@@ -38,8 +38,6 @@
 
 @code {
     List<Producto> _lista = new List<Producto>();
-    RepositorioSqlite<Producto>? repositorio;
-    EliminarProductoUseCase? eliminarProductoUseCase;
 
     protected override void OnInitialized()
     {
@@ -48,8 +46,6 @@
 
     void EliminarProducto(long id)
     {
-        repositorio = new RepositorioSqlite<Producto>();
-        eliminarProductoUseCase = new EliminarProductoUseCase(repositorio);
         EliminarProductoUseCase.Ejecutar(id);
         _lista = ListarProductosUseCase.Ejecutar();
     }
