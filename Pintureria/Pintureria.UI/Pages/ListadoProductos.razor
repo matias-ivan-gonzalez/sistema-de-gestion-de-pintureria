@@ -24,10 +24,10 @@
                 <td>@prod.PrecioUnitario</td>
                 <td>@prod.Stock</td>
                 <td>
-                    <button class="btn btn-primary">
+                    <button class="btn btn-primary" @onclick="()=>EditarProducto(prod)">
                         <i class="oi oi-pencil"></i>
                     </button>
-                    <button class="btn btn-danger" onclick="()=>EliminarProducto(cli.Id)">
+                    <button class="btn btn-danger" @onclick="()=>EliminarProducto(prod.Id)">
                         <i class="oi oi-trash"></i>
                     </button>
                 </td>
@@ -38,20 +38,24 @@
 
 @code {
     List<Producto> _lista = new List<Producto>();
+    RepositorioSqlite<Producto>? repositorio;
+    IEnumerable<Producto>? listado;
+    EliminarProductoUseCase? eliminarProductoUseCase;
 
     protected override void OnInitialized()
     {
         _lista = ListarProductosUseCase.Ejecutar();
     }
 
-    async Task EliminarProducto(int id)
+    void EliminarProducto(long id)
     {
-        bool confirmado = await JsRuntime.InvokeAsync<bool>("confirm",
-        $"Desea eliminar el producto {id}?");
-        if (confirmado)
-        {
-            EliminarProductoUseCase.Ejecutar(id);
-            _lista = ListarProductosUseCase.Ejecutar();
-        }
+        repositorio = new RepositorioSqlite<Producto>();
+        eliminarProductoUseCase = new EliminarProductoUseCase(repositorio);
+        EliminarProductoUseCase.Ejecutar(id);
+        _lista = ListarProductosUseCase.Ejecutar();
+    }
+
+    void EditarProducto(Producto prod){
+         Navegador.NavigateTo("/modificarproducto");
     }
 }

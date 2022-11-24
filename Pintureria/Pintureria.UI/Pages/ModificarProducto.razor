@@ -1,0 +1,40 @@
+@page "/modificarproducto"
+@inject NavigationManager Navegador;
+@inject ModificarProductoUseCase ModificarProductoUseCase
+
+<h3>Modificando Producto</h3>
+<input placeholder="Descripción" @bind="descripcion" class="form-control">
+<input placeholder="Precio Unitario" @bind="precio" class="form-control">
+<input placeholder="Stock" @bind="stock" class="form-control">
+<button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
+
+@code {
+    private string? descripcion;
+    private double precio;
+    private long stock;
+    private Producto? _producto;
+
+    [Parameter] public int? Id { get; set; }
+    @* protected override void OnParametersSet(){
+        if (Id != null){
+            _producto = ;
+        }
+    } *@
+
+    void Aceptar()
+    {
+        try {
+            if (descripcion != null){
+                _producto = new Producto(descripcion);
+                _producto.PrecioUnitario = precio;
+                _producto.Stock = stock;
+                ModificarProductoUseCase.Ejecutar(_producto);
+                Navegador.NavigateTo("listadoproductos");
+            }
+           
+        } catch(System.Exception e) {
+            Console.WriteLine(e.Message);
+        }
+
+    }
+}
