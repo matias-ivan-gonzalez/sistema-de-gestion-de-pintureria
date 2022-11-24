@@ -1,5 +1,5 @@
 public class DetalleVenta : Entidad, ICloneable {
-    public long VentaId {get; protected set;}
+    public long VentaId {get; set;}
 
     public long ProductoId {get; protected set;}
 
