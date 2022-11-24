@@ -3,17 +3,27 @@
 @inject AgregarVentaUseCase AgregarVentaUseCase
 @inject IJSRuntime JsRuntime
 @inject BuscarClientePorNombreUseCase BuscarClientePorNombreUseCase
-@inject AgregarVentaUseCase AgregarVentaUseCase 
+@inject AgregarVentaUseCase AgregarVentaUseCase
 
-<h3>Datos del detalle de venta</h3>
-<input placeholder="Id Producto" @bind="idProducto" class="form-control">
-<input placeholder="Cantidad" @bind="cantidad" class="form-control">
-<input placeholder="Precio Unidad" @bind="precioUnidad" class="form-control">
-<button class="btn btn-primary boton-detalle" @onclick="()=>AgregarDetalle()">Agregar Detalle</button>
+<form>
+    <h3>Datos del detalle de venta</h3>
+    <div class="form-group row">
+        <label for="idProducto" class="col-sm-2 col-form-label">Id Producto</label>
+        <input id="idProducto" placeholder="Id Producto" @bind="idProducto">
+    </div>
+    <div class="form-group row">
+        <label for="cantidad" class="col-sm-2 col-form-label">Cantidad</label>
+        <input id="cantidad" placeholder="Cantidad" @bind="cantidad">
+    </div>
+    <button class="btn btn-primary boton-detalle" @onclick="()=>AgregarDetalle()">Agregar Detalle</button>
 
-<h3>Datos de la nueva venta</h3>
-<input placeholder="Nombre Cliente" @bind="nombreCliente" class="form-control">
-<button class="btn btn-primary" @onclick="()=>GenerarVenta()">Agregar Venta</button>
+    <h3>Datos de la nueva venta</h3>
+    <div class="form-group row">
+        <label for="nombreCli" class="col-sm-2 col-form-label">Nombre Cliente</label>
+        <input id="nombreCli"  @bind="nombreCliente">
+    </div>
+    <button class="btn btn-primary" @onclick="()=>GenerarVenta()">Agregar Venta</button>
+</form>
 
 @code {
     Venta? venta;
@@ -36,21 +46,24 @@
     }
 
     void AgregarDetalle()
-    {   
-             detalle = new DetalleVenta(cantidad, precioUnidad, idProducto);
-             detalles?.Append(detalle);
-             cantidad = 0;
-             precioUnidad = 0;
-             idProducto = 0;
+    {
+        detalle = new DetalleVenta(cantidad, precioUnidad, idProducto);
+        detalles?.Append(detalle);
+        cantidad = 0;
+        precioUnidad = 0;
+        idProducto = 0;
     }
 
     void GenerarVenta()
     {
-        if (detalles?.Count() > 0){
+        if (detalles?.Count() > 0)
+        {
             venta = new Venta(detalles);
-            if (nombreCliente != null ){
+            if (nombreCliente != null)
+            {
                 Cliente? cli = BuscarClientePorNombreUseCase.Ejecutar(nombreCliente);
-                if (cli != null ){
+                if (cli != null)
+                {
                     venta.Cliente = cli.Id;
                 }
             }
