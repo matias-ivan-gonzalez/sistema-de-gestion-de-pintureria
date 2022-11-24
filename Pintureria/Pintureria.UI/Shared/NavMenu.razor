@@ -10,27 +10,27 @@
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <nav class="flex-column">
         <div class="nav-item px-3">
-            <div class="nav-link" href="" Match="NavLinkMatch.All">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="oi oi-home" aria-hidden="true"></span> Home
-            </div>
+            </NavLink>
         </div>
         <div class="nav-item px-3">
-            <div class="nav-link" href="/listadoclientes">
+            <NavLink class="nav-link" href="/listadoclientes">
                 <span class="oi oi-list-rich" aria-hidden="true"></span> Listado Clientes
-            </div>
+            </NavLink>
         </div>
         <div class="nav-item px-3">
-            <div class="nav-link" @onclick="()=>expandSubNav = !expandSubNav">
+            <NavLink class="nav-link" @onclick="()=>expandSubNav = !expandSubNav">
                 <span class="oi oi-list-rich" aria-hidden="true"></span> Agregar Cliente
-            </div>
+            </NavLink>
             @if (expandSubNav)
             {
-                <div class="expand-menu" href="/agregarClienteFisico">
+                <NavLink class="expand-menu" href="/agregarClienteFisico">
                     <span>Fisico</span>
-                </div>
-                <div class="expand-menu" href="/agregarClienteEmpresa">
+                </NavLink>
+                <NavLink class="expand-menu" href="/agregarClienteEmpresa">
                     <span>Empresa</span>
-                </div>
+                </NavLink>
             }
         </div>
         <div class="nav-item px-3">

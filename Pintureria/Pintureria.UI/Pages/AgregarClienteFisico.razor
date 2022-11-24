@@ -3,28 +3,38 @@
 @inject AgregarClienteUseCase AgregarClienteUseCase
 
 
-<h3>Agregando un nuevo Cliente</h3>
+<h3>Agregando un nuevo Cliente Físico</h3>
 <input placeholder="Nombre" @bind="nombre" class="form-control">
-<input placeholder="DNI" @bind="dni" class="form-control">
+<input placeholder="DNI" @bind="dni" class="form-control" autocomplete="off">
+<input placeholder="Dirección" @bind="direccion" class="form-control">
+<input placeholder="Teléfono" @bind="telefono" class="form-control">
 <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
 
 @code {
     private int dni;
     private string? nombre;
+    private string? direccion;
+    private string? telefono;
     ClienteFisico? _clienteFisico;
     AgregarClienteUseCase? agregarClienteUseCase;
     RepositorioSqlite<Cliente>? repositorio;
 
     void Aceptar()
-    {   
-        try {
+    {
+        try
+        {
             repositorio = new RepositorioSqlite<Cliente>();
             agregarClienteUseCase = new AgregarClienteUseCase(repositorio);
             _clienteFisico = new ClienteFisico(dni);
             _clienteFisico.Nombre = nombre;
+            _clienteFisico.DNI = dni;
+            _clienteFisico.Direccion = direccion;
+            _clienteFisico.Telefono = telefono;
             AgregarClienteUseCase.Ejecutar(_clienteFisico);
             Navegador.NavigateTo("listadoclientes");
-        } catch (System.Exception e){
+        }
+        catch (System.Exception e)
+        {
             Console.WriteLine(e.Message);
         }
 

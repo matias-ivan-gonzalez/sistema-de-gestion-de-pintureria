@@ -12,23 +12,37 @@
             <th>ID</th>
             <th>NOMBRE</th>
             <th>DNI/CUIT</th>
+            <th>DIRECCION</th>
+            <th>TELEFONO</th>
             <th>ACCIÓN</th>
         </tr>
     </thead>
     <tbody>
-        @if (listado != null){
+        @if (listado != null)
+        {
             @foreach (var cli in listado)
             {
                 <tr>
                     <td>@cli.Id</td>
                     <td>@cli.Nombre</td>
-                    @if (clientesFisicos != null && clientesFisicos.Contains<Cliente>(cli)){ ClienteFisico? cf = cli as ClienteFisico; <td>@cf?.DNI</td> } 
-                    else {ClienteEmpresa? ce = cli as ClienteEmpresa; <td>@ce?.CUIT</td> }
+                    @if (clientesFisicos != null && clientesFisicos.Contains<Cliente>(cli))
+                    {
+                        ClienteFisico? cf = cli as ClienteFisico; 
+                        <td>@cf?.DNI</td>
+                    }
+                    else
+                    {
+                        Console.WriteLine(clientesFisicos);
+                        ClienteEmpresa? ce = cli as ClienteEmpresa; 
+                        <td>@ce?.CUIT</td>
+                    }
+                    <td>@cli.Direccion</td>
+                    <td>@cli.Telefono</td>
                     <td>
-                        <button class="btn btn-primary" onclick="()=>EditarCliente(cli)">
+                        <button class="btn btn-primary" @onclick="() => EditarCliente(cli)">
                             <i class="oi oi-pencil"></i>
                         </button>
-                        <button class="btn btn-danger" onclick="()=>EliminarCliente(cli.Id)">
+                        <button class="btn btn-danger" @onclick="() => EliminarCliente(cli.Id)">
                             <i class="oi oi-trash"></i>
                         </button>
                     </td>
@@ -48,40 +62,34 @@
 
     protected override void OnInitialized()
     {
-        RepositorioSqlite<Cliente> repositorio = new RepositorioSqlite<Cliente>(); 
-        listado = new ListarClientesUseCase(repositorio).Ejecutar();
-        clientesFisicos = listado.Where( c => c.GetType().Name == "ClienteFisico" ) as IEnumerable<ClienteFisico>;  
+        @* RepositorioSqlite<Cliente> repositorio = new RepositorioSqlite<Cliente>(); *@
+        listado = ListarClientesUseCase.Ejecutar();
+        clientesFisicos = listado.Where(c => EsFisico(c)) as IEnumerable<ClienteFisico>;
     }
     protected bool EsFisico(Cliente unCliente)
     {
         return unCliente is ClienteFisico;
     }
 
-    async Task EliminarCliente(int id)
+    void EliminarCliente(long id)
     {
-        bool confirmado = await JsRuntime.InvokeAsync<bool>("confirm",
-        $"Desea eliminar el cliente {id}?");
-        if (confirmado)
-        {
-            repositorio = new RepositorioSqlite<Cliente>();
-            eliminarClienteUseCase = new EliminarClienteUseCase(repositorio);
-            EliminarClienteUseCase.Ejecutar(id);
-            listado = ListarClientesUseCase.Ejecutar();
-        }
+        repositorio = new RepositorioSqlite<Cliente>();
+        eliminarClienteUseCase = new EliminarClienteUseCase(repositorio);
+        EliminarClienteUseCase.Ejecutar(id);
+        listado = ListarClientesUseCase.Ejecutar();
     }
 
-    async Task EditarCliente(Cliente cli)
+    void EditarCliente(Cliente cli)
     {
-        bool confirmado = await JsRuntime.InvokeAsync<bool>("confirm",
-        $"Desea editar el cliente {cli.Id}?");
-        if (confirmado)
+
+        if (EsFisico(cli))
         {
-            if (EsFisico(cli)){
-                repositorio = new RepositorioSqlite<Cliente>();
-                Navegador.NavigateTo("/modificarclientefisico");
-            } else {
-                Navegador.NavigateTo("/modificarclienteempresa");
-            }
+            repositorio = new RepositorioSqlite<Cliente>();
+            Navegador.NavigateTo("/modificarclientefisico");
+        }
+        else
+        {
+            Navegador.NavigateTo("/modificarclienteempresa");
         }
     }
 
