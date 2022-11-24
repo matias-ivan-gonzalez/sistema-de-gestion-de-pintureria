@@ -56,6 +56,6 @@
     }
 
     void EditarProducto(Producto prod){
-         Navegador.NavigateTo("/modificarproducto");
+         Navegador.NavigateTo($"/modificarproducto/{prod.Id}");
     }
 }

@@ -1,6 +1,7 @@
 @page "/listadoclientes"
 @using Pintureria.Aplicacion
 @using Microsoft.JSInterop
+@using System.Text.RegularExpressions
 @inject ListarClientesUseCase ListarClientesUseCase
 @inject IJSRuntime JsRuntime;
 @inject EliminarClienteUseCase EliminarClienteUseCase
@@ -25,14 +26,13 @@
                 <tr>
                     <td>@cli.Id</td>
                     <td>@cli.Nombre</td>
-                    @if (clientesFisicos != null && clientesFisicos.Contains<Cliente>(cli))
+                    @if (EsFisico(cli))
                     {
                         ClienteFisico? cf = cli as ClienteFisico; 
                         <td>@cf?.DNI</td>
                     }
                     else
-                    {
-                        Console.WriteLine(clientesFisicos);
+                    {   
                         ClienteEmpresa? ce = cli as ClienteEmpresa; 
                         <td>@ce?.CUIT</td>
                     }
@@ -55,7 +55,7 @@
 @code {
 
     RepositorioSqlite<Cliente>? repositorio;
-    IEnumerable<Cliente>? listado;
+    List<Cliente>? listado;
     IEnumerable<ClienteFisico>? clientesFisicos;
     EliminarClienteUseCase? eliminarClienteUseCase;
     bool esFisico = false;
@@ -64,11 +64,11 @@
     {
         @* RepositorioSqlite<Cliente> repositorio = new RepositorioSqlite<Cliente>(); *@
         listado = ListarClientesUseCase.Ejecutar();
-        clientesFisicos = listado.Where(c => EsFisico(c)) as IEnumerable<ClienteFisico>;
+        clientesFisicos = listado.Where(c => c.Discriminator == "ClienteFisico" ) as IEnumerable<ClienteFisico>;
     }
     protected bool EsFisico(Cliente unCliente)
     {
-        return unCliente is ClienteFisico;
+        return unCliente.ToString().Contains("ClienteFisico");
     }
 
     void EliminarCliente(long id)
@@ -84,7 +84,6 @@
 
         if (EsFisico(cli))
         {
-            repositorio = new RepositorioSqlite<Cliente>();
             Navegador.NavigateTo("/modificarclientefisico");
         }
         else
