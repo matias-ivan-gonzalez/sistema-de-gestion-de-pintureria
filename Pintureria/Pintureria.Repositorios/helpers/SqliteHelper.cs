@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
+using Pintureria.Aplicacion;
 public class SqliteHelper<Class> where Class : Entidad, ICloneable{
 
     DbSet<Class> dbset;
@@ -12,6 +13,10 @@ public class SqliteHelper<Class> where Class : Entidad, ICloneable{
     
     public Class? buscar(long? id){
         return dbset.Where(c => c.Id == id).FirstOrDefault<Class>();
+    }
+
+    public Cliente? buscarClientePorNombre(string? name){
+        return new EntidadesContext().Clientes.Where(c => c.Nombre == name).FirstOrDefault<Cliente>();
     }
 
     public void agregar(Class ent){

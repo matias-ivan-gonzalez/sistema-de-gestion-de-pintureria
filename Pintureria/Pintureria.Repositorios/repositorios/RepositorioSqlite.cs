@@ -49,6 +49,11 @@ public class RepositorioSqlite<Class> : IRepositorio<Class> where Class : Entida
         return sqliteHelper.buscar(id);
     }
 
+    public Cliente? getSpecificUserByName(string name)
+    {
+        return sqliteHelper.buscarClientePorNombre(name);
+    }
+
     public long getLastId(){
         return sqliteHelper.obtenerUltimoId();
     }
