@@ -4,6 +4,6 @@ public interface IRepositorio<T> where T: Entidad {
     public void modify(T entidad);
     public void delete(long id);
     public List<T> get();
-
     public T? getSpecificRecord(long id);
+    public long getLastId();
 }

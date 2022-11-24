@@ -1,4 +1,3 @@
-using System;
 namespace Pintureria.Aplicacion;
 
 public class Venta: Entidad, ICloneable{
@@ -6,7 +5,9 @@ public class Venta: Entidad, ICloneable{
     public DateTime Fecha {get; private set;}
     public double MontoTotal {get; private set;}
 
-    public IEnumerable<DetalleVenta>? Detalles {get; private set;}
+    public long DetalleVentaId {get; set;}
+
+    public IEnumerable<DetalleVenta>? Detalles {get; set;}
 
     public Venta(IEnumerable<DetalleVenta> lista){
         Detalles = lista;
@@ -29,7 +30,8 @@ public class Venta: Entidad, ICloneable{
             Cliente = this.Cliente,
             Fecha = this.Fecha,
             MontoTotal = this.MontoTotal,
-            Detalles = this.Detalles
+            Detalles = this.Detalles,
+            DetalleVentaId = this.DetalleVentaId
         };
     }
 }
