@@ -10,7 +10,10 @@
 
 <table class="table">
     <thead>
-        <button class="btn btn-secondary" @onclick="()=>ListarPorComprasDelAnioActual()">Filtrar Clientes Último Año</button>
+        <div class="botonera">
+            <button class="btn btn-primary" @onclick="()=>ListarPorComprasDelAnioActual()">Filtrar Clientes Último Año</button>
+            <button class="btn btn-primary" @onclick="()=>ListarTodo()">Listar Todo</button>
+        </div>
         <tr>
             <th>ID</th>
             <th>NOMBRE</th>
@@ -94,6 +97,12 @@
         DateTime currentDate = DateTime.Now;
         DateTime aYearAgo = currentDate.AddYears(-1);
         listado = BuscarClientesDeEsteAñoUseCase.Ejecutar();
+        Navegador.NavigateTo("/listadoclientes");
+    }
+
+    void ListarTodo(){
+        listado = ListarClientesUseCase.Ejecutar();
+        clientesFisicos = listado.Where(c => c.Discriminator == "ClienteFisico" ) as IEnumerable<ClienteFisico>;
         Navegador.NavigateTo("/listadoclientes");
     }
 
