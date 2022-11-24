@@ -9,7 +9,7 @@ public class ClienteEmpresa : Cliente, ICloneable {
         this.CUIT = cuit;
     }
 
-    public ClienteEmpresa() : base(){}
+    private ClienteEmpresa() : base(){}
 
     public override string ToString(){
         StringBuilder sb = new StringBuilder();

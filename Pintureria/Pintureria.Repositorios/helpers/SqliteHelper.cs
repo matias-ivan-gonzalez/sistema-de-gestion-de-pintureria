@@ -15,7 +15,7 @@ public class SqliteHelper<Class> where Class : Entidad, ICloneable{
     }
 
     public void agregar(Class ent){
-        ent.Id = dbset.Count() == 0 ? 1 : dbset.Max(e => e.Id) + 1;
+        //ent.Id = dbset.Count() == 0 ? 1 : dbset.Max(e => e.Id) + 1;
         var entidad = buscar(ent.Id);
         if(entidad==null) {
             dbset.Add((Class) ent.Clone());
@@ -47,7 +47,7 @@ public class SqliteHelper<Class> where Class : Entidad, ICloneable{
     }
 
     public long obtenerUltimoId() {
-        return dbset.Count() == 0 ? 1 : dbset.Max(e => e.Id) + 1;
+        return dbset.Count() == 0 ? 1 : dbset.Max(e => e.Id);
     }
 
 

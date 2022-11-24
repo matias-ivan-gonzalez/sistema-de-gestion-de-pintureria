@@ -10,7 +10,7 @@ public abstract class Cliente : Entidad, ICloneable{
 
     protected Cliente(long id) : base(id){}
 
-    public Cliente() : base(){}
+    protected Cliente() : base(){}
 
     public override string ToString(){
         StringBuilder sb = new StringBuilder();
