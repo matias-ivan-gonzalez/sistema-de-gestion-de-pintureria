@@ -6,9 +6,11 @@
 @inject IJSRuntime JsRuntime;
 @inject EliminarClienteUseCase EliminarClienteUseCase
 @inject NavigationManager Navegador
+@inject BuscarClientesQueCompraronEsteAñoUseCase BuscarClientesDeEsteAñoUseCase
 
 <table class="table">
     <thead>
+        <button class="btn btn-secondary" @onclick="()=>ListarPorComprasDelAnioActual()">Filtrar Clientes Último Año</button>
         <tr>
             <th>ID</th>
             <th>NOMBRE</th>
@@ -54,10 +56,8 @@
 
 @code {
 
-    RepositorioSqlite<Cliente>? repositorio;
     List<Cliente>? listado;
     IEnumerable<ClienteFisico>? clientesFisicos;
-    EliminarClienteUseCase? eliminarClienteUseCase;
     bool esFisico = false;
 
     protected override void OnInitialized()
@@ -73,8 +73,6 @@
 
     void EliminarCliente(long id)
     {
-        repositorio = new RepositorioSqlite<Cliente>();
-        eliminarClienteUseCase = new EliminarClienteUseCase(repositorio);
         EliminarClienteUseCase.Ejecutar(id);
         listado = ListarClientesUseCase.Ejecutar();
     }
@@ -90,6 +88,13 @@
         {
             Navegador.NavigateTo($"/modificarclienteempresa/{cli.Id}");
         }
+    }
+
+    void ListarPorComprasDelAnioActual(){
+        DateTime currentDate = DateTime.Now;
+        DateTime aYearAgo = currentDate.AddYears(-1);
+        listado = BuscarClientesDeEsteAñoUseCase.Ejecutar();
+        Navegador.NavigateTo("/listadoclientes");
     }
 
 }

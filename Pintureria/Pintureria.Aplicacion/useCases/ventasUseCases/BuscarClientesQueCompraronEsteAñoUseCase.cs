@@ -8,7 +8,7 @@ public class BuscarClientesQueCompraronEsteAñoUseCase : VentaUseCase{
         this.RepositorioCliente = repositorioCliente;
     }
 
-    public List<Cliente> Ejecutar(DateTime from, DateTime to){
+    public List<Cliente> Ejecutar(){
         List<long> idsClientes = repositorio.get().Where(v => v.Fecha.Year == DateTime.Now.Year).Select(v => v.Cliente).ToList<long>();
         return RepositorioCliente.get().Where(c => idsClientes.Contains(c.Id)).ToList<Cliente>();
     }

@@ -35,6 +35,7 @@ builder.Services.AddTransient<BuscarClientesQueCompraronEsteAñoUseCase>();
 builder.Services.AddScoped<IRepositorio<Cliente>, RepositorioSqlite<Cliente>>();
 builder.Services.AddScoped<IRepositorio<Producto>, RepositorioSqlite<Producto>>();
 builder.Services.AddScoped<IRepositorio<Venta>, RepositorioSqlite<Venta>>();
+builder.Services.AddScoped<IRepositorio<DetalleVenta>, RepositorioSqlite<DetalleVenta>>();
 
 var app = builder.Build();
 
