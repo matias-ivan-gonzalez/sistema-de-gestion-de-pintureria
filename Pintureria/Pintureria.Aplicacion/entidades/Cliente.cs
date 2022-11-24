@@ -6,6 +6,8 @@ public abstract class Cliente : Entidad, ICloneable{
     public string? Direccion {get; set;}
     public string? Telefono {get; set;}
 
+    public string? Discriminator {get; set;}
+
     protected Cliente(long id) : base(id){}
 
     public Cliente() : base(){}

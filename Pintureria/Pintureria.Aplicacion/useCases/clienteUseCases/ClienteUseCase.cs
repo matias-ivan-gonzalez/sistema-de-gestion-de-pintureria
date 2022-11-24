@@ -1,8 +1,8 @@
 namespace Pintureria.Aplicacion;
 
-public class ClienteUseCase{
-    protected readonly IRepositorio<Cliente> repositorio;
-    public ClienteUseCase(IRepositorio<Cliente> unRepositorio){
+public class ClienteUseCase<Interface>{
+    protected readonly Interface repositorio;
+    public ClienteUseCase(Interface unRepositorio){
         repositorio = unRepositorio;
     }
 }
