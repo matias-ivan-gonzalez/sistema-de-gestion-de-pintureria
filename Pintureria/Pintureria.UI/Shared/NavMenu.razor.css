@@ -60,3 +60,9 @@
         display: block;
     }
 }
+
+.dropdown-input {
+    margin-left: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}

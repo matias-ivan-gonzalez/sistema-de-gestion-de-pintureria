@@ -5,6 +5,7 @@
 <h3>Modificando un nuevo Cliente Fisico</h3>
 <input placeholder="Nombre" @bind="nombre" class="form-control">
 <input placeholder="DNI" @bind="dni" class="form-control">
+<input placeholder="Dirección" @bind="direccion" class="form-control">
 <input placeholder="Teléfono" @bind="telefono" class="form-control">
 <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
 
@@ -12,6 +13,7 @@
     private int dni;
     private string? nombre;
     private string? telefono;
+    private string? direccion;
     ClienteFisico? _clienteFisico;
     ModificarClienteUseCase? modificarClienteUseCase;
     RepositorioSqlite<Cliente>? repositorio;
