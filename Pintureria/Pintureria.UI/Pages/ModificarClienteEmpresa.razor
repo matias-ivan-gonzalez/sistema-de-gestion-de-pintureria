@@ -15,12 +15,15 @@
     private string? nombre;
     private string? telefono;
     private string? direccion;
-    ClienteEmpresa? _clienteEmpresa;
+    ClienteEmpresa _clienteEmpresa = new ClienteEmpresa();
     
     [Parameter] public long Id { get; set; }
 
     protected override void OnParametersSet(){
-        _clienteEmpresa = BuscarClienteUseCase.Ejecutar(Id) as ClienteEmpresa;
+        ClienteEmpresa? cli = BuscarClienteUseCase.Ejecutar(Id) as ClienteEmpresa;
+        if(cli != null){
+            _clienteEmpresa = cli;
+        }
     }
 
     void Aceptar()
