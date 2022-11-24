@@ -16,8 +16,9 @@ public class AgregarVentaUseCase : VentaUseCase{
             if(venta.Detalles != null){
                 if(venta.MontoTotal < 0) throw new NegativeValueNotAllowedException();
                 if(venta.Detalles.All(dv => repositorioProducto.getSpecificRecord(dv.ProductoId+1)?.Stock - dv.Cantidad < 0)) throw new NotEnoughStockToBuyException();
-                venta.DetalleVentaId = repositorioDetalleVenta.getLastId();
                 repositorio.add(venta);
+                venta.DetalleVentaId = repositorioDetalleVenta.getLastId();
+                repositorio.modify(venta);
                 foreach (var dv in venta.Detalles.ToList()) {
                     Producto? producto = repositorioProducto.getSpecificRecord(dv.ProductoId+1);
                     if(producto != null){

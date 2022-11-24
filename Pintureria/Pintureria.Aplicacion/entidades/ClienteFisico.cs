@@ -8,7 +8,7 @@ public class ClienteFisico : Cliente, ICloneable {
         DNI = dni;
     }
 
-    public ClienteFisico() : base(){}
+    private ClienteFisico() : base(){}
 
 
     public override string ToString(){
