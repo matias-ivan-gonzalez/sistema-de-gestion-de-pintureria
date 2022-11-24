@@ -1,0 +1,49 @@
+@page "/agregarVenta"
+@inject NavigationManager Navegador;
+@inject AgregarVentaUseCase AgregarVentaUseCase
+@inject IJSRuntime JsRuntime
+
+<h3>Datos de la nueva venta</h3>
+<input placeholder="Nombre Cliente" @bind="nombreCliente" class="form-control">
+<button class="btn btn-primary" @onclick="()=>GenerarVenta()">Agregar Venta</button>
+
+<h3>Datos del detalle de venta</h3>
+<input placeholder="Id Producto" @bind="idProducto" class="form-control">
+<input placeholder="Cantidad" @bind="cantidad" class="form-control">
+<input placeholder="Precio Unidad" @bind="precioUnidad" class="form-control">
+<button class="btn btn-primary" @onclick="()=>AgregarDetalle()">Agregar Detalle</button>
+
+@code {
+    Venta? venta;
+    string? nombreCliente;
+    DateTime fecha = DateTime.Now;
+    double montoTotal;
+
+    DetalleVenta? detalle;
+    IEnumerable<DetalleVenta>? detalles;
+
+    long idProducto;
+    int cantidad;
+    double precioUnidad;
+
+    string message = "";
+
+    protected override void OnInitialized()
+    {
+        detalles = new List<DetalleVenta>();
+    }
+
+    void AgregarDetalle()
+    {   
+             detalle = new DetalleVenta(cantidad, precioUnidad, idProducto);
+             detalles?.Append(detalle);
+    }
+
+    void GenerarVenta()
+    {
+        if (detalles?.Count() > 0){
+            venta = new Venta(detalles);
+        }
+        Navegador.NavigateTo("/agregarVenta");
+    }
+}

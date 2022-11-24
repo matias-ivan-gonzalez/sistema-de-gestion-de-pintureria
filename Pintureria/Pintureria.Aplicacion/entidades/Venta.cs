@@ -1,8 +1,8 @@
 namespace Pintureria.Aplicacion;
 
 public class Venta: Entidad, ICloneable{
-    public long Cliente {get; private set;}
-    public DateTime Fecha {get; private set;}
+    public long Cliente {get; set;}
+    public DateTime Fecha {get; set;}
     public double MontoTotal {get; private set;}
     public IEnumerable<DetalleVenta>? Detalles {get; set;}
 
