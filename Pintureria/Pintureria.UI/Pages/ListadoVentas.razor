@@ -2,6 +2,7 @@
 @using Pintureria.Aplicacion
 @using Microsoft.JSInterop
 @inject ListarVentasUseCase ListarVentasUseCase
+@inject ListarDetallesDeVentaUseCase ListarDetallesDeVentaUseCase
 @inject IJSRuntime JsRuntime;
 @inject NavigationManager Navegador
 
@@ -19,11 +20,15 @@
         {
             @foreach (var venta in _lista)
             {
+                venta.Detalles = ListarDetallesDeVentaUseCase.Ejecutar(venta.Id);
                 <tr>
                     <td>@venta.Id</td>
                     <td>@venta.Cliente</td>
                     <td>@venta.MontoTotal</td>
-                    <td>@venta.Detalles</td>
+                    @foreach (var detalleVenta in venta.Detalles)
+                    {
+                        <td>@detalleVenta.ToString()</td>   
+                    }
                 </tr>
             }
         }

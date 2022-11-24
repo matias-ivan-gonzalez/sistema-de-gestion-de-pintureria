@@ -15,6 +15,10 @@ public class DetalleVenta : Entidad, ICloneable {
 
     private DetalleVenta() : base(){}
 
+    public override string ToString(){
+        return $"Cantidad: {Cantidad} Precio Unidad: {PrecioUnidad}";
+    }
+
     object ICloneable.Clone()
     {
         throw new NotImplementedException();

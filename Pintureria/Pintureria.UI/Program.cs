@@ -29,7 +29,7 @@ builder.Services.AddTransient<BuscarVentaUseCase>();
 builder.Services.AddTransient<BuscarVentasPorRangoDeFechasUseCase>();
 builder.Services.AddTransient<BuscarClientesQueCompraronEsteAñoUseCase>();
 
-
+builder.Services.AddTransient<ListarDetallesDeVentaUseCase>();
 
 
 builder.Services.AddScoped<IRepositorio<Cliente>, RepositorioSqlite<Cliente>>();
