@@ -46,12 +46,13 @@
     }
 
     void AgregarDetalle()
-    {
-        detalle = new DetalleVenta(cantidad, precioUnidad, idProducto);
-        detalles?.Append(detalle);
-        cantidad = 0;
-        precioUnidad = 0;
-        idProducto = 0;
+    {   
+            Console.WriteLine("Entro a agregar detalle");
+             detalle = new DetalleVenta(cantidad, precioUnidad, idProducto);
+             detalles?.Append(detalle);
+             cantidad = 0;
+             precioUnidad = 0;
+             idProducto = 0;
     }
 
     void GenerarVenta()
@@ -67,6 +68,7 @@
                     venta.Cliente = cli.Id;
                 }
             }
+            Console.WriteLine(venta.ToString());
             AgregarVentaUseCase.Ejecutar(venta);
         }
         Navegador.NavigateTo("/listadoventas");
