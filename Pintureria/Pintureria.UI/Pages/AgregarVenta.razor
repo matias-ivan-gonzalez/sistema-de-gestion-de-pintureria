@@ -37,6 +37,7 @@
 
     void AgregarDetalle()
     {   
+            Console.WriteLine("Entro a agregar detalle");
              detalle = new DetalleVenta(cantidad, precioUnidad, idProducto);
              detalles?.Append(detalle);
              cantidad = 0;
@@ -46,6 +47,8 @@
 
     void GenerarVenta()
     {
+        Console.WriteLine("Entro a generar venta");
+        Console.WriteLine(detalles?.Count());
         if (detalles?.Count() > 0){
             venta = new Venta(detalles);
             if (nombreCliente != null ){
@@ -54,6 +57,7 @@
                     venta.Cliente = cli.Id;
                 }
             }
+            Console.WriteLine(venta.ToString());
             AgregarVentaUseCase.Ejecutar(venta);
         }
         Navegador.NavigateTo("/listadoventas");
