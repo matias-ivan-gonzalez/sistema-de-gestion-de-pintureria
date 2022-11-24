@@ -43,4 +43,9 @@ public class RepositorioSqlite<Class> : IRepositorio<Class> where Class : Entida
     public List<Class> get() {
         return sqliteHelper.listarTabla();
     }
+
+    public Class? getSpecificRecord(long id)
+    {
+        return sqliteHelper.buscar(id);
+    }
 }
