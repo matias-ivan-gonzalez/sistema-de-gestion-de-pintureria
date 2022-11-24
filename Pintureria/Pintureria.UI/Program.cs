@@ -15,7 +15,6 @@ builder.Services.AddTransient<ModificarClienteUseCase>();
 builder.Services.AddTransient<BuscarClienteUseCase>();
 builder.Services.AddTransient<BuscarClientePorNombreUseCase>();
 
-
 builder.Services.AddTransient<AgregarProductoUseCase>();
 builder.Services.AddTransient<ListarProductosUseCase>();
 builder.Services.AddTransient<EliminarProductoUseCase>();
