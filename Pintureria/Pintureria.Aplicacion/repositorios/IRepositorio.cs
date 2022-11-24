@@ -5,5 +5,6 @@ public interface IRepositorio<T> where T: Entidad {
     public void delete(long id);
     public List<T> get();
     public T? getSpecificRecord(long id);
+    public Cliente? getSpecificUserByName(string name);
     public long getLastId();
 }
