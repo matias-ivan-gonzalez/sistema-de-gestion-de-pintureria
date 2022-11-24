@@ -1,7 +1,6 @@
 @page "/listadoclientes"
 @using Pintureria.Aplicacion
 @using Microsoft.JSInterop
-@using System.Text.RegularExpressions
 @inject ListarClientesUseCase ListarClientesUseCase
 @inject IJSRuntime JsRuntime;
 @inject EliminarClienteUseCase EliminarClienteUseCase
@@ -61,7 +60,6 @@
 
     List<Cliente>? listado;
     IEnumerable<ClienteFisico>? clientesFisicos;
-    bool esFisico = false;
 
     protected override void OnInitialized()
     {

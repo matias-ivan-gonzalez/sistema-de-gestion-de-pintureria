@@ -11,10 +11,6 @@
 <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
 
 @code {
-    private int cuit;
-    private string? nombre;
-    private string? telefono;
-    private string? direccion;
     ClienteEmpresa _clienteEmpresa = new ClienteEmpresa();
     
     [Parameter] public long Id { get; set; }

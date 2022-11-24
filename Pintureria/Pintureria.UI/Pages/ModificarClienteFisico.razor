@@ -11,10 +11,6 @@
 <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
 
 @code {
-    private int dni;
-    private string? nombre;
-    private string? telefono;
-    private string? direccion;
     ClienteFisico _clienteFisico = new ClienteFisico();
     [Parameter] public long Id { get; set; }
 

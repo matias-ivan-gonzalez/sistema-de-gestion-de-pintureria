@@ -10,9 +10,6 @@
 <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
 
 @code {
-    private string? descripcion;
-    private double precio;
-    private long stock; 
     private Producto _producto = new Producto();
 
     [Parameter] public long Id { get; set; }

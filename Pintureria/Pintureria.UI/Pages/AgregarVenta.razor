@@ -30,17 +30,12 @@
     Venta? venta;
     string? nombreCliente;
     DateTime fecha = DateTime.Now;
-    double montoTotal;
-
-
     DetalleVenta? detalle;
     List<DetalleVenta>? detalles;
 
     long idProducto;
     int cantidad;
     double precioUnidad;
-
-    string message = "";
 
     protected override void OnInitialized()
     {
