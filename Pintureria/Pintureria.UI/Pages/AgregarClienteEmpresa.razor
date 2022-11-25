@@ -3,10 +3,22 @@
 @inject AgregarClienteUseCase AgregarClienteUseCase
 
 <h3>Agregando una nueva Empresa</h3>
-<input placeholder="Nombre" @bind="nombre" class="form-control">
-<input placeholder="CUIT" autocomplete="off" @bind="cuit" class="form-control">
-<input placeholder="Dirección" @bind="direccion" class="form-control">
-<input placeholder="Teléfono" @bind="telefono" class="form-control">
+<div class="form-group row">
+        <label for="Nombre" class="col-sm-2 col-form-label">Nombre</label>
+        <input placeholder="Nombre" @bind="nombre" class="form-control">
+</div>
+<div class="form-group row">
+        <label for="CUIT" class="col-sm-2 col-form-label">CUIT</label>
+        <input placeholder="CUIT" autocomplete="off" @bind="cuit" class="form-control">
+</div>
+<div class="form-group row">
+        <label for="Dirección" class="col-sm-2 col-form-label">Dirección</label>
+        <input placeholder="Dirección" @bind="direccion" class="form-control">
+</div>
+<div class="form-group row">
+        <label for="Teléfono" class="col-sm-2 col-form-label">Teléfono</label>
+        <input placeholder="Teléfono" @bind="telefono" class="form-control">
+</div>
 <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
 
 @code {
