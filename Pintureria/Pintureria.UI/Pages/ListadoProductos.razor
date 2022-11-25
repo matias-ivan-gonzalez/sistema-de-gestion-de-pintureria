@@ -8,6 +8,14 @@
 
 <table class="table">
     <thead>
+        <div class="filtro">
+            <div class="form-group row">
+            <label for="minimo" class="col-sm-2 col-form-label">Con Stock Minimo</label>
+                 <input id="minimo"  @bind="stockMinimo">
+            </div>
+             <button class="btn btn-primary" @onclick="()=>ListarPorStockMinimo()">Filtrar Por Stock Minimo</button>
+             <button class="btn btn-primary" @onclick="()=>ListarTodo()">Listar Todo</button>
+        </div>
         <tr>
             <th>ID</th>
             <th>Descripcion</th>
@@ -40,6 +48,7 @@
     List<Producto> _lista = new List<Producto>();
     RepositorioSqlite<Producto>? repositorio;
     EliminarProductoUseCase? eliminarProductoUseCase;
+    int stockMinimo = 0;
 
     protected override void OnInitialized()
     {
@@ -56,5 +65,16 @@
 
     void EditarProducto(Producto prod){
          Navegador.NavigateTo($"/modificarproducto/{prod.Id}");
+    }
+
+    void ListarTodo(){
+        _lista = ListarProductosUseCase.Ejecutar();
+        Navegador.NavigateTo("/listadoproductos");
+    }
+
+    void ListarPorStockMinimo(){
+        IEnumerable<Producto> listado = ListarProductosUseCase.Ejecutar().Where(p => p.Stock >= stockMinimo);
+        _lista = listado.ToList();
+        Navegador.NavigateTo("/listadoproductos");
     }
 }

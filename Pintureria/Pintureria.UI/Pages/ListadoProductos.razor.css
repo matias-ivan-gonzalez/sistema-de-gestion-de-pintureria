@@ -1,0 +1,8 @@
+.filtro .btn {
+    margin-left: 5px;
+    background-color: #003dff;
+}
+
+.btn:hover{
+    background-color: #00c2ff;
+}
