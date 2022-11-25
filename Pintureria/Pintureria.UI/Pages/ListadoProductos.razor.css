@@ -1,6 +1,7 @@
 .filtro .btn {
     margin-left: 5px;
     background-color: #003dff;
+    border-radius: none;
 }
 
 .btn:hover{

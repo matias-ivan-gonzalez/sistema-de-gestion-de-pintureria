@@ -23,7 +23,7 @@
         <label for="nombreCli" class="col-sm-2 col-form-label">Nombre Cliente</label>
         <input id="nombreCli"  @bind="nombreCliente">
     </div>
-    <button class="btn btn-primary" @onclick="()=>GenerarVenta()">Agregar Venta</button>
+    <button class="btn btn-primary" @onclick="() => GenerarVenta()">Agregar Venta</button>
 </form>
 
 @code {
@@ -31,7 +31,7 @@
     string? nombreCliente;
     DateTime fecha = DateTime.Now;
     DetalleVenta? detalle;
-    List<DetalleVenta>? detalles;
+    static List<DetalleVenta>? detalles;
 
     long idProducto;
     int cantidad;
@@ -49,6 +49,7 @@
             if (prod != null ){precioUnidad = prod.PrecioUnitario;}
              detalle = new DetalleVenta(cantidad, precioUnidad, idProducto);
              detalles?.Add(detalle);
+
              cantidad = 0;
              precioUnidad = 0;
              idProducto = 0;
@@ -56,7 +57,6 @@
 
     void GenerarVenta()
     {   
-        Console.WriteLine("Entro a generar venta");
         if (detalles?.Count() > 0)
         {
             venta = new Venta(detalles);
@@ -71,6 +71,7 @@
             Console.WriteLine(venta.ToString());
             AgregarVentaUseCase.Ejecutar(venta);
         }
+        detalles?.Clear(); 
         Navegador.NavigateTo("/listadoventas");
     }
 }
