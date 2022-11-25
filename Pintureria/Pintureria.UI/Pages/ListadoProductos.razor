@@ -46,8 +46,6 @@
 
 @code {
     List<Producto> _lista = new List<Producto>();
-    RepositorioSqlite<Producto>? repositorio;
-    EliminarProductoUseCase? eliminarProductoUseCase;
     int stockMinimo = 0;
 
     protected override void OnInitialized()
@@ -57,8 +55,6 @@
 
     void EliminarProducto(long id)
     {
-        repositorio = new RepositorioSqlite<Producto>();
-        eliminarProductoUseCase = new EliminarProductoUseCase(repositorio);
         EliminarProductoUseCase.Ejecutar(id);
         _lista = ListarProductosUseCase.Ejecutar();
     }

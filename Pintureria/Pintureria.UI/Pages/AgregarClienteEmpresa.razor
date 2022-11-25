@@ -15,14 +15,10 @@
     private string? direccion;
     private string? telefono;
     ClienteEmpresa? _clienteEmpresa;
-    AgregarClienteUseCase? agregarClienteUseCase;
-    RepositorioSqlite<Cliente>? repositorio;
 
     void Aceptar()
     {   
         try {
-            repositorio = new RepositorioSqlite<Cliente>();
-            agregarClienteUseCase = new AgregarClienteUseCase(repositorio);
             _clienteEmpresa = new ClienteEmpresa(cuit);
             _clienteEmpresa.Nombre = nombre;
             _clienteEmpresa.Direccion = direccion;
